@@ -3,7 +3,24 @@ from binary_tree_node import TreeNode
 
 
 class Solution:
-    def preorderTraversal(self, root, data=list(), is_top=True):
+    # Iterative solution
+    def preorderTraversal(self, root):
+        # print(type(root))
+        if root is None: return list()
+        data = [root]
+        # print('Data processing:', data)
+        answer = list()
+        while data: 
+            node = data.pop()
+            if node is not None:
+                answer.append(node.val)
+                if root.right is not None: data.append(node.right)
+                if root.left is not None: data.append(node.left)
+            # print('Current Answer:', answer)
+        return answer
+    
+    # Recursive way
+    def preorderTraversal32(self, root, data=list(), is_top=True):
         # print(type(root))
         if is_top is True and root is None: 
             # just want to return an empty list
@@ -30,13 +47,10 @@ class Solution:
 # Testing area:
 solver = Solution()
 
-preorder_node1 = TreeNode(1)
-preorder_node1.right = TreeNode(2)
-preorder_node1.right.left = TreeNode(3)
-
+preorder_node1 = TreeNode(1, right=TreeNode(2, left=TreeNode(3)))
 preorder_node2 = None
-
 preorder_node3 = TreeNode(1)
+preorder_node4 = TreeNode(3, left=TreeNode(1), right=TreeNode(2))
 
 print("root = [1, None, 2, 3]")
 print("Solution is:", solver.preorderTraversal(preorder_node1))
@@ -44,3 +58,5 @@ print("root = []")
 print("Solution is:", solver.preorderTraversal(preorder_node2))
 print("root = [1]")
 print("Solution is:", solver.preorderTraversal(preorder_node3))
+print("root = [3, 1, 2]")
+print("Solution is:", solver.preorderTraversal(preorder_node4))
