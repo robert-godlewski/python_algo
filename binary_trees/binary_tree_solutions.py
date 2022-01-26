@@ -89,6 +89,38 @@ class Solution:
             return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
         else: return list()
 
+    # Recursive way - Regular way
+    def postorderTraversalSlow(self, root, data=list(), is_top=True):
+        # print(type(root))
+        if is_top is True and root is None: 
+            # just want to return an empty list
+            return list()
+        elif is_top is True and root is not None: 
+            # Want to clear the list for a new tree
+            data = list()
+        
+        # Parses through the tree
+        if root is not None:
+            # print("Root Value:", str(root.val))
+            if root.left is not None: 
+                # print("Root Left Node:", root.left)
+                self.postorderTraversal(root.left, data, False)
+            if root.right is not None: 
+                # print("Root Right Node:", root.right)
+                self.postorderTraversal(root.right, data, False)
+            data.append(root.val)
+            # print("Data List:", data)
+            # print("back to root")
+            final_list = data
+            return final_list
+        else: return 0
+
+    # Recursive way - Super slick way
+    def postorderTraversal(self, root):
+        if root:
+            return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
+        else: return list()
+
 
 
 # Testing area:
@@ -128,4 +160,19 @@ print("Solution is:", solver.inorderTraversal(node3))
 print('=========New Root=========')
 print("root = [3, 1, 2]")
 print("Solution is:", solver.inorderTraversal(node4))
+print()
+# For postorder
+print('Postorder Traversal:')
+print('=========New Root=========')
+print("root = [1, None, 2, 3]")
+print("Solution is:", solver.postorderTraversal(node1))
+print('=========New Root=========')
+print("root = []")
+print("Solution is:", solver.postorderTraversal(node2))
+print('=========New Root=========')
+print("root = [1]")
+print("Solution is:", solver.postorderTraversal(node3))
+print('=========New Root=========')
+print("root = [3, 1, 2]")
+print("Solution is:", solver.postorderTraversal(node4))
 print()
