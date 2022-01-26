@@ -4,23 +4,31 @@ from binary_tree_node import TreeNode
 
 class Solution:
     # Iterative solution
-    def preorderTraversal(self, root):
+    def preorderTraversalIterative(self, root):
         # print(type(root))
         if root is None: return list()
         data = [root]
-        # print('Data processing:', data)
+        # print(f"Data processing: {data}")
         answer = list()
-        while data: 
+        while len(data) > 0: 
             node = data.pop()
+            # print("Current Node in Review:", node)
             if node is not None:
+                # print("Current Node value:", node.val)
                 answer.append(node.val)
-                if root.right is not None: data.append(node.right)
-                if root.left is not None: data.append(node.left)
+                if node.right is not None: 
+                    # print("Right Node:", node.right.val)
+                    data.append(node.right)
+                if node.left is not None: 
+                    # print("Left Node:", node.left.val)
+                    data.append(node.left)
             # print('Current Answer:', answer)
+            # print('Length of Data list:', len(data))
+            # print('==================')
         return answer
     
-    # Recursive way
-    def preorderTraversal32(self, root, data=list(), is_top=True):
+    # Recursive way - Regular way
+    def preorderTraversalSlow(self, root, data=list(), is_top=True):
         # print(type(root))
         if is_top is True and root is None: 
             # just want to return an empty list
@@ -43,20 +51,81 @@ class Solution:
             return final_list
         else: return 0
 
+    # Recursive way - Super slick way
+    def preorderTraversal(self, root):
+        if root:
+            return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
+        else: return list()
+
+    # Recursive way - Regular way
+    def inorderTraversalSlow(self, root, data=list(), is_top=True):
+        # print(type(root))
+        if is_top is True and root is None: 
+            # just want to return an empty list
+            return list()
+        elif is_top is True and root is not None: 
+            # Want to clear the list for a new tree
+            data = list()
+        
+        # Parses through the tree
+        if root is not None:
+            # print("Root Value:", str(root.val))
+            if root.left is not None: 
+                # print("Root Left Node:", root.left)
+                self.inorderTraversal(root.left, data, False)
+            data.append(root.val)
+            if root.right is not None: 
+                # print("Root Right Node:", root.right)
+                self.inorderTraversal(root.right, data, False)
+            # print("Data List:", data)
+            # print("back to root")
+            final_list = data
+            return final_list
+        else: return 0
+
+    # Recursive way - Super slick way
+    def inorderTraversal(self, root):
+        if root:
+            return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+        else: return list()
+
+
 
 # Testing area:
 solver = Solution()
 
-preorder_node1 = TreeNode(1, right=TreeNode(2, left=TreeNode(3)))
-preorder_node2 = None
-preorder_node3 = TreeNode(1)
-preorder_node4 = TreeNode(3, left=TreeNode(1), right=TreeNode(2))
+node1 = TreeNode(1, right=TreeNode(2, left=TreeNode(3)))
+node2 = None
+node3 = TreeNode(1)
+node4 = TreeNode(3, left=TreeNode(1), right=TreeNode(2))
 
+# For preorder
+print('Preorder Traversal:')
+print('=========New Root=========')
 print("root = [1, None, 2, 3]")
-print("Solution is:", solver.preorderTraversal(preorder_node1))
+print("Solution is:", solver.preorderTraversal(node1))
+print('=========New Root=========')
 print("root = []")
-print("Solution is:", solver.preorderTraversal(preorder_node2))
+print("Solution is:", solver.preorderTraversal(node2))
+print('=========New Root=========')
 print("root = [1]")
-print("Solution is:", solver.preorderTraversal(preorder_node3))
+print("Solution is:", solver.preorderTraversal(node3))
+print('=========New Root=========')
 print("root = [3, 1, 2]")
-print("Solution is:", solver.preorderTraversal(preorder_node4))
+print("Solution is:", solver.preorderTraversal(node4))
+print()
+# For inorder
+print('Inorder Traversal:')
+print('=========New Root=========')
+print("root = [1, None, 2, 3]")
+print("Solution is:", solver.inorderTraversal(node1))
+print('=========New Root=========')
+print("root = []")
+print("Solution is:", solver.inorderTraversal(node2))
+print('=========New Root=========')
+print("root = [1]")
+print("Solution is:", solver.inorderTraversal(node3))
+print('=========New Root=========')
+print("root = [3, 1, 2]")
+print("Solution is:", solver.inorderTraversal(node4))
+print()
