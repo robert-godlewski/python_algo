@@ -121,58 +121,33 @@ class Solution:
             return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
         else: return list()
 
-
-
-# Testing area:
-solver = Solution()
-
-node1 = TreeNode(1, right=TreeNode(2, left=TreeNode(3)))
-node2 = None
-node3 = TreeNode(1)
-node4 = TreeNode(3, left=TreeNode(1), right=TreeNode(2))
-
-# For preorder
-print('Preorder Traversal:')
-print('=========New Root=========')
-print("root = [1, None, 2, 3]")
-print("Solution is:", solver.preorderTraversal(node1))
-print('=========New Root=========')
-print("root = []")
-print("Solution is:", solver.preorderTraversal(node2))
-print('=========New Root=========')
-print("root = [1]")
-print("Solution is:", solver.preorderTraversal(node3))
-print('=========New Root=========')
-print("root = [3, 1, 2]")
-print("Solution is:", solver.preorderTraversal(node4))
-print()
-# For inorder
-print('Inorder Traversal:')
-print('=========New Root=========')
-print("root = [1, None, 2, 3]")
-print("Solution is:", solver.inorderTraversal(node1))
-print('=========New Root=========')
-print("root = []")
-print("Solution is:", solver.inorderTraversal(node2))
-print('=========New Root=========')
-print("root = [1]")
-print("Solution is:", solver.inorderTraversal(node3))
-print('=========New Root=========')
-print("root = [3, 1, 2]")
-print("Solution is:", solver.inorderTraversal(node4))
-print()
-# For postorder
-print('Postorder Traversal:')
-print('=========New Root=========')
-print("root = [1, None, 2, 3]")
-print("Solution is:", solver.postorderTraversal(node1))
-print('=========New Root=========')
-print("root = []")
-print("Solution is:", solver.postorderTraversal(node2))
-print('=========New Root=========')
-print("root = [1]")
-print("Solution is:", solver.postorderTraversal(node3))
-print('=========New Root=========')
-print("root = [3, 1, 2]")
-print("Solution is:", solver.postorderTraversal(node4))
-print()
+    # Recursive way
+    def levelOrder(self, root, data=list(), level=0):
+        # print('=====================')
+        if level == 0 and root is None:
+            # just want to return an empty list
+            return list()
+        elif level == 0 and root is not None:
+            # Want to clear the list for a new tree
+            data = list()
+        
+        try: 
+            # print(f"Has an index: {data[level]}")
+            data[level].append(1)
+            data[level].pop()
+        except: 
+            # print("Making new level")
+            data.append(list())
+        if root:
+            # print(f"Current level is on {level}")
+            data[level].append(root.val)
+            # print(f"The solution right now: {data}")
+            if root.left or root.right:
+                if root.left: 
+                    # print("Up a level")
+                    self.levelOrder(root.left, data, level+1)
+                if root.right: 
+                    # print("Up a level")
+                    self.levelOrder(root.right, data, level+1)
+                # print("Down a level")
+        return data
