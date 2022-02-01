@@ -151,3 +151,18 @@ class Solution:
                     self.levelOrder(root.right, data, level+1)
                 # print("Down a level")
         return data
+
+    def maxDepth(self, root, answer=1, current_level=1):
+        # print(f"Current Answer is so far: {answer}")
+        # print(f"Current level is: {level}")
+        if root:
+            if root.left or root.right:
+                if answer <= current_level: answer += 1
+                if root.left is not None: 
+                    # print("Going through Left")
+                    answer = self.maxDepth(root.right, answer, current_level+1)
+                if root.right is not None: 
+                    # print("Going through Right")
+                    answer = self.maxDepth(root.right, answer, current_level+1)
+        else: return 0
+        return answer

@@ -10,6 +10,7 @@ node2 = None
 node3 = TreeNode(1)
 node4 = TreeNode(3, left=TreeNode(1), right=TreeNode(2))
 node5 = TreeNode(3, left=TreeNode(9), right=TreeNode(20, left=TreeNode(15), right=TreeNode(7)))
+node6 = TreeNode(1, right=TreeNode(2))
 
 
 # For preorder
@@ -68,3 +69,11 @@ print("Solution for root = [1] is:")
 print(str(solver.levelOrder(node3)))
 print("Solution for root = [] is:")
 print(str(solver.levelOrder(node2)))
+print()
+
+# For solving the depth of the tree
+print('Maximum Depth finder:')
+print("Solution for root = [3,9,20,null,null,15,7] is:")
+print(str(solver.maxDepth(node5)))
+print("Solution for root = [1,null,2] is:")
+print(str(solver.maxDepth(node6)))
