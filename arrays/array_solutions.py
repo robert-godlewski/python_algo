@@ -1,4 +1,7 @@
 class Solution:
+    # nums should be a list with all of these solutions
+
+    # Finds the maximum times that the list nums has a 1 in order.
     def findMaxConsecutiveOnes(self, nums):
         max_num = 0
         current_num = 0
@@ -7,3 +10,33 @@ class Solution:
             elif i == 0: current_num = 0
             if max_num < current_num: max_num = current_num
         return max_num
+
+    # Finds out and returns the number of numbers in nums that have an
+    # even amount of digits.
+    def findNumbers(self, nums): 
+        even_digit_nums = 0
+        for i in nums:
+            if len(str(i)) % 2 == 0: even_digit_nums += 1
+        return even_digit_nums
+
+    # O(n**2) solution - need to find a better one
+    def sortedSquares(self, nums):
+        i = 0
+        print(f"Original list is: {nums}")
+        while i <len(nums):
+            if nums[i] != 0:
+                squ = nums[i]**2
+                nums[i] = squ
+            i += 1
+        print(f"Unordered list is: {nums}")
+        for index in range(1, len(nums)):
+            value = nums[index]
+            i = index-1
+            while i >= 0:
+                if value < nums[i]:
+                    nums[i+1] = nums[i]
+                    nums[i] = value
+                    i -= 1
+                else: break
+        print(f"Ordered list is: {nums}")
+        return nums
