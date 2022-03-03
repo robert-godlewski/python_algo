@@ -29,3 +29,25 @@ nums6 = [-7,-3,2,3,11]
 print("\nFinding the squares and sorting them in order:")
 print_debugging(nums5, solver.sortedSquares(nums5))
 print_debugging(nums6, solver.sortedSquares(nums6))
+
+nums7 = [1,0,2,3,0,4,5,0]
+
+print("\nFinding and inserting duplicate 0's in a list:")
+print_debugging(nums7, solver.duplicateZeros(nums7))
+
+nums8 = [1,2,3,0,0,0]
+nums9 = [2,5,6]
+nums10 = [1]
+nums11 = list()
+nums12 = [0]
+nums13 = [2,0]
+
+print("\nMerging 2 lists together:")
+print(f"nums1 = {nums8}, m = 3, nums2 = {nums9}, n = 3")
+print(solver.merge(nums8, 3, nums9, 3))
+print(f"nums1 = {nums10}, m = 1, nums2 = {nums11}, n = 0")
+print(solver.merge(nums10, 1, nums11, 0))
+print(f"nums1 = {nums12}, m = 0, nums2 = {nums10}, n = 1")
+print(solver.merge(nums12, 0, nums10, 1))
+print(f"nums1 = {nums13}, m = 1, nums2 = {nums10}, n = 1")
+print(solver.merge(nums13, 0, nums10, 1))

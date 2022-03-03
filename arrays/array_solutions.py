@@ -70,3 +70,29 @@ class Solution:
             i += 1
         # print(f"List is now: {nums}")
         return nums
+
+    def duplicateZeros(self, arr):
+        i = 0
+        # print(len(arr))
+        while i < len(arr):
+            # print(f'Index: {i}')
+            # print(f'Value: {arr[i]}')
+            if arr[i] == 0: 
+                arr.insert(i, 0)
+                arr.pop()
+                i += 1
+            i += 1
+
+    # Solution that doesn't work
+    def merge(self, nums1, m, nums2, n):
+        if len(nums2) != 0:
+            max = m + n
+            print(f'Max = {max}')
+            i = 0
+            while i < max:
+                if nums1[i] >= nums2[0] or nums1[i] == 0:
+                    nums1.insert(i, nums2[0])
+                    nums1.pop()
+                    nums2.pop(0)
+                i += 1
+        print(nums1)
