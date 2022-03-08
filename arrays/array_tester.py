@@ -49,5 +49,16 @@ print(f"nums1 = {nums10}, m = 1, nums2 = {nums11}, n = 0")
 print(solver.merge(nums10, 1, nums11, 0))
 print(f"nums1 = {nums12}, m = 0, nums2 = {nums10}, n = 1")
 print(solver.merge(nums12, 0, nums10, 1))
-print(f"nums1 = {nums13}, m = 1, nums2 = {nums10}, n = 1")
+print(f"nums1 = {nums13}, m = 1, nums2 = {nums11}, n = 1")
 print(solver.merge(nums13, 0, nums10, 1))
+
+nums14 = [3,2,2,3]
+val1 = 3
+nums15 = [0,1,2,2,3,0,4,2]
+val2 = 2
+
+print("\nDeleting a number from the array:")
+print(f"nums = {nums14}, val = {val1}")
+print(solver.removeElement(nums14, val1))
+print(f"nums = {nums15}, val = {val2}")
+print(solver.removeElement(nums15, val2))

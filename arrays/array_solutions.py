@@ -85,14 +85,28 @@ class Solution:
 
     # Solution that doesn't work
     def merge(self, nums1, m, nums2, n):
-        if len(nums2) != 0:
-            max = m + n
-            print(f'Max = {max}')
-            i = 0
-            while i < max:
-                if nums1[i] >= nums2[0] or nums1[i] == 0:
+        max = m + n
+        # print(f'Max = {max}')
+        i = 0
+        while i < max:
+            if len(nums2) != 0:
+                if nums1[i] >= nums2[0]:
                     nums1.insert(i, nums2[0])
                     nums1.pop()
                     nums2.pop(0)
-                i += 1
-        print(nums1)
+            if nums1[i] == 0 and len(nums2) == 0:
+                nums1.pop(i)
+            i += 1
+        # print(nums1)
+
+    def removeElement(self, nums, val):
+        k = 0
+        i = 0
+        while i < len(nums):
+            if nums[i] == val:
+                nums.pop(i)
+                nums.append('_')
+                k -= 1
+            i += 1
+            k += 1
+        return k
