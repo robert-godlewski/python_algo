@@ -1,14 +1,26 @@
-from array_solutions import Solution
+from array_solutions202207 import Solution
 
 
 solver = Solution()
 
 
-def print_debugging(original, solution):
-    print(str(original))
-    print(str(solution))
+print("####################")
+print("Testing array algorithms")
 
 
+# Testing duplicateZeros
+arr1 = [1,0,2,3,0,4,5,0]
+arr2 = [1,2,3]
+print("-------")
+print("Finding any 0's in the array and duplicating it")
+print(f"First test original: {arr1}")
+arr1 = solver.duplicateZeros(arr1)
+print(f"First test solution: {arr1}")
+print(f"Second test original: {arr2}")
+arr2 = solver.duplicateZeros(arr2)
+print(f"Second test solution: {arr2}")
+
+'''
 nums1 = [1,1,0,1,1,1]
 nums2 = [1,0,1,1,0,1]
 
@@ -62,3 +74,4 @@ print(f"nums = {nums14}, val = {val1}")
 print(solver.removeElement(nums14, val1))
 print(f"nums = {nums15}, val = {val2}")
 print(solver.removeElement(nums15, val2))
+'''
