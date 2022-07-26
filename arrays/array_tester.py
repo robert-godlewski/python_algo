@@ -20,6 +20,30 @@ print(f"Second test original: {arr2}")
 arr2 = solver.duplicateZeros(arr2)
 print(f"Second test solution: {arr2}")
 
+
+# Testing merge
+arr1 = [1,2,3,0,0,0]
+arr2 = [2,5,6]
+print("--------")
+print("Merging 2 Arrays:")
+print(f"Merging {arr1} and {arr2}")
+arr1 = solver.merge(arr1, 3, arr2, 3)
+print(f"Solution = {arr1}")
+print(f"Merging [1] and []")
+arr3 = solver.merge([1], 1, [], 0)
+print(f"Solution = {arr3}")
+print(f"Merging [0] and [1]")
+arr4 = solver.merge([0], 0, arr3, 1)
+print(f"Solution = {arr4}")
+# This one doesn't work
+'''
+arr5 = [4,5,6,0,0,0]
+arr6 = [1,2,3]
+print(f"Merging {arr5} and {arr6}")
+arr5 = solver.merge(arr5, 3, arr6, 3)
+print(f"Solution = {arr5}")
+'''
+
 '''
 nums1 = [1,1,0,1,1,1]
 nums2 = [1,0,1,1,0,1]
