@@ -35,14 +35,12 @@ print(f"Solution = {arr3}")
 print(f"Merging [0] and [1]")
 arr4 = solver.merge([0], 0, arr3, 1)
 print(f"Solution = {arr4}")
-# This one doesn't work
-'''
+# Needed to use a sorting algorithm to get these 2 arrays together
 arr5 = [4,5,6,0,0,0]
 arr6 = [1,2,3]
 print(f"Merging {arr5} and {arr6}")
 arr5 = solver.merge(arr5, 3, arr6, 3)
 print(f"Solution = {arr5}")
-'''
 
 '''
 nums1 = [1,1,0,1,1,1]
