@@ -75,3 +75,28 @@ class Solution:
                 j += 1
                 k += 1
         return arr
+
+    # O(n) solution
+    # Solved within 30 min - Need to practice, initially misunderstood what they were asking
+    def removeElement(self, nums, val):
+        #print(f"List in = {nums}")
+        #print(f"Removing all {val} from nums")
+        k = 0
+        i = 0
+        while i < len(nums):
+            #print(f"current num is {nums[i]}")
+            if nums[i] == val:
+                nums[i] = '_'
+            else: k += 1
+            i += 1
+        #print(f"Array removing {val} = {nums}")
+        i = 0
+        j = len(nums)-1
+        while i < j:
+            if nums[i] != '_': i+=1
+            elif nums[j] == '_': j -= 1
+            elif nums[j] != '_':
+                nums[i] = nums[j]
+                nums[j] = '_'
+        print(f"Array with _ at the end = {nums}")
+        return k

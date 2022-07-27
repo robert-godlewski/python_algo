@@ -42,6 +42,18 @@ print(f"Merging {arr5} and {arr6}")
 arr5 = solver.merge(arr5, 3, arr6, 3)
 print(f"Solution = {arr5}")
 
+# Testing removeElement
+arr1 = [3,2,2,3]
+print("--------")
+print("Removing numbers from arrays")
+print(f"Removing 3 from {arr1}")
+remaining1 = solver.removeElement(arr1, 3)
+print(f"There are {remaining1} numbers left in the array")
+arr2 = [0,1,2,2,3,0,4,2]
+print(f"Removing 2 from {arr2}")
+remaining2 = solver.removeElement(arr2, 2)
+print(f"There are {remaining1} numbers left in the array")
+
 '''
 nums1 = [1,1,0,1,1,1]
 nums2 = [1,0,1,1,0,1]
