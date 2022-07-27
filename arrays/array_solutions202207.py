@@ -76,8 +76,9 @@ class Solution:
                 k += 1
         return arr
 
-    # O(n) solution
+    # O(n) solution - Complex solution
     # Solved within 30 min - Need to practice, initially misunderstood what they were asking
+    '''
     def removeElement(self, nums, val):
         #print(f"List in = {nums}")
         #print(f"Removing all {val} from nums")
@@ -100,3 +101,13 @@ class Solution:
                 nums[j] = '_'
         print(f"Array with _ at the end = {nums}")
         return k
+    '''
+
+    # Simplified solution but still O(n)
+    def removeElement(self, nums, val):
+        #print(f"nums in = {nums}")
+        while val in nums:
+            nums.remove(val)
+            #print(f"nums = {nums}")
+        #print(f"nums out = {nums}")
+        return len(nums)

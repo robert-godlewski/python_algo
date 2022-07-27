@@ -52,7 +52,7 @@ print(f"There are {remaining1} numbers left in the array")
 arr2 = [0,1,2,2,3,0,4,2]
 print(f"Removing 2 from {arr2}")
 remaining2 = solver.removeElement(arr2, 2)
-print(f"There are {remaining1} numbers left in the array")
+print(f"There are {remaining2} numbers left in the array")
 
 '''
 nums1 = [1,1,0,1,1,1]
