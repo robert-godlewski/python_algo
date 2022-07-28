@@ -54,6 +54,18 @@ print(f"Removing 2 from {arr2}")
 remaining2 = solver.removeElement(arr2, 2)
 print(f"There are {remaining2} numbers left in the array")
 
+# Testing removeDuplicates
+arr1 = [1,1,2]
+print("--------")
+print("Removing Duplicates from arrays")
+print(f"Removing duplicates in {arr1}")
+remain1 = solver.removeDuplicates(arr1)
+print(f"Number of remaining values = {remain1}")
+arr2 = [0,0,1,1,1,2,2,3,3,4]
+print(f"Removing duplicates in {arr2}")
+remain2 = solver.removeDuplicates(arr2)
+print(f"Number of remaining values = {remain2}")
+
 '''
 nums1 = [1,1,0,1,1,1]
 nums2 = [1,0,1,1,0,1]

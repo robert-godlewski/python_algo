@@ -111,3 +111,17 @@ class Solution:
             #print(f"nums = {nums}")
         #print(f"nums out = {nums}")
         return len(nums)
+
+    # nums is sorted - O(n) solution
+    # solved within 10 min
+    def removeDuplicates(self, nums):
+        print(f"nums in = {nums}")
+        temp = nums[0]
+        i = 1
+        while i < len(nums):
+            if nums[i] == temp: nums.pop(i)
+            else:
+                temp = nums[i]
+                i += 1
+        print(f"nums out = {nums}")
+        return len(nums)
