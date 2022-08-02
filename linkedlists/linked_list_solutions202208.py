@@ -31,3 +31,44 @@ class Solution:
                 return temp
             else: return curr
         else: return None
+
+    # Only for a Singly linked List
+    # Took me almost 30 min
+    def removeElements(self, head, val):
+        if head:
+            curr = head
+            prev = None
+            while curr:
+                if curr.val == val:
+                    if curr is head:
+                        head = curr.next
+                        prev = curr
+                        curr = curr.next
+                        prev = None
+                    else:
+                        prev.next = curr.next
+                        curr.next = None
+                        curr = prev.next
+                else:
+                    prev = curr
+                    curr = curr.next
+        return head
+
+    # Only works for Singly Linked lists
+    # Took me 20 min to solve
+    def isPalindrome(self, head):
+        if head:
+            curr = head
+            arr = []
+            while curr:
+                arr.append(curr.val)
+                curr = curr.next
+            is_pal = True
+            i = 0
+            while i < len(arr)//2:
+                if arr[i] != arr[len(arr)-1-i]:
+                    is_pal = False
+                    break
+                i+=1
+            return is_pal
+        return True
