@@ -1,16 +1,16 @@
 # Description
-All of these algorithms are my solutions to LeetCode Problems.
+All of these algorithms are my solutions to LeetCode Problems using Python to solve.
 
 Always keep in mind Big O notation for time and space complexity
 * More time but less space - use loops
 * More space but less time - use variables to act as temp veriables
 
-# Am currently doing:
-* Arrays - Data Structures
+# Am currently doing: (Data Structures)
+* Arrays
+* Linked Lists
 
 # Need to do:
 Data structures:
-* Linked Lists
 * Binary Trees
 * Stacks
 * Queues
