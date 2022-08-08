@@ -8,6 +8,7 @@ Always keep in mind Big O notation for time and space complexity
 # Am currently doing: (Data Structures)
 * Arrays
 * Linked Lists
+* Hash Tables (Hashset = No repeated values, Hashmap = key, value pair)
 
 # Need to do:
 Data structures:
@@ -16,7 +17,6 @@ Data structures:
 * Queues
 * Graphs
 * Tries
-* Hash Tables
 
 Sorting Algorithms
 * Bubble Sort
