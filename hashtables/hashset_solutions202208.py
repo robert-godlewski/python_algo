@@ -32,3 +32,20 @@ class Solution:
                 break
             hashset.add(i)
         return dup
+
+    # bad solution
+    def singleNumber(self, nums):
+        if len(nums) == 1:
+            return nums[0]
+        else:
+            power = 10**4
+            hashset = MyHashSet(3*power)
+            i = 0
+            a = 0
+            while i < len(nums):
+                if hashset.contains(nums[i]):
+                    a += 2
+                hashset.add(nums[i])
+                i += 1
+            num = nums[a]
+            return num

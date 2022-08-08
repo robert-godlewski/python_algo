@@ -26,10 +26,3 @@ class MyHashSet:
         #return self.hash_list[key]
         subkey = key % self.length
         return key in self.hash_list[subkey]
-
-
-# Your MyHashSet object will be instantiated and called as such:
-# obj = MyHashSet()
-# obj.add(key)
-# obj.remove(key)
-# param_3 = obj.contains(key)
