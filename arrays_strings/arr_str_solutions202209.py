@@ -62,3 +62,66 @@ class Solution:
             return maxi
         else:
             return -1
+
+    # Adding 1 in an array
+    # digits = list of int
+    # return a list of int
+    # Solution - 20 min
+    # Best case = O(1)
+    # usual case = O(n)
+    def plusOne(self, digits):
+        print(f"list in = {digits}")
+        digit = len(digits)-1
+        if digits[digit] == 9:
+            num_str = ""
+            for i in digits:
+                stri = str(i)
+                num_str += stri
+            num = int(num_str)
+            num += 1
+            num_str = str(num)
+            digits = list(num_str)
+            i = 0
+            while i < len(digits):
+                digits[i] = int(digits[i])
+                i += 1
+        else:
+            digits[digit] += 1
+        print(f"list out = {digits}")
+        return digits
+
+    # mat is a m*n matrix that's a list with a list of int
+    # returns a list of int
+    # Solution - Took me over 1 hr, still doesn't work
+    def findDiagonalOrder(self, mat):
+        #if not mat or not mat[0]:
+        return []
+        print(f"matrix in = {mat}")
+        m = len(mat)
+        print(f"m = {m}")
+        n = len(mat[0])
+        print(f"n = {n}")
+        nums = []
+        # determines if going down or up
+        is_d = False
+        row = 0
+        col = 1
+        while row < m and col < n:
+            print(f"nums = {nums}")
+            print(f"row = {row}")
+            print(f"col = {col}")
+            print(f"is going down? {is_d}")
+            nums.append(mat[row][col])
+            if is_d:
+                row += 1
+                if col != 0:
+                    col -= 1
+            else:
+                if row != 0:
+                    row -= 1
+                col += 1
+            if col != 0:
+                is_d = True
+            else:
+                is_d = False
+        return nums
