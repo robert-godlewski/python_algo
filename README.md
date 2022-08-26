@@ -7,6 +7,7 @@ Always keep in mind Big O notation for time and space complexity
 
 # Am currently doing: (Data Structures)
 * Arrays
+* Arrays and Strings
 * Linked Lists
 * Hash Tables (Hashset = No repeated values, Hashmap = key, value pair)
 
