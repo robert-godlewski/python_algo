@@ -45,7 +45,7 @@ dig2 = solver.plusOne(nums2)
 print("-------")
 dig3 = solver.plusOne(nums3)
 
-# Testing findDiagonalOrder
+# Testing findDiagonalOrder - Doesn't work
 mat1 = [
     [1,2,3],
     [4,5,6],
@@ -61,3 +61,35 @@ print(f"Order = {order1}")
 print("-------")
 order2 = solver.findDiagonalOrder(mat2)
 print(f"Order = {order2}")
+
+# Testing spiralOrder
+mat1 = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+mat2 = [
+    [1,2,3,4],
+    [5,6,7,8],
+    [9,10,11,12]
+]
+mat3 = [[3],[2]]
+print("-------")
+order1 = solver.spiralOrder(mat1)
+print(f"Order = {order1}")
+print("-------")
+order2 = solver.spiralOrder(mat2)
+print(f"Order = {order2}")
+print("-------")
+order3 = solver.spiralOrder(mat3)
+print(f"Order = {order3}")
+
+# Testing generate
+print("-------")
+pascal1 = solver.generate(5)
+print("Pascal Triangle:")
+print(pascal1)
+print("-------")
+pascal2 = solver.generate(1)
+print("Pascal Triangle:")
+print(pascal2)

@@ -93,35 +93,122 @@ class Solution:
     # mat is a m*n matrix that's a list with a list of int
     # returns a list of int
     # Solution - Took me over 1 hr, still doesn't work
+    '''
+    __var__|_val
+    mat    | [[1,2,3],[4,5,6],[7,8,9]]
+    m      | 3
+    n      | 3
+    nums   | []
+    row    | 0
+    col    | 0
+    i      | 0
+    '''
     def findDiagonalOrder(self, mat):
-        #if not mat or not mat[0]:
-        return []
+        if not mat or not mat[0]:
+            return []
         print(f"matrix in = {mat}")
         m = len(mat)
         print(f"m = {m}")
         n = len(mat[0])
         print(f"n = {n}")
         nums = []
-        # determines if going down or up
-        is_d = False
         row = 0
-        col = 1
-        while row < m and col < n:
+        col = 0
+        i = 0
+        while i < m * n:
             print(f"nums = {nums}")
             print(f"row = {row}")
             print(f"col = {col}")
-            print(f"is going down? {is_d}")
             nums.append(mat[row][col])
-            if is_d:
-                row += 1
-                if col != 0:
-                    col -= 1
-            else:
-                if row != 0:
-                    row -= 1
-                col += 1
-            if col != 0:
-                is_d = True
-            else:
-                is_d = False
+            #
+            i += 1
+        # For example
+        '''
+        nums.append(mat[0][0])
+        #
+        nums.append(mat[0][1])
+        nums.append(mat[1][0])
+        #
+        nums.append(mat[2][0])
+        nums.append(mat[1][1])
+        nums.append(mat[0][2])
+        #
+        nums.append(mat[1][2])
+        nums.append(mat[2][1])
+        #
+        nums.append(mat[2][2])
+        '''
         return nums
+
+    # matrix is a nested list of int
+    # returns a list of int
+    # Solved in - Took a while to solve, works in most cases
+    def spiralOrder(self, matrix):
+        print(f"matrix in = {matrix}")
+        if not matrix or not matrix[0]:
+            return []
+        m = len(matrix)
+        n = len(matrix[0])
+        print(f"matrix is a {m} X {n} grid")
+        nums = []
+        row = 0
+        col = 0
+        # the index of the boundary
+        bound = 0
+        is_x = True
+        forwards = True
+        i = 0
+        while i < m * n:
+            print(f"matrix[{row}][{col}] = {matrix[row][col]}")
+            nums.append(matrix[row][col])
+            if n == 1:
+                row += 1
+            else:
+                if is_x and forwards:
+                    col += 1
+                    if col == n-1-bound:
+                        is_x = False
+                elif not is_x and forwards and row+1 < m:
+                    row += 1
+                    if row == m-1-bound:
+                        forwards = False
+                        is_x = True
+                elif is_x and not forwards:
+                    col -= 1
+                    if col == bound:
+                        is_x = False
+                elif not is_x and not forwards and row >= 0:
+                    row -= 1
+                    if row == bound+1:
+                        bound += 1
+                        forwards = True
+                        is_x = True
+            i += 1
+        return nums
+
+    # Based off of Pascal's triangle
+    # numRows = the number of rows in the array
+    # numRows is an int
+    # returns nested list of int
+    def generate(self, numRows):
+        if numRows < 1 or numRows > 30:
+            return []
+        else:
+            pascal = [[] for i in range(numRows)]
+            print(pascal)
+            i = 0
+            while i < len(pascal):
+                if i == 0:
+                    pascal[i].append(1)
+                else:
+                    j = 0
+                    while j <= i:
+                        if j == 0 or j == i:
+                            pascal[i].append(1)
+                        else:
+                            temp = pascal[i-1][j-1] + pascal[i-1][j]
+                            pascal[i].append(temp)
+                        j += 1
+                print(pascal[i])
+                i += 1
+            return pascal
