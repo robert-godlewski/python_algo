@@ -93,3 +93,11 @@ print("-------")
 pascal2 = solver.generate(1)
 print("Pascal Triangle:")
 print(pascal2)
+
+# testing 
+print("-------")
+bin1 = solver.addBinary("11","1")
+print(f"binary sum = {bin1}")
+print("-------")
+bin2 = solver.addBinary("1010","1011")
+print(f"binary sum = {bin2}")

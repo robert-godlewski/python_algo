@@ -212,3 +212,62 @@ class Solution:
                 print(pascal[i])
                 i += 1
             return pascal
+
+    # Binary addition
+    # binary numbers are in 2 strings
+    # returns a string
+    # Solved in - about 1 hr, need help figuring out binary addition
+    '''
+    Binary addition
+    0+0=0
+    0+1=1
+    1+0=1
+    1+1=0 with 1 carry
+
+    Binary subtraction
+    0-0=0
+    1-0=1
+    1-1=0
+    0-1=1 with 1 borrow
+    '''
+    def addBinary(self, a, b):
+        print(a)
+        print(b)
+        # get both of the strings to have equal length
+        while len(a) != len(b):
+            if len(a) > len(b): 
+                b = "0" + b
+            elif len(a) < len(b): 
+                a = "0" + a
+        print(f"Binary adding {a} + {b}")
+        a_arr = list(a)
+        print(a_arr)
+        b_arr = list(b)
+        print(b_arr)
+        total = ""
+        # need this boolean to determine if there is a 1 to carry over
+        carry = False
+        while len(a_arr) > 0 and len(b_arr) > 0:
+            bin1 = a_arr.pop()
+            bin2 = b_arr.pop()
+            print(f"{bin1} + {bin2}")
+            if carry:
+                if bin1 == bin2:
+                    total = "1" + total
+                    if bin1 == "0":
+                        carry = False
+                else:
+                    total = "0" + total
+            else:
+                if bin1 == bin2:
+                    total = "0" + total
+                    if bin1 == "1":
+                        carry = True
+                    else:
+                        carry = False
+                elif bin1 != bin2:
+                    total = "1" + total
+        # if there is still a 1 to carry over we add it
+        if carry:
+            total = "1" + total
+        return total
