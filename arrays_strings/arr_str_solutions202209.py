@@ -217,19 +217,6 @@ class Solution:
     # binary numbers are in 2 strings
     # returns a string
     # Solved in - about 1 hr, need help figuring out binary addition
-    '''
-    Binary addition
-    0+0=0
-    0+1=1
-    1+0=1
-    1+1=0 with 1 carry
-
-    Binary subtraction
-    0-0=0
-    1-0=1
-    1-1=0
-    0-1=1 with 1 borrow
-    '''
     def addBinary(self, a, b):
         print(a)
         print(b)
@@ -271,3 +258,85 @@ class Solution:
         if carry:
             total = "1" + total
         return total
+
+    # haystack and needle are both str
+    # returns an int based off of the index needle starts is in haystack
+    # Solution in - 30 min - Doesn't work
+    # Most cases: O(n**2)
+    # Best case: O(1)
+    def strStr(self, haystack, needle):
+        # Base Cases
+        if len(needle) < 1:
+            return 0
+        elif len(haystack) == len(needle) and haystack == needle:
+            return 0
+        # creating a comparison variable based from haystack
+        i = 0
+        arr = list(haystack)
+        comp = []
+        while i < len(needle):
+            comp.append(arr[i])
+            i += 1
+        # Finding the index
+        i = 0
+        while i < len(haystack):
+            temp = ""
+            for j in comp:
+                temp += j
+            print(f"comparing {temp} to {needle}")
+            if temp == needle:
+                print("found")
+                return i
+            else:
+                print("not found")
+            hayind = len(comp) + i
+            if hayind >= len(haystack) - 1:
+                break
+            comp.pop(0)
+            comp.append(arr[hayind])
+            i += 1
+        # if not fround an index
+        return -1
+
+    # strs is a list of str
+    # returns a str
+    # Solution in - 30 min
+    def longestCommonPrefix(self, strs):
+        print("List of strs:")
+        print(strs)
+        # Base case
+        if len(strs) == 1:
+            return strs[0]
+        # converting each string to a list of strings
+        i = 0
+        words = len(strs)
+        while i < words:
+            li = list(strs[i])
+            strs[i] = li
+            i += 1
+        print("listify strs:")
+        print(strs)
+        # checking
+        compre = ""
+        is_in_all = False
+        i = 0
+        while i < len(strs[0]):
+            letter = strs[0][i]
+            c = 1
+            while c < words:
+                if i >= len(strs[c]):
+                    is_in_all = False
+                    break
+                temp = strs[c][i]
+                if temp == letter:
+                    is_in_all = True
+                else:
+                    is_in_all = False
+                    break
+                c += 1
+            if not is_in_all:
+                break
+            compre += letter
+            is_in_all = False
+            i += 1
+        return compre

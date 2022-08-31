@@ -94,10 +94,45 @@ pascal2 = solver.generate(1)
 print("Pascal Triangle:")
 print(pascal2)
 
-# testing 
+# testing addBinary
 print("-------")
 bin1 = solver.addBinary("11","1")
 print(f"binary sum = {bin1}")
 print("-------")
 bin2 = solver.addBinary("1010","1011")
 print(f"binary sum = {bin2}")
+
+# testing strStr
+print("-------")
+hay1 = "hello"
+need1 = "ll"
+print(f"finding {need1} in {hay1}")
+ind1 = solver.strStr(hay1,need1)
+print(f"index = {ind1}")
+print("-------")
+hay2 = "aaaaa"
+need2 = "bba"
+print(f"finding {need2} in {hay2}")
+ind2 = solver.strStr(hay2,need2)
+print(f"index = {ind2}")
+print("-------")
+hay3 = "a"
+need3 = "a"
+print(f"finding {need3} in {hay3}")
+ind3 = solver.strStr(hay3,need3)
+print(f"index = {ind3}")
+# Condition where this doesn't work for some reason
+print("-------")
+hay4 = "abc"
+need4 = "c"
+print(f"finding {need4} in {hay4}")
+ind4 = solver.strStr(hay4,need4)
+print(f"index = {ind4}")
+
+# testing longestCommonPrefix
+print("-------")
+compre1 = solver.longestCommonPrefix(["flower","flow","flight"])
+print(f"common prefix = {compre1}")
+print("-------")
+compre2 = solver.longestCommonPrefix(["dog","racecar","car"])
+print(f"common prefix = {compre2}")
