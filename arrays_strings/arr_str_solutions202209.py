@@ -340,3 +340,44 @@ class Solution:
             is_in_all = False
             i += 1
         return compre
+
+    # s is a list of str
+    # returns None in leetcode
+    # will return s
+    # Solved in 10 min
+    # O(n)
+    def reverseString(self, s):
+        # Do not return anything, modify s in-place instead.
+        i = 0
+        while i < len(s)//2:
+            temp = s[i]
+            s[i] = s[len(s)-i-1]
+            s[len(s)-i-1] = temp
+            i += 1
+        return s
+
+    # nums is a list of int (always an even length)
+    # finds the min of every possible pair and returns the max sum
+    # Solved in 30 min but not optimal, times out in leetcode
+    def arrayPairSum(self, nums):
+        if len(nums)//2 == 1:
+            return min(nums[0], nums[1])
+        # sorting
+        arr = []
+        i = 0
+        while i < len(nums):
+            temp = min(nums)
+            arr.append(temp)
+            nums.remove(temp)
+        print(arr)
+        # grabbing the optimal sums
+        sums = []
+        while i < len(arr):
+            temp = arr[i]
+            sums.append(temp)
+            i += 2
+        # finding out the sum
+        maxnum = 0
+        for s in sums:
+            maxnum += s
+        return maxnum
