@@ -340,3 +340,106 @@ class Solution:
             is_in_all = False
             i += 1
         return compre
+
+    # s is a list of str
+    # returns None in leetcode
+    # will return s
+    # Solved in 10 min
+    # O(n)
+    def reverseString(self, s):
+        # Do not return anything, modify s in-place instead.
+        i = 0
+        while i < len(s)//2:
+            temp = s[i]
+            s[i] = s[len(s)-i-1]
+            s[len(s)-i-1] = temp
+            i += 1
+        return s
+
+    # nums is a list of int (always an even length)
+    # finds the min of every possible pair and returns the max sum
+    # Solved in 30 min but not optimal, times out in leetcode
+    '''
+    def arrayPairSum(self, nums):
+        if len(nums)//2 == 1:
+            return min(nums[0], nums[1])
+        # sorting
+        arr = []
+        i = 0
+        while i < len(nums):
+            temp = min(nums)
+            arr.append(temp)
+            nums.remove(temp)
+        print(arr)
+        # grabbing the optimal sums
+        sums = []
+        while i < len(arr):
+            temp = arr[i]
+            sums.append(temp)
+            i += 2
+        # finding out the sum
+        maxnum = 0
+        for s in sums:
+            maxnum += s
+        return maxnum
+    '''
+    # Solution 1 - In leetcode
+    '''
+    def arrayPairSum(self, nums):
+        # Sort the list in ascending order
+        nums.sort()
+        # Initialize sum to zero
+        max_sum = 0
+        for i in range(0, len(nums), 2):
+            # Add every element at even positions (0-indexed)
+            max_sum += nums[i]
+        return max_sum
+    '''
+    # Solution 2 - In leetcode
+    def arrayPairSum(self, nums):
+        # upper end of possible values
+        K = 10000
+        # Store the frequency of each element
+        element_to_count = [0] * (2 * K + 1)
+        for element in nums:
+            # Add K to element to offset negative values
+            element_to_count[element + K] += 1
+        # Initialize sum to zero
+        max_sum = 0
+        is_even_index = True
+        for element in range(2 * K + 1):
+            while element_to_count[element] > 0 :
+                # Add element if it is at even index
+                if is_even_index:
+                    max_sum += element - K
+                # Flip the value (one to zero or zero to one)
+                is_even_index = not is_even_index
+                # Decrement the frequency count
+                element_to_count[element] -= 1
+        return max_sum
+
+    # numbers is a list of int and target is an int that 2 indecies add up to
+    # returns a list of int
+    # Solution in 20 min - Solution is wrong in leetcode due to time limit exceeded but not sure
+    def twoSum(self, numbers, target):
+        # base cases
+        if len(numbers) < 2 or len(numbers) > 3 * (10**4):
+            return [0,0]
+        arr = []
+        i = 0
+        while i < len(numbers):
+            j = i+1
+            while j < len(numbers):
+                print(f"does {numbers[i]} + {numbers[j]} = {target}?")
+                if numbers[i] + numbers[j] == target:
+                    print("Yes")
+                    arr.append(i+1)
+                    arr.append(j+1)
+                    break
+                else:
+                    print("No")
+                j += 1
+            if len(arr) > 0:
+                break
+            i += 1
+        return arr

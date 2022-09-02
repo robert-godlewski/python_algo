@@ -136,3 +136,42 @@ print(f"common prefix = {compre1}")
 print("-------")
 compre2 = solver.longestCommonPrefix(["dog","racecar","car"])
 print(f"common prefix = {compre2}")
+
+# Testing reverseString
+print("-------")
+sin1 = ['h','e','l','l','o']
+print(f"s in = {sin1}")
+sout1 = solver.reverseString(sin1)
+print(f"s out = {sout1}")
+print("-------")
+sin2 = ['H','a','n','n','a','h']
+print(f"s in = {sin2}")
+sout2 = solver.reverseString(sin2)
+print(f"s out = {sout2}")
+
+# Testing arrayPairSum
+print("-------")
+arr1 = [1,4,3,2]
+print(f"arr = {arr1}")
+maxsum1 = solver.arrayPairSum(arr1)
+print(f"max sum = {maxsum1}")
+print("-------")
+arr2 = [6,2,6,5,1,2]
+print(f"arr = {arr2}")
+maxsum2 = solver.arrayPairSum(arr2)
+print(f"max sum = {maxsum2}")
+
+# testing twoSum
+print("-------")
+arr1 = [2,7,11,15]
+print(f"arr = {arr1}")
+ind1 = solver.twoSum(arr1,9)
+print(f"indecies = {ind1}")
+arr2 = [2,3,4]
+print(f"arr = {arr2}")
+ind2 = solver.twoSum(arr2,6)
+print(f"indecies = {ind2}")
+arr3 = [-1,0]
+print(f"arr = {arr3}")
+ind3 = solver.twoSum(arr3,-1)
+print(f"indecies = {ind3}")
