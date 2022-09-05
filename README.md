@@ -11,12 +11,11 @@ Always keep in mind Big O notation for time and space complexity
 * Linked Lists - Data Structure
 * Hash Tables (Hashset = No repeated values, Hashmap = key, value pair) - Data Structure
 * Binary Math
+* Queues and Stacks - Data Structure
 
 # Need to do:
 Data structures:
 * Binary Trees
-* Stacks
-* Queues
 * Graphs
 * Tries
 
