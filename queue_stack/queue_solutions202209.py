@@ -1,4 +1,49 @@
 # Solutions in September 2022
+class Node:
+    # Only for a singly linked list
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+
+class Queue:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def isEmpty(self):
+        if self.head and self.tail:
+            return False
+        else:
+            return True
+
+    def enQueue(self, value):
+        if self.isEmpty():
+            self.head = Node(value)
+            self.tail = self.head
+        else:
+            cur = self.tail
+            cur.next = Node(value)
+            self.tail = cur.next
+    
+    def deQueue(self):
+        if not self.isEmpty():
+            temp = self.head
+            cur = temp.next
+            temp.next = None
+            self.head = cur
+            return temp.val
+        else:
+            return None
+
+    def printQueue(self):
+        cur = self.head
+        while cur:
+            print(cur.val)
+            cur = cur.next
+
+
+
 class MyCircularQueue:
     # Took over 1 hr to implement everything here! - Still incorrect due to runtime error
     # Redid but instead of using linked lists using arrays instead - Still incorrect due to runtime error
@@ -74,31 +119,32 @@ class MyCircularQueue:
 class Solution:
     # grid is a nested list of str
     # returns an int
-    # Solution in XX - Still wrong
+    # Solution in over 30 min - Still incorrect
     def numIslands(self, grid): 
         m = len(grid)
         n = len(grid[0])
-        land = 0
+        land_count = Queue()
         i = 0
-        add_land = False
+        add_land = True
         while i < m:
             j = 0
             while j < n:
-                if grid[i][j] == "1":
+                if add_land:
                     if i-1 >= 0:
-                        if grid[i-1][j] == "0":
-                            add_land = True
-                    if i+1 < m:
-                        if grid[i+1][j] == "0":
-                            add_land = True
-                    if j-1 >= 0:
-                        if grid[i][j-1] == "0":
-                            add_land = True
-                    if j+1 < n:
-                        if grid[i][j+1] == "0":
-                            add_land = True
-                    if add_land:
-                        land += 1
+                        if grid[i-1][j] == "1":
+                            add_land = False
+                    elif j-1 >= 0:
+                        if grid[i][j-1] == "1":
+                            add_land = False
+                if grid[i][j] == "1" and add_land:
+                    land_count.enQueue(1)
+                    add_land = False
+                else:
+                    add_land = True
                 j += 1
             i += 1
+        land = 0
+        while not land_count.isEmpty():
+            val = land_count.deQueue()
+            land += val
         return land
