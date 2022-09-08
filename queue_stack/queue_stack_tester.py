@@ -1,7 +1,8 @@
 from queue_solutions202209 import MyCircularQueue, Solution
+from stack_solutions202209 import Stack
 
 
-solver = Solution()
+q_solver = Solution()
 
 
 print("####################")
@@ -45,7 +46,7 @@ grid1 = [
 ]
 print("finding a group of 1's in this grid:")
 print(grid1)
-print(f"there are {solver.numIslands(grid1)} groups")
+print(f"there are {q_solver.numIslands(grid1)} groups")
 grid2 = [
     ["1","1","0","0","0"],
     ["1","1","0","0","0"],
@@ -54,4 +55,20 @@ grid2 = [
 ]
 print("finding a group of 1's in this grid:")
 print(grid2)
-print(f"there are {solver.numIslands(grid2)} groups")
+print(f"there are {q_solver.numIslands(grid2)} groups")
+
+# Other queue tests here
+
+# Testing Stack
+print("-------")
+obj = Stack()
+obj.push(-2)
+obj.push(0)
+obj.push(-3)
+print("the stack from top to bottom:")
+obj.printNodes()
+print(f"min of the stack = {obj.getMin()}")
+obj.pop()
+print(f"the new top of the stack = {obj.top()}")
+print("the new stack from top to bottom:")
+obj.printNodes()
