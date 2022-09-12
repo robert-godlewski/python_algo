@@ -1,4 +1,37 @@
 # Basic Challenge Problem solutions in September 2022
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+'''
+class SL:
+    def __init__(self):
+        self.head = None
+        self.size = 0
+
+    def add(self, val):
+        if self.head:
+            cur = self.head
+            prev = None
+            while cur:
+                print(cur.val)
+                prev = cur
+                cur = cur.next
+            prev.next = ListNode(val)
+        else:
+            self.head = ListNode(val)
+        self.size += 1
+
+    def printList(self):
+        if self.head:
+            cur = self.head
+            while cur:
+                print(cur.val)
+                cur = cur.next
+        else:
+            print("There's nothing in this list.")
+'''
+
 class Solution:
     def runningSum(self, nums):
         # Took 10 min to solve 
@@ -54,3 +87,33 @@ class Solution:
             arr.append(word)
             i += 1
         return arr
+
+    def numberOfSteps(self, num: int, steps=0) -> int:
+        # Solved in 5 min
+        # O(log(n)) solution
+        if num == 0:
+            return steps
+        elif num == 1:
+            return steps+1
+        elif num % 2 == 0:
+            return self.numberOfSteps(num/2, steps+1)
+        else:
+            return self.numberOfSteps(num-1, steps+1)
+
+    def middleNode(self, head):
+        # Solved in 20 min
+        # O(n) solution
+        # head is a linked list
+        # could return a linked list or nothing
+        cur = head
+        size = 0
+        while cur:
+            size += 1
+            cur = cur.next
+        mid = size//2
+        cur = head
+        i = 0
+        while cur and i < mid:
+            cur = cur.next
+            i += 1
+        return cur

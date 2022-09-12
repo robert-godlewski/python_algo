@@ -1,4 +1,4 @@
-from solutions202209 import Solution
+from solutions202209 import Solution, ListNode
 
 
 solver = Solution()
@@ -64,3 +64,26 @@ print(fb2)
 print("Creating a FizzBuzz array the size of 15:")
 fb3 = solver.fizzBuzz(15)
 print(fb3)
+
+# testing numberOfSteps
+print("-------")
+print("The number of steps for 14 to 0 is:")
+print(solver.numberOfSteps(14))
+print("The number of steps for 8 to 0 is:")
+print(solver.numberOfSteps(8))
+print("The number of steps for 123 to 0 is:")
+print(solver.numberOfSteps(123))
+
+# Testing middleNode
+print("-------")
+n1 = ListNode(5)
+n2 = ListNode(4, n1)
+n3 = ListNode(3, n2)
+n4 = ListNode(2, n3)
+li = ListNode(1, n4)
+m1 = solver.middleNode(li)
+print(f"The middle of [1,2,3,4,5] = {m1.val}")
+n1.next = ListNode(6)
+m2 = solver.middleNode(li)
+print(f"The middle of [1,2,3,4,5,6] = {m2.val}")
+
