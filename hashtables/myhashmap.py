@@ -1,27 +1,45 @@
 # My solution on Aug 2022 - Still has runtime issues though
 # My solution - Doesn't work in leetcode for some reason
 class MyHashMap:
-    def __init__(self):
-        self.map_length = 10**4
-        self.hash_list = [-1 for i in range(self.map_length)]
+    def __init__(self, length=10**4) -> None:
+        self.length = length
+        self.hash_list = [-1 for i in range(self.length)]
 
-    def put(self, key, value):
+    def put(self, key: int, value: int) -> None:
         #self.hash_list[key] = value
-        subkey = key % self.map_length
+        subkey = key % self.length
         self.hash_list[subkey] = value
 
-    def get(self, key):
+    def get(self, key: int) -> int:
         #return self.hash_list[key]
-        subkey = key % self.map_length
+        subkey = key % self.length
         if self.hash_list[subkey] == -1:
             return -1
         else:
             return self.hash_list[subkey]
 
-    def remove(self, key):
+    def remove(self, key: int) -> None:
         #self.hash_list[key] = -1
-        subkey = key % self.map_length
+        subkey = key % self.length
         self.hash_list[subkey] = -1
+
+
+class HashMapSpimple:
+    def __init__(self, length=10**4) -> None:
+        self.length = length
+        self.hash_list = [[] for i in range(self.length)]
+
+    def put(self, key: int, value: int) -> None:
+        subkey = key % self.length
+        self.hash_list[subkey].append(value)
+
+    def remove(self, key: int) -> None:
+        subkey = key % self.length
+        self.hash_list[subkey] = []
+
+    def get(self, key: int) -> list:
+        subkey = key % self.length
+        return self.hash_list[subkey]
 
 
 # Your MyHashMap object will be instantiated and called as such:

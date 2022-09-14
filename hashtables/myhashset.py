@@ -26,3 +26,17 @@ class MyHashSet:
         #return self.hash_list[key]
         subkey = key % self.length
         return key in self.hash_list[subkey]
+
+
+class HashSetCounter:
+    # used for singleNumber
+    def __init__(self, length=10**6) -> None:
+        self.length = length
+        self.hash_list = [0 for i in range(self.length)]
+
+    def add(self, key: int) -> None:
+        if not self.contains(key): self.hash_list[key] = 1
+        else: self.hash_list[key] += 1
+
+    def contains(self, key: int) -> bool:
+        return self.hash_list[key]
