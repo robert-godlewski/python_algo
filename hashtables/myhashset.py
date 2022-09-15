@@ -28,8 +28,8 @@ class MyHashSet:
         return key in self.hash_list[subkey]
 
 
+# Used as a counter for a list of integers
 class HashSetCounter:
-    # used for singleNumber
     def __init__(self, length=10**6) -> None:
         self.length = length
         self.hash_list = [0 for i in range(self.length)]
