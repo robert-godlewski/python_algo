@@ -51,3 +51,13 @@ print(f"Intersection of {nums1} and {nums2} is {solver.intersection(nums1, nums2
 nums3 = [4,9,5]
 nums4 = [9,4,9,8,4]
 print(f"Intersection of {nums3} and {nums4} is {solver.intersection(nums3, nums4)}")
+
+
+# Testing isHappy
+print("-----")
+n1 = 19
+print(f"Is {n1} a happy number? {solver.isHappy(n1)}")
+n2 = 2
+print(f"Is {n2} a happy number? {solver.isHappy(n2)}")
+n3 = 7
+print(f"Is {n3} a happy number? {solver.isHappy(n3)}")

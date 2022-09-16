@@ -28,6 +28,22 @@ class MyHashSet:
         return key in self.hash_list[subkey]
 
 
+# Brute Force Way and numbers are positive only
+class HashSetBrute:
+    def __init__(self, length=10**6) -> None:
+        self.length = length
+        self.hash_list = [0 for num in range(self.length)]
+
+    def add(self, key: int, value: int) -> None:
+        if not self.contains(key): self.hash_list[key] = value
+
+    def remove(self, key: int) -> None:
+        if self.contains(key): self.hash_list[key] = 0
+
+    def contains(self, key: int) -> bool: 
+        return self.hash_list[key]
+
+
 # Used as a counter for a list of integers
 class HashSetCounter:
     def __init__(self, length=10**6) -> None:

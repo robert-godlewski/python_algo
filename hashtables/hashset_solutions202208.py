@@ -1,5 +1,5 @@
 # Aug and Sep 2022 solutions
-from myhashset import MyHashSet, HashSetCounter
+from myhashset import MyHashSet, HashSetCounter, HashSetBrute
 
 
 class Solution:
@@ -70,3 +70,29 @@ class Solution:
             if counts.hash_list[nums[i]] == target:
                 counts.add(nums[i])
             i += 1
+
+    def isHappy(self, n: int, sum_set=None) -> bool:
+        # returns true if the looping process ends with 1
+        print(f"n in: {n}")
+        n_str = str(n)
+        # Base cases to end the loop
+        if len(n_str) == 1 and n**2 == 1:
+            return True
+        if not sum_set:
+            # Builds the Hash Set if not already built
+            two_pow = 2**10
+            #two_pow = 2**31
+            sum_set = MyHashSet(two_pow-1)
+            print("created hashset")
+        n_list = list(n_str)
+        print(f"n digit split: {n_list}")
+        square_sum = 0
+        for num_str in n_list:
+            num = int(num_str)
+            square_sum += num**2
+        # another base case to exit a for loop or recurse
+        if sum_set.contains(square_sum):
+            return False
+        else:
+            sum_set.add(square_sum)
+            return self.isHappy(square_sum, sum_set)
