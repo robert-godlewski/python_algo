@@ -41,3 +41,23 @@ list3 = [1]
 print(f"Example 3: {list3}")
 num3 = solver.singleNumber(list3)
 print(f"The single number = {num3}")
+
+# Testing intersection
+print("-----")
+print("Finding intersection of 2 arrays:")
+nums1 = [1,2,2,1]
+nums2 = [2,2]
+print(f"Intersection of {nums1} and {nums2} is {solver.intersection(nums1, nums2)}")
+nums3 = [4,9,5]
+nums4 = [9,4,9,8,4]
+print(f"Intersection of {nums3} and {nums4} is {solver.intersection(nums3, nums4)}")
+
+
+# Testing isHappy
+print("-----")
+n1 = 19
+print(f"Is {n1} a happy number? {solver.isHappy(n1)}")
+n2 = 2
+print(f"Is {n2} a happy number? {solver.isHappy(n2)}")
+n3 = 7
+print(f"Is {n3} a happy number? {solver.isHappy(n3)}")

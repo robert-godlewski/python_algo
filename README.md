@@ -5,11 +5,11 @@ Always keep in mind Big O notation for time and space complexity
 * More time but less space - use loops
 * More space but less time - use variables to act as temp veriables
 
-# Am currently doing: (Data Structures)
+# Am currently doing:
 * Arrays - Data Structure
 * Arrays and Strings - Data Structure
 * Linked Lists - Data Structure
-* Hash Tables (Hashset = No repeated values, Hashmap = key, value pair) - Data Structure
+* Hashset (Type of Hash Table) - Data Structure
 * Binary Math
 * Queues and Stacks - Data Structure
 
@@ -18,6 +18,7 @@ Data structures:
 * Binary Trees
 * Graphs
 * Tries
+* Hashmap (Type of Hash Table)
 
 Sorting Algorithms
 * Bubble Sort
