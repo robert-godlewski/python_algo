@@ -8,17 +8,16 @@ Always keep in mind Big O notation for time and space complexity
 # Am currently doing:
 * Arrays - Data Structure
 * Arrays and Strings - Data Structure
+* Hash Tables (Hashsets and Hashmaps) - Data Structure
 * Linked Lists - Data Structure
-* Hashset (Type of Hash Table) - Data Structure
-* Binary Math
 * Queues and Stacks - Data Structure
+* Binary Math
 
 # Need to do:
 Data structures:
 * Binary Trees
 * Graphs
 * Tries
-* Hashmap (Type of Hash Table)
 
 Sorting Algorithms
 * Bubble Sort
