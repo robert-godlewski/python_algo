@@ -31,3 +31,26 @@ print("-----")
 print(f"Are egg and add isomorphic? {solver.isIsomorphic('egg','add')}")
 print(f"Are foo and bar isomorphic? {solver.isIsomorphic('foo','bar')}")
 print(f"Are paper and title isomorphic? {solver.isIsomorphic('paper','title')}")
+
+# Testing findRestaurant
+print("-----")
+print("Finding common strings with the least index sum between:")
+l1 = ["Shogun","Tapioca Express","Burger King","KFC"]
+print(l1)
+l2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+print(l2)
+common1 = solver.findRestaurant(l1, l2)
+print(f"It is {common1}")
+print("Finding common strings with the least index sum between:")
+l1 = ["happy","sad","good"]
+print(l1)
+l2 = ["sad","happy","good"]
+print(l2)
+common2 = solver.findRestaurant(l1, l2)
+print(f"It is {common2}")
+print("Finding common strings with the least index sum between:")
+ls = ["k","KFC"]
+print(ls)
+print(ls)
+common3 = solver.findRestaurant(ls,ls)
+print(f"It is {common3}")

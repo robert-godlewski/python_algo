@@ -115,3 +115,45 @@ class Solution:
             elif mapping_s_t.get(c1) != c2 or mapping_t_s.get(c2) != c1:
                 return False
         return True
+
+    # Bad Solution - for some reason there is a bug but I don't know why
+    def findRestaurant(self, list1: list, list2: list) -> list:
+        # list1 and list2 are both a list of str
+        # returns a list of str
+        # Base case
+        if list1 == list2:
+            return [list1[0]]
+        # Mapping the phrases with the indexes
+        common_dict = {}
+        i = 0
+        while i < len(list1):
+            if list1[i] not in common_dict:
+                common_dict[list1[i]] = [i]
+            else:
+                common_dict[list1[i]].append(i)
+            i += 1
+        i = 0
+        while i < len(list2):
+            if list2[i] not in common_dict:
+                common_dict[list2[i]] = [i]
+            else:
+                common_dict[list2[i]].append(i)
+            i += 1
+        print(common_dict)
+        # Finding the min
+        min_list = []
+        min_val = None
+        for key in common_dict:
+            if len(common_dict[key]) == 2:
+                subtotal = common_dict[key][0] + common_dict[key][1]
+                if min_val is None:
+                    min_val = subtotal
+                    min_list.append(key)
+                elif subtotal == min_val:
+                    min_list.append(key)
+                elif subtotal < min_val:
+                    min_val = subtotal
+                    min_list = [key]
+            print(f"Current list = {min_list}")
+            print(f"Current min sum = {min_val}")
+        return min_list
