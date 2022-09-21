@@ -25,3 +25,9 @@ print(f"What 2 numbers from {nums3} = 6?")
 res3 = solver.twoSum(nums3,6)
 print(f"Indexes are = {res3}")
 print(f"6 = {nums3[res3[0]]} + {nums3[res3[1]]}")
+
+# Testing isIsomorphic
+print("-----")
+print(f"Are egg and add isomorphic? {solver.isIsomorphic('egg','add')}")
+print(f"Are foo and bar isomorphic? {solver.isIsomorphic('foo','bar')}")
+print(f"Are paper and title isomorphic? {solver.isIsomorphic('paper','title')}")

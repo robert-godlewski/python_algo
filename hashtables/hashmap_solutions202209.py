@@ -55,3 +55,63 @@ class Solution:
             if len(indexes) > 0:
                 break
         return indexes
+
+    # Solved in 20 min but incorrect, I still don't really understand the problem
+    # Best time = O(1)
+    # Time = O(n)
+    def isIsomorphicAttempt(self, s: str, t: str) -> bool:
+        print(s)
+        print(t)
+        # Base cases
+        if len(s) != len(t):
+            return False
+        elif s == t:
+            return True
+        s_list = list(s)
+        print(s_list)
+        t_list = list(t)
+        print(t_list)
+        s_dict = self.mapLetters(s_list)
+        print(s_dict)
+        t_dict = self.mapLetters(t_list)
+        print(t_dict)
+        s_counts = self.letcounts(s_dict)
+        print(s_counts)
+        t_counts = self.letcounts(t_dict)
+        print(t_counts)
+        if s_counts == t_counts:
+            return True
+        else:
+            return False
+
+    # used for isIsomorphic
+    def mapLetters(self, letters: str) -> dict:
+        letter_count = {}
+        for letter in letters:
+            if letter in letter_count:
+                letter_count[letter] += 1
+            else:
+                letter_count[letter] = 1
+        return letter_count
+
+    # used for isIsomorphic
+    def letcounts(self, letters: dict) -> list:
+        counts = []
+        for k in letters:
+            counts.append(letters[k])
+        return counts
+
+    # Leetcode solution
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        mapping_s_t = {}
+        mapping_t_s = {}
+        for c1, c2 in zip(s, t):
+            # Case 1: No mapping exists in either of the dictionaries
+            if (c1 not in mapping_s_t) and (c2 not in mapping_t_s):
+                mapping_s_t[c1] = c2
+                mapping_t_s[c2] = c1
+            # Case 2: Ether mapping doesn't exist in one of the dictionaries or Mapping exists and
+            # it doesn't match in either of the dictionaries or both            
+            elif mapping_s_t.get(c1) != c2 or mapping_t_s.get(c2) != c1:
+                return False
+        return True
