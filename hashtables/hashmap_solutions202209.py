@@ -157,3 +157,49 @@ class Solution:
             print(f"Current list = {min_list}")
             print(f"Current min sum = {min_val}")
         return min_list
+
+    # Solution in 15 min
+    # O(n) time solution
+    # Best time solution is O(1)
+    def firstUniqChar(self, s: str) -> int:
+        if len(s) < 1:
+            return -1
+        if len(s) == 1:
+            return 0
+        s_list = list(s)
+        letters = {}
+        i = 0
+        while i < len(s_list):
+            if s_list[i] not in letters:
+                letters[s_list[i]] = [i]
+            else:
+                letters[s_list[i]].append(i)
+            i += 1
+        print(letters)
+        for key in letters:
+            if len(letters[key]) == 1:
+                return letters[key][0]
+        return -1
+
+    # Solution in 30 min
+    def intersect(self, nums1: list, nums2: list) -> list:
+        # nums1 and nums2 are both a list of int
+        # returns a list of int
+        nums1.sort()
+        print(nums1)
+        nums2.sort()
+        print(nums2)
+        intersect = []
+        i = 0
+        j = 0
+        while i < len(nums1) and j < len(nums2):
+            if nums1[i] == nums2[j]:
+                intersect.append(nums1[i])
+                i += 1
+                j += 1
+            elif nums1[i] < nums2[j]:
+                i += 1
+            elif nums1[i] > nums2[j]:
+                j += 1
+            print(intersect)
+        return intersect

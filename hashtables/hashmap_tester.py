@@ -54,3 +54,35 @@ print(ls)
 print(ls)
 common3 = solver.findRestaurant(ls,ls)
 print(f"It is {common3}")
+
+# Testing firstUniqChar
+print("-----")
+s1 = "leetcode"
+print(f"Finding the first unique letter in: {s1}")
+u1 = solver.firstUniqChar(s1)
+print(f"The index = {u1}")
+s2 = "loveleetcode"
+print(f"Finding the first unique letter in: {s2}")
+u2 = solver.firstUniqChar(s2)
+print(f"The index = {u2}")
+s3 = "aabb"
+print(f"Finding the first unique letter in: {s3}")
+u3 = solver.firstUniqChar(s3)
+print(f"The index = {u3}")
+
+# Testing intersect
+print("-----")
+print("Finding the intersection of:")
+nums1 = [1,2,2,1]
+print(nums1)
+nums2 = [2,2]
+print(nums2)
+inter1 = solver.intersect(nums1, nums2)
+print(f"Intersection are {inter1}")
+print("Finding the intersection of:")
+nums1 = [4,9,5]
+print(nums1)
+nums2 = [9,4,9,8,4]
+print(nums2)
+inter2 = solver.intersect(nums1, nums2)
+print(f"Intersection are {inter2}")
