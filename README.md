@@ -1,5 +1,5 @@
 # Description
-All of these algorithms are my solutions to LeetCode Problems using Python to solve.
+All of these algorithms are my solutions to LeetCode Problems using Python to solve (excluding the files in heap for now but will need them later).
 
 Always keep in mind Big O notation for time and space complexity
 * More time but less space - use loops
@@ -11,6 +11,7 @@ Always keep in mind Big O notation for time and space complexity
 * Hash Tables (Hashsets and Hashmaps) - Data Structure
 * Linked Lists - Data Structure
 * Queues and Stacks - Data Structure
+* Heaps - Data Structure (only leetcode base for this so far)
 * Binary Math
 
 # Need to do:
