@@ -8,8 +8,8 @@ Always keep in mind Big O notation for time and space complexity
 # Am currently doing:
 * Arrays - Data Structure
 * Arrays and Strings - Data Structure
-* Hash Tables (Hashsets and Hashmaps) - Data Structure
 * Linked Lists - Data Structure
+* Hash Tables (Hashsets and Hashmaps) - Data Structure
 * Queues and Stacks - Data Structure
 * Heaps - Data Structure (only leetcode base for this so far)
 * Binary Math
