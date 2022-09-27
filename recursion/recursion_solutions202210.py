@@ -11,6 +11,8 @@ class SLL:
 
     def printSLL(self) -> None:
         cur = self.head
+        if cur is None:
+            print("None")
         while cur:
             print(cur.val)
             cur = cur.next
@@ -50,3 +52,31 @@ class Solution:
             else:
                 is_swaping = True
             self.swapPairs(head=head.next, is_swaping=is_swaping, prev=head)
+
+    # Solved in 1:20 - Fail
+    def reverseList(self, head: ListNode, is_origin=True, new_head=None) -> ListNode:
+        if head:
+            print(head.val)
+            if head.next:
+                temp = self.reverseList(head.next, is_origin=False)
+                head.next = temp.next
+                temp.next = head
+            else:
+                new_head = head
+            if is_origin:
+                return new_head
+            else:
+                return head
+        else:
+            return None
+
+    # Solved in 30 min
+    # Irerative solution
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev = head
+        while prev.next:
+            cur = prev.next
+            prev.next = cur.next
+            cur.next = head
+            head = cur
+        return head
