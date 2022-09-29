@@ -1,5 +1,5 @@
 # Binary Tree solutions in September 2022
-from binary_tree_node import TreeNode
+from binary_tree_node import TreeNode, QueueList
 
 
 class Solution:
@@ -60,3 +60,33 @@ class Solution:
             nums.append(root.val)
         #else: print("This is an empty tree.")
         return nums
+
+    # Solution in over 1 hr
+    def levelOrder(self, root: TreeNode, nest=[], level=0) -> list[list[int]]:
+        # clearing the nest list
+        if root and level == 0:
+            nest = []
+        # Checking if there is a root
+        if root:
+            #print(f"current level of the tree = {level}")
+            #print(root.val)
+            # Testing to see if there is a list within nest at index level, if not it will add a list at the end
+            try:
+                nest[level].append(1)
+                nest[level].pop()
+            except:
+                nest.append([])
+            # adding the root value to the list at the proper level index
+            nest[level].append(root.val)
+            #print(f"Current nested list = {nest}")
+            # checking to see if there is a left child node
+            if root.left:
+                #print(f"going left, level {level+1}")
+                nest = self.levelOrder(root.left, nest, level+1)
+                #print(f"returning to level {level}")
+            # Checking to see if there is a right child node
+            if root.right:
+                #print(f"going right, level {level+1}")
+                nest = self.levelOrder(root.right, nest, level+1)
+                #print(f"returning to level {level}")
+        return nest

@@ -48,59 +48,23 @@ t3n1 = TreeNode(1)
 arr3 = solver.postorderTraversal(t3n1)
 print(f"The list = {arr3}")
 
+# Testing levelOrder
+print("-------")
+t1n2 = TreeNode(9)
+t1n4 = TreeNode(15)
+t1n5 = TreeNode(7)
+t1n3 = TreeNode(20, left=t1n4, right=t1n5)
+t1n1 = TreeNode(3, left=t1n2, right=t1n3)
+nest1 = solver.levelOrder(t1n1)
+print(f"The list = {nest1}")
+t2n1 = TreeNode(1)
+nest2 = solver.levelOrder(t2n1)
+print(f"The list = {nest2}")
+nest3 = solver.levelOrder(None)
+print(f"The list = {nest3}")
 
 # old stuff
 '''
-node1 = TreeNode(1, right=TreeNode(2, left=TreeNode(3)))
-node2 = None
-node3 = TreeNode(1)
-node4 = TreeNode(3, left=TreeNode(1), right=TreeNode(2))
-node5 = TreeNode(3, left=TreeNode(9), right=TreeNode(20, left=TreeNode(15), right=TreeNode(7)))
-node6 = TreeNode(1, right=TreeNode(2))
-
-
-# For inorder
-print('Inorder Traversal:')
-print('=========New Root=========')
-print("root = [1, None, 2, 3]")
-print("Solution is:", solver.inorderTraversal(node1))
-print('=========New Root=========')
-print("root = []")
-print("Solution is:", solver.inorderTraversal(node2))
-print('=========New Root=========')
-print("root = [1]")
-print("Solution is:", solver.inorderTraversal(node3))
-print('=========New Root=========')
-print("root = [3, 1, 2]")
-print("Solution is:", solver.inorderTraversal(node4))
-print()
-
-# For postorder
-print('Postorder Traversal:')
-print('=========New Root=========')
-print("root = [1, None, 2, 3]")
-print("Solution is:", solver.postorderTraversal(node1))
-print('=========New Root=========')
-print("root = []")
-print("Solution is:", solver.postorderTraversal(node2))
-print('=========New Root=========')
-print("root = [1]")
-print("Solution is:", solver.postorderTraversal(node3))
-print('=========New Root=========')
-print("root = [3, 1, 2]")
-print("Solution is:", solver.postorderTraversal(node4))
-print()
-
-# For levelorder
-print('Level Order Traversal:')
-print("Solution for root = [3,9,20,null,null,15,7] is:")
-print(str(solver.levelOrder(node5)))
-print("Solution for root = [1] is:")
-print(str(solver.levelOrder(node3)))
-print("Solution for root = [] is:")
-print(str(solver.levelOrder(node2)))
-print()
-
 # For solving the depth of the tree
 print('Maximum Depth finder:')
 print("Solution for root = [3,9,20,null,null,15,7] is:")
