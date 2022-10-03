@@ -48,27 +48,29 @@ t3n1 = TreeNode(1)
 arr3 = solver.postorderTraversal(t3n1)
 print(f"The list = {arr3}")
 
-# Testing levelOrder
-print("-------")
+# Trees for both levelOrder and maxDepth
+# Tree 1
 t1n2 = TreeNode(9)
 t1n4 = TreeNode(15)
 t1n5 = TreeNode(7)
 t1n3 = TreeNode(20, left=t1n4, right=t1n5)
 t1n1 = TreeNode(3, left=t1n2, right=t1n3)
+# Tree 2
+t2n1 = TreeNode(1)
+
+# Testing levelOrder
+print("-------")
 nest1 = solver.levelOrder(t1n1)
 print(f"The list = {nest1}")
-t2n1 = TreeNode(1)
 nest2 = solver.levelOrder(t2n1)
 print(f"The list = {nest2}")
 nest3 = solver.levelOrder(None)
 print(f"The list = {nest3}")
 
-# old stuff
-'''
-# For solving the depth of the tree
-print('Maximum Depth finder:')
-print("Solution for root = [3,9,20,null,null,15,7] is:")
-print(str(solver.maxDepth(node5)))
-print("Solution for root = [1,null,2] is:")
-print(str(solver.maxDepth(node6)))
-'''
+# Testing maxDepth
+print("-------")
+depth1 = solver.maxDepth(t1n1)
+print(f"The depth of the tree = {depth1}")
+t2n1.right = TreeNode(2)
+depth2 = solver.maxDepth(t2n1)
+print(f"The depth of the tree = {depth1}")

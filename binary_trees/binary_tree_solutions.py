@@ -1,5 +1,5 @@
 # Binary Tree solutions in September 2022
-from binary_tree_node import TreeNode, QueueList
+from binary_tree_node import TreeNode
 
 
 class Solution:
@@ -90,3 +90,27 @@ class Solution:
                 nest = self.levelOrder(root.right, nest, level+1)
                 #print(f"returning to level {level}")
         return nest
+
+    # Solved over 1 hr
+    def maxDepth(self, root: TreeNode, depth=1, curDepth=1) -> int:
+        if root:
+            #print(f"Current depth = {curDepth}")
+            #print(f"Currently on node {root.val} in the tree")
+            # update the depth for each level
+            if curDepth > depth:
+                depth += 1
+            # check the left side and update the depth
+            if root.left:
+                #print("Checking left")
+                depth = self.maxDepth(root.left, depth, curDepth+1)
+                #print("returning to parent")
+            # Check the right side and update the depth
+            if root.right:
+                #print("Checking right")
+                depth = self.maxDepth(root.right, depth, curDepth+1)
+                #print("returning to parent")
+            #print(f"depth returning = {depth}")
+        else:
+            # If there isn't a root return 0
+            return 0
+        return depth
