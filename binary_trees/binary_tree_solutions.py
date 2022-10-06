@@ -114,3 +114,50 @@ class Solution:
             # If there isn't a root return 0
             return 0
         return depth
+
+    # Solved in 20 minutes - bad solution
+    # Used for the left side
+    def preorderTraversalLeft(self, root: TreeNode, nums=[], is_top=True) -> list:
+        if is_top and root: nums = []
+        if root:
+            nums.append(root.val)
+            if root.left:
+                nums = self.preorderTraversalLeft(root.left, nums, False)
+            else:
+                nums.append("None")
+            if root.right:
+                nums = self.preorderTraversalLeft(root.right, nums, False)
+            else:
+                nums.append("None")
+        return nums
+
+    # Used for the right side
+    # Similar to a preorder traversal but favors the right side before left side
+    def preorderTraversalRight(self, root: TreeNode, nums=[], is_top=True) -> list:
+        if is_top and root: nums = []
+        if root:
+            nums.append(root.val)
+            if root.right: 
+                nums = self.preorderTraversalRight(root.right, nums, False)
+            else:
+                nums.append("None")
+            if root.left:
+                nums = self.preorderTraversalRight(root.left, nums, False)
+            else:
+                nums.append("None")
+        return nums
+
+    # Main solution
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if root.left and root.right:
+            # First traverse the left side and add to a queue
+            lqueue = self.preorderTraversal(root.left)
+            rqueue = self.preorderTraversalRight(root.right)
+            if lqueue == rqueue:
+                return True
+            else:
+                return False
+        elif root.left or root.right:
+            return False
+        else:
+            return True

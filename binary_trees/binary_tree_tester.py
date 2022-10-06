@@ -74,3 +74,11 @@ print(f"The depth of the tree = {depth1}")
 t2n1.right = TreeNode(2)
 depth2 = solver.maxDepth(t2n1)
 print(f"The depth of the tree = {depth1}")
+
+# Testing
+print("-------")
+ts1n2a = TreeNode(2, TreeNode(3), TreeNode(4))
+ts1n2b = TreeNode(2, TreeNode(4), TreeNode(3))
+ts1n1 = TreeNode(1, ts1n2a, ts1n2b)
+ts1sym = solver.isSymmetric(ts1n1)
+print(f"Is the tree symmetric? {ts1sym}")
