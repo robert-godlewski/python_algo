@@ -161,3 +161,31 @@ class Solution:
             return False
         else:
             return True
+
+    # Solved in 30 min
+    def hasPathSum(self, root: TreeNode, targetSum: int, is_top=True, temp_sum=0) -> bool:
+        if root:
+            if is_top:
+                temp_sum = 0
+            #print(f"Current value = {root.val}")
+            temp_sum += root.val
+            #print(f"Current sum = {temp_sum}")
+            if temp_sum == targetSum and not root.left and not root.right:
+                return True
+            l_found = False
+            if root.left:
+                #print("Checking left side")
+                l_found = self.hasPathSum(root.left, targetSum, False, temp_sum)
+                #print("returning to parent")
+            #else: print("No left side")
+            if l_found:
+                return True
+            r_found = False
+            if root.right:
+                #print("checking right side")
+                r_found = self.hasPathSum(root.right, targetSum, False, temp_sum)
+                #print("returning to parent")
+            #else: print("No right side")
+            if r_found:
+                return True
+        return False
