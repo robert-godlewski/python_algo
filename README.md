@@ -10,13 +10,13 @@ Always keep in mind Big O notation for time and space complexity
 * Arrays and Strings - Data Structure
 * Linked Lists - Data Structure
 * Hash Tables (Hashsets and Hashmaps) - Data Structure
+* Binary Trees - Data Structure
 * Queues and Stacks - Data Structure
 * Heaps - Data Structure (only leetcode base for this so far)
 * Binary Math
 
 # Need to do:
 Data structures:
-* Binary Trees
 * Graphs
 * Tries
 

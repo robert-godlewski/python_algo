@@ -1,168 +1,191 @@
-# LeetCode Solutions for Binary Trees
+# Binary Tree solutions in September 2022
 from binary_tree_node import TreeNode
 
 
 class Solution:
-    # Iterative solution
-    def preorderTraversalIterative(self, root):
-        # print(type(root))
-        if root is None: return list()
-        data = [root]
-        # print(f"Data processing: {data}")
-        answer = list()
-        while len(data) > 0: 
-            node = data.pop()
-            # print("Current Node in Review:", node)
-            if node is not None:
-                # print("Current Node value:", node.val)
-                answer.append(node.val)
-                if node.right is not None: 
-                    # print("Right Node:", node.right.val)
-                    data.append(node.right)
-                if node.left is not None: 
-                    # print("Left Node:", node.left.val)
-                    data.append(node.left)
-            # print('Current Answer:', answer)
-            # print('Length of Data list:', len(data))
-            # print('==================')
-        return answer
-    
-    # Recursive way - Regular way
-    def preorderTraversalSlow(self, root, data=list(), is_top=True):
-        # print(type(root))
-        if is_top is True and root is None: 
-            # just want to return an empty list
-            return list()
-        elif is_top is True and root is not None: 
-            # Want to clear the list for a new tree
-            data = list()
-        
-        # Parses through the tree
-        if root is not None:
-            # print("Root Value:", str(root.val))
-            data.append(root.val)
-            # print("Data List:", data)
-            # print("Root Left Node:", root.left)
-            if root.left is not None: self.preorderTraversal(root.left, data, False)
-            # print("Root Right Node:", root.right)
-            if root.right is not None: self.preorderTraversal(root.right, data, False)
-            # print("back to root")
-            final_list = data
-            return final_list
-        else: return 0
-
-    # Recursive way - Super slick way
-    def preorderTraversal(self, root):
+    # Solution in 30 min
+    # recursively solution
+    def preorderTraversal(self, root: TreeNode, nums=[], is_top=True) -> list[int]:
+        if is_top and root: nums = []
+        #print(f"list = {nums}")
         if root:
-            return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
-        else: return list()
+            #print(root.val)
+            nums.append(root.val)
+            if root.left:
+                #print("going left:")
+                nums = self.preorderTraversal(root.left, nums, False)
+            if root.right:
+                #print("going right:")
+                nums = self.preorderTraversal(root.right, nums, False)
+            #print("return to parent")
+        #else: print("This is an empty tree.")
+        return nums
 
-    # Recursive way - Regular way
-    def inorderTraversalSlow(self, root, data=list(), is_top=True):
-        # print(type(root))
-        if is_top is True and root is None: 
-            # just want to return an empty list
-            return list()
-        elif is_top is True and root is not None: 
-            # Want to clear the list for a new tree
-            data = list()
-        
-        # Parses through the tree
-        if root is not None:
-            # print("Root Value:", str(root.val))
-            if root.left is not None: 
-                # print("Root Left Node:", root.left)
-                self.inorderTraversal(root.left, data, False)
-            data.append(root.val)
-            if root.right is not None: 
-                # print("Root Right Node:", root.right)
-                self.inorderTraversal(root.right, data, False)
-            # print("Data List:", data)
-            # print("back to root")
-            final_list = data
-            return final_list
-        else: return 0
-
-    # Recursive way - Super slick way
-    def inorderTraversal(self, root):
+    # Solution in 15 min
+    # recursively solution
+    def inorderTraversal(self, root: TreeNode, nums=[], is_top=True) -> list[int]:
+        if root and is_top: nums= []
+        #print(f"list = {nums}")
         if root:
-            return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
-        else: return list()
+            #print(root.val)
+            if root.left:
+                #print("going left:")
+                nums = self.inorderTraversal(root.left, nums, False)
+                #print("return to parent from left")
+            #print(f"adding in {root.val}")
+            nums.append(root.val)
+            if root.right:
+                #print("going right:")
+                nums = self.inorderTraversal(root.right, nums, False)
+                #print("return to parent from right")
+        #else: print("This is an empty tree.")
+        return nums
 
-    # Recursive way - Regular way
-    def postorderTraversalSlow(self, root, data=list(), is_top=True):
-        # print(type(root))
-        if is_top is True and root is None: 
-            # just want to return an empty list
-            return list()
-        elif is_top is True and root is not None: 
-            # Want to clear the list for a new tree
-            data = list()
-        
-        # Parses through the tree
-        if root is not None:
-            # print("Root Value:", str(root.val))
-            if root.left is not None: 
-                # print("Root Left Node:", root.left)
-                self.postorderTraversal(root.left, data, False)
-            if root.right is not None: 
-                # print("Root Right Node:", root.right)
-                self.postorderTraversal(root.right, data, False)
-            data.append(root.val)
-            # print("Data List:", data)
-            # print("back to root")
-            final_list = data
-            return final_list
-        else: return 0
-
-    # Recursive way - Super slick way
-    def postorderTraversal(self, root):
+    # Solution in 7 min
+    # recursively solution
+    def postorderTraversal(self, root: TreeNode, nums=[], is_top=True) -> list[int]:
+        if root and is_top: nums = []
+        #print(f"list = {nums}")
         if root:
-            return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
-        else: return list()
+            #print(root.val)
+            if root.left:
+                #print("going left:")
+                nums = self.postorderTraversal(root.left, nums, False)
+                #print("return to parent from left")
+            if root.right:
+                #print("going right:")
+                nums = self.postorderTraversal(root.right, nums, False)
+                #print("return to parent from right")
+            #print(f"adding in {root.val}")
+            nums.append(root.val)
+        #else: print("This is an empty tree.")
+        return nums
 
-    # Recursive way
-    def levelOrder(self, root, data=list(), level=0):
-        # print('=====================')
-        if level == 0 and root is None:
-            # just want to return an empty list
-            return list()
-        elif level == 0 and root is not None:
-            # Want to clear the list for a new tree
-            data = list()
-        
-        try: 
-            # print(f"Has an index: {data[level]}")
-            data[level].append(1)
-            data[level].pop()
-        except: 
-            # print("Making new level")
-            data.append(list())
+    # Solution in over 1 hr
+    def levelOrder(self, root: TreeNode, nest=[], level=0) -> list[list[int]]:
+        # clearing the nest list
+        if root and level == 0:
+            nest = []
+        # Checking if there is a root
         if root:
-            # print(f"Current level is on {level}")
-            data[level].append(root.val)
-            # print(f"The solution right now: {data}")
-            if root.left or root.right:
-                if root.left: 
-                    # print("Up a level")
-                    self.levelOrder(root.left, data, level+1)
-                if root.right: 
-                    # print("Up a level")
-                    self.levelOrder(root.right, data, level+1)
-                # print("Down a level")
-        return data
+            #print(f"current level of the tree = {level}")
+            #print(root.val)
+            # Testing to see if there is a list within nest at index level, if not it will add a list at the end
+            try:
+                nest[level].append(1)
+                nest[level].pop()
+            except:
+                nest.append([])
+            # adding the root value to the list at the proper level index
+            nest[level].append(root.val)
+            #print(f"Current nested list = {nest}")
+            # checking to see if there is a left child node
+            if root.left:
+                #print(f"going left, level {level+1}")
+                nest = self.levelOrder(root.left, nest, level+1)
+                #print(f"returning to level {level}")
+            # Checking to see if there is a right child node
+            if root.right:
+                #print(f"going right, level {level+1}")
+                nest = self.levelOrder(root.right, nest, level+1)
+                #print(f"returning to level {level}")
+        return nest
 
-    def maxDepth(self, root, answer=1, current_level=1):
-        # print(f"Current Answer is so far: {answer}")
-        # print(f"Current level is: {level}")
+    # Solved over 1 hr
+    def maxDepth(self, root: TreeNode, depth=1, curDepth=1) -> int:
         if root:
-            if root.left or root.right:
-                if answer <= current_level: answer += 1
-                if root.left is not None: 
-                    # print("Going through Left")
-                    answer = self.maxDepth(root.right, answer, current_level+1)
-                if root.right is not None: 
-                    # print("Going through Right")
-                    answer = self.maxDepth(root.right, answer, current_level+1)
-        else: return 0
-        return answer
+            #print(f"Current depth = {curDepth}")
+            #print(f"Currently on node {root.val} in the tree")
+            # update the depth for each level
+            if curDepth > depth:
+                depth += 1
+            # check the left side and update the depth
+            if root.left:
+                #print("Checking left")
+                depth = self.maxDepth(root.left, depth, curDepth+1)
+                #print("returning to parent")
+            # Check the right side and update the depth
+            if root.right:
+                #print("Checking right")
+                depth = self.maxDepth(root.right, depth, curDepth+1)
+                #print("returning to parent")
+            #print(f"depth returning = {depth}")
+        else:
+            # If there isn't a root return 0
+            return 0
+        return depth
+
+    # Solved in 20 minutes - bad solution
+    # Used for the left side
+    def preorderTraversalLeft(self, root: TreeNode, nums=[], is_top=True) -> list:
+        if is_top and root: nums = []
+        if root:
+            nums.append(root.val)
+            if root.left:
+                nums = self.preorderTraversalLeft(root.left, nums, False)
+            else:
+                nums.append("None")
+            if root.right:
+                nums = self.preorderTraversalLeft(root.right, nums, False)
+            else:
+                nums.append("None")
+        return nums
+
+    # Used for the right side
+    # Similar to a preorder traversal but favors the right side before left side
+    def preorderTraversalRight(self, root: TreeNode, nums=[], is_top=True) -> list:
+        if is_top and root: nums = []
+        if root:
+            nums.append(root.val)
+            if root.right: 
+                nums = self.preorderTraversalRight(root.right, nums, False)
+            else:
+                nums.append("None")
+            if root.left:
+                nums = self.preorderTraversalRight(root.left, nums, False)
+            else:
+                nums.append("None")
+        return nums
+
+    # Main solution
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if root.left and root.right:
+            # First traverse the left side and add to a queue
+            lqueue = self.preorderTraversal(root.left)
+            rqueue = self.preorderTraversalRight(root.right)
+            if lqueue == rqueue:
+                return True
+            else:
+                return False
+        elif root.left or root.right:
+            return False
+        else:
+            return True
+
+    # Solved in 30 min
+    def hasPathSum(self, root: TreeNode, targetSum: int, is_top=True, temp_sum=0) -> bool:
+        if root:
+            if is_top:
+                temp_sum = 0
+            #print(f"Current value = {root.val}")
+            temp_sum += root.val
+            #print(f"Current sum = {temp_sum}")
+            if temp_sum == targetSum and not root.left and not root.right:
+                return True
+            l_found = False
+            if root.left:
+                #print("Checking left side")
+                l_found = self.hasPathSum(root.left, targetSum, False, temp_sum)
+                #print("returning to parent")
+            #else: print("No left side")
+            if l_found:
+                return True
+            r_found = False
+            if root.right:
+                #print("checking right side")
+                r_found = self.hasPathSum(root.right, targetSum, False, temp_sum)
+                #print("returning to parent")
+            #else: print("No right side")
+            if r_found:
+                return True
+        return False
