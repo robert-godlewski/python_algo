@@ -1,4 +1,3 @@
-from numpy import empty
 from binary_tree_node import TreeNode
 from binary_tree_solutions import Solution
 

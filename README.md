@@ -14,6 +14,7 @@ Always keep in mind Big O notation for time and space complexity
 * Queues and Stacks - Data Structure
 * Heaps - Data Structure (only leetcode base for this so far)
 * Binary Math
+* Binary Search - Algorithm
 
 # Need to do:
 Data structures:
