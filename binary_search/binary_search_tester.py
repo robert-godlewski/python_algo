@@ -28,3 +28,23 @@ print(f"The Sqare Root of {x1} = {sqrx1}")
 x2 = 8
 sqrx2 = solver.mySqrt(x2)
 print(f"The Square Root of {x2} = {sqrx2}")
+
+# Testing guessNumber
+print("-------")
+print("Skiped")
+
+# Testing search
+print("-------")
+nums = [4,5,6,7,0,1,2]
+target1 = 0
+print(f"Finding {target1} in {nums}:")
+index1 = solver.search(nums, target1)
+print(index1)
+target2 = 3
+print(f"Finding {target2} in {nums}:")
+index2 = solver.search(nums, target2)
+print(index2)
+print(f"Finding 0 in [1]:")
+index3 = solver.search([1], 0)
+print(index3)
+
