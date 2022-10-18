@@ -1,4 +1,4 @@
-# Binary Tree solutions in September 2022
+# Binary Tree solutions in September and October 2022
 from binary_tree_node import TreeNode
 
 
