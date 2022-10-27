@@ -9,62 +9,48 @@ print("Testing array algorithms")
 
 
 # Testing duplicateZeros
-arr1 = [1,0,2,3,0,4,5,0]
-arr2 = [1,2,3]
 print("-------")
-print("Finding any 0's in the array and duplicating it")
-print(f"First test original: {arr1}")
-arr1 = solver.duplicateZeros(arr1)
-print(f"First test solution: {arr1}")
-print(f"Second test original: {arr2}")
-arr2 = solver.duplicateZeros(arr2)
-print(f"Second test solution: {arr2}")
+def duplicateZerosTest(arr: list[int]) -> None:
+    print("Finding any 0's in an array and duplicating it them")
+    print(f"Original = {arr}")
+    arr_dup = solver.duplicateZeros(arr)
+    print(f"Duplicated = {arr_dup}")
+
+duplicateZerosTest([1,0,2,3,0,4,5,0])
+duplicateZerosTest([1,2,3])
 
 
 # Testing merge
-arr1 = [1,2,3,0,0,0]
-arr2 = [2,5,6]
 print("--------")
-print("Merging 2 Arrays:")
-print(f"Merging {arr1} and {arr2}")
-arr1 = solver.merge(arr1, 3, arr2, 3)
-print(f"Solution = {arr1}")
-print(f"Merging [1] and []")
-arr3 = solver.merge([1], 1, [], 0)
-print(f"Solution = {arr3}")
-print(f"Merging [0] and [1]")
-arr4 = solver.merge([0], 0, arr3, 1)
-print(f"Solution = {arr4}")
-# Needed to use a sorting algorithm to get these 2 arrays together
-arr5 = [4,5,6,0,0,0]
-arr6 = [1,2,3]
-print(f"Merging {arr5} and {arr6}")
-arr5 = solver.merge(arr5, 3, arr6, 3)
-print(f"Solution = {arr5}")
+def mergeArrTest(arr1: list[int], m: int, arr2: list[int], n: int) -> None:
+    print(f"Merging {arr1} and {arr2}")
+    merged_arr = solver.merge(arr1, m, arr2, n)
+    print(merged_arr)
+
+mergeArrTest([1,2,3,0,0,0], 3, [2,5,6], 3)
+mergeArrTest([1], 1, [], 0)
+mergeArrTest([0], 0, [1], 1)
+mergeArrTest([4,5,6,0,0,0], 3, [1,2,3], 3)
 
 # Testing removeElement
-arr1 = [3,2,2,3]
 print("--------")
-print("Removing numbers from arrays")
-print(f"Removing 3 from {arr1}")
-remaining1 = solver.removeElement(arr1, 3)
-print(f"There are {remaining1} numbers left in the array")
-arr2 = [0,1,2,2,3,0,4,2]
-print(f"Removing 2 from {arr2}")
-remaining2 = solver.removeElement(arr2, 2)
-print(f"There are {remaining2} numbers left in the array")
+def removeElementTest(arr: list[int], num: int) -> None:
+    print(f"Removing {num} from {arr}")
+    rem_arr = solver.removeElement(arr, num)
+    print(f"Remaining numbers = {rem_arr}")
+
+removeElementTest([3,2,2,3], 3)
+removeElementTest([0,1,2,2,3,0,4,2], 2)
 
 # Testing removeDuplicates
-arr1 = [1,1,2]
 print("--------")
-print("Removing Duplicates from arrays")
-print(f"Removing duplicates in {arr1}")
-remain1 = solver.removeDuplicates(arr1)
-print(f"Number of remaining values = {remain1}")
-arr2 = [0,0,1,1,1,2,2,3,3,4]
-print(f"Removing duplicates in {arr2}")
-remain2 = solver.removeDuplicates(arr2)
-print(f"Number of remaining values = {remain2}")
+def removeDuplicatesTest(arr: list[int]) -> None:
+    print(f"Removing duplicates in {arr}")
+    remain = solver.removeDuplicates(arr)
+    print(f"Remaining values = {remain}")
+
+removeDuplicatesTest([1,1,2])
+removeDuplicatesTest([0,0,1,1,1,2,2,3,3,4])
 
 '''
 nums1 = [1,1,0,1,1,1]
