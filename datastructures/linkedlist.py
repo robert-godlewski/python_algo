@@ -92,11 +92,13 @@ class LL:
             return cur.val
         return 0
 
-    def printLL(self) -> str:
-        listStr = "(head) -> "
-        cur = self.head
-        while cur:
-            listStr += f"{cur.val} -> "
-            cur = cur.next
-        listStr += "(tail)"
-        return listStr
+
+# Prints out the whole list from the head
+def printLL(head) -> str:
+    listStr = "(head) -> "
+    cur = head
+    while cur:
+        listStr += f"{cur.val} -> "
+        cur = cur.next
+    listStr += "(tail)"
+    return listStr
