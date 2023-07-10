@@ -1,9 +1,13 @@
 # Description
-All of these algorithms are my solutions to LeetCode Problems using Python to solve (excluding the files in heap for now but will need them later).
+All of these algorithms are my solutions to [LeetCode Problems](https://leetcode.com/explore/) in Python.
 
 Always keep in mind Big O notation for time and space complexity
 * More time but less space - use loops
 * More space but less time - use variables to act as temp veriables
+
+# How to run this on computer
+1. Copy repo via terminal
+2. run this command on mac: % python3 python_alog.py
 
 # Am currently doing:
 * Arrays - Data Structure
