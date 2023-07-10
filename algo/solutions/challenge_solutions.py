@@ -1,36 +1,6 @@
 # Basic Challenge Problem solutions in September 2022
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-'''
-class SL:
-    def __init__(self):
-        self.head = None
-        self.size = 0
+from algo.datastructures.linkedlist import ListNode
 
-    def add(self, val):
-        if self.head:
-            cur = self.head
-            prev = None
-            while cur:
-                print(cur.val)
-                prev = cur
-                cur = cur.next
-            prev.next = ListNode(val)
-        else:
-            self.head = ListNode(val)
-        self.size += 1
-
-    def printList(self):
-        if self.head:
-            cur = self.head
-            while cur:
-                print(cur.val)
-                cur = cur.next
-        else:
-            print("There's nothing in this list.")
-'''
 
 class Solution:
     def runningSum(self, nums):

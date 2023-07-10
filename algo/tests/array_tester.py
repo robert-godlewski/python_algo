@@ -1,17 +1,15 @@
 # Tools needed
+from algo.datastructures.tools import titleline, thinline
 from algo.solutions.array_solutions import Solution
 
 
 solver = Solution()
 
 
-# To separate functions out
-def thinline() -> None:
-    print("------------")
-
-
 # Main function to run all tests
 def arrayAlgorthims() -> None:
+    titleline("Testing Array Algorithms")
+
     duplicateZerosTest([1,0,2,3,0,4,5,0])
     duplicateZerosTest([1,2,3])
     thinline()
