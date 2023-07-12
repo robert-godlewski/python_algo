@@ -1,14 +1,5 @@
 # Solutions for August 2022
-# for a Singly linked list
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-
-class LinkedList:
-    def __init__(self, head=None):
-        self.head = head
+from algo.datastructures.linkedlist import ListNode
 
 
 class Solution:
