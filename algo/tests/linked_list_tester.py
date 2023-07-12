@@ -1,6 +1,6 @@
 # Tools needed
 from algo.datastructures.tools import titleline, thinline
-from algo.datastructures.linkedlist import ListNode, LL, printLL
+from algo.datastructures.linkedlist import LL, printLL
 from algo.solutions.linked_list_solutions import Solution
 
 
@@ -54,7 +54,7 @@ def reverseLLTest(ll) -> None:
         print(f"Original list = {printLL(ll.head)}")
         answer = solver.reverseList(ll.head)
     else:
-        print("Original list = none")
+        print(f"Original list = {printLL(ll)}")
         answer = solver.reverseList(ll)
     print(f"Reversed list = {printLL(answer)}")
 

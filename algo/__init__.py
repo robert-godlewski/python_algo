@@ -1,6 +1,7 @@
 from algo.tests.challenge_tester import challengeAlgorithms
 from algo.tests.array_tester import arrayAlgorthims
 from algo.tests.linked_list_tester import linkedlistAlgorithms
+from algo.tests.recursion1_tester import recursion1Algorithms
 
 
 # Actually running the tests
@@ -9,3 +10,4 @@ def run() -> None:
     challengeAlgorithms()
     arrayAlgorthims()
     linkedlistAlgorithms()
+    recursion1Algorithms()
