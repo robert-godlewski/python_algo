@@ -20,6 +20,12 @@ class LL:
             self.head = tail
             self.size += 1
 
+    def isEmpty(self) -> bool:
+        if self.size > 0 and self.head and self.tail:
+            return False
+        else:
+            return True
+
     def get(self, index: int):
         # Returns the value of the node at the index position (int) of the linked list
         if self.size == 0 or not self.head:
@@ -33,7 +39,7 @@ class LL:
             i += 1
         return None
 
-    def addAtHead(self, val: int) -> None:
+    def addAtHead(self, val) -> None:
         # Creates a new node with val as the stored value and is set as the new head of the linked list
         node = ListNode(val)
         if self.head:
@@ -44,7 +50,7 @@ class LL:
             self.tail = node
         self.size += 1
 
-    def addAtTail(self, val: int) -> None:
+    def addAtTail(self, val) -> None:
         # Creates a new node with val as the stored value and set at the tail end of the linked list
         node = ListNode(val)
         if self.tail:
@@ -55,7 +61,7 @@ class LL:
             self.head = node
         self.size += 1
 
-    def addAtIndex(self, index: int, val: int) -> None:
+    def addAtIndex(self, val, index: int) -> None:
         # Create a new node with val as the stored value and append it somewhere in the list based off of the index
         if index == 0:
             self.addAtHead(val)
@@ -107,11 +113,11 @@ class LL:
 
 
 # Prints out the whole list from the head where head is either a ListNode or None
-def printLL(head) -> str:
-    listStr = "(head) -> "
+def printLL(head, start="head", end="tail") -> str:
+    listStr = f"({start}) -> "
     cur = head
     while cur:
         listStr += f"{cur.val} -> "
         cur = cur.next
-    listStr += "(tail)"
+    listStr += f"({end})"
     return listStr
