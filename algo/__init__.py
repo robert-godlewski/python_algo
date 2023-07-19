@@ -6,6 +6,7 @@ from algo.tests.hashset_tester import hashsetAlgorithms
 from algo.tests.hashmap_tester import hashmapAlgorithms
 from algo.tests.queue_tester import queueAlgorithms
 from algo.tests.stack_tester import stackAlgorithms
+from algo.tests.binary_tree_tester import btAlgorithms
 
 
 # Actually running the tests
@@ -19,3 +20,4 @@ def run() -> None:
     hashmapAlgorithms()
     queueAlgorithms()
     stackAlgorithms()
+    btAlgorithms()

@@ -1,5 +1,5 @@
 # Binary Tree solutions in September and October 2022
-from binary_tree_node import TreeNode
+from algo.datastructures.binary_tree import TreeNode
 
 
 class Solution:
