@@ -1,4 +1,5 @@
 # Tools Needed for Linked Lists
+# For a Doubly Linked List
 class ListNode:
     def __init__(self, val=None, next=None, prev=None) -> None:
         self.val = val
@@ -6,16 +7,29 @@ class ListNode:
         self.prev = prev
 
 
-# For a linked lists
+# For a Doubly Linked Lists
 class LL:
-    def __init__(self) -> None:
-        self.head = None
-        self.tail = None
+    def __init__(self, head=None, tail=None) -> None:
+        self.head = head
+        self.tail = tail
         self.size = 0
+        if head and not tail:
+            self.tail = head
+            self.size += 1
+        if tail and not head:
+            self.head = tail
+            self.size += 1
 
-    def get(self, index: int) -> int:
-        if self.size == 0:
-            return 0
+    def isEmpty(self) -> bool:
+        if self.size > 0 and self.head and self.tail:
+            return False
+        else:
+            return True
+
+    def get(self, index: int):
+        # Returns the value of the node at the index position (int) of the linked list
+        if self.size == 0 or not self.head:
+            return None
         cur = self.head
         i = 0
         while cur and i <= index:
@@ -23,9 +37,10 @@ class LL:
                 return cur.val
             cur = cur.next
             i += 1
-        return 0
+        return None
 
-    def addAtHead(self, val: int) -> None:
+    def addAtHead(self, val) -> None:
+        # Creates a new node with val as the stored value and is set as the new head of the linked list
         node = ListNode(val)
         if self.head:
             node.next = self.head
@@ -35,7 +50,8 @@ class LL:
             self.tail = node
         self.size += 1
 
-    def addAtTail(self, val: int) -> None:
+    def addAtTail(self, val) -> None:
+        # Creates a new node with val as the stored value and set at the tail end of the linked list
         node = ListNode(val)
         if self.tail:
             self.tail.next = node
@@ -45,12 +61,14 @@ class LL:
             self.head = node
         self.size += 1
 
-    def addAtIndex(self, index: int, val: int) -> None:
+    def addAtIndex(self, val, index: int) -> None:
+        # Create a new node with val as the stored value and append it somewhere in the list based off of the index
         if index == 0:
             self.addAtHead(val)
         elif index == self.size:
             self.addAtTail(val)
         elif index < 0:
+            # This will not create a new node if the index is a negative int
             print("index needs to be more than 0")
         else:
             node = ListNode(val)
@@ -67,9 +85,10 @@ class LL:
             cur.prev = node
             self.size += 1
 
-    def deleteAtIndex(self, index: int) -> int:
+    def deleteAtIndex(self, index: int):
+        # Finds the node to remove based off of it's index position and return the value of the deleted node
         if self.size == 0 or index >= self.size:
-            return 0
+            return None
         # We want to delete cur
         cur = self.head
         prev = None
@@ -90,15 +109,15 @@ class LL:
                 self.tail = prev
             self.size -= 1
             return cur.val
-        return 0
+        return None
 
 
-# Prints out the whole list from the head
-def printLL(head) -> str:
-    listStr = "(head) -> "
+# Prints out the whole list from the head where head is either a ListNode or None
+def printLL(head, start="head", end="tail") -> str:
+    listStr = f"({start}) -> "
     cur = head
     while cur:
         listStr += f"{cur.val} -> "
         cur = cur.next
-    listStr += "(tail)"
+    listStr += f"({end})"
     return listStr
