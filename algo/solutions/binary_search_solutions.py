@@ -1,7 +1,4 @@
 # Binary Solutions solved in October 2022
-from binary_search_templates import BinarySearchTemps
-
-
 class Solution:
     # Solution in 15 min for both search solutions
     # O(n) time solution
