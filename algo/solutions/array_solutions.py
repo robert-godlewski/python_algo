@@ -11,5 +11,6 @@ class Solution:
             if arr[i] == 0:
                 arr.insert(i,0)
                 i += 1
+                arr.pop()
             i += 1
         return arr
