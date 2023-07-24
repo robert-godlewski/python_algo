@@ -3,7 +3,7 @@ All of these algorithms are my solutions to [LeetCode Problems](https://leetcode
 
 # How to run this on computer
 1. Copy repo via terminal
-2. run this command on mac: % python3 python_alog.py
+2. run this command on mac: % python3 python_algo.py
 
 # Algorithms covered:
 * Arrays

@@ -25,7 +25,7 @@ class LinkedStack(LL):
 
     def addAtIndex(self, val, index: int) -> None:
         print(f"Please use push function instead to add in {val}")
-        print(f"With Stacks only the top can be added intead of index {index}")
+        print(f"With Stacks only the top can be added instead of index {index}")
         pass
 
 

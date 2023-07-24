@@ -25,7 +25,7 @@ class LinkedQueue(LL):
 
     def addAtIndex(self, val, index: int) -> None:
         print(f"Please use enQueue function instead to add in {val}")
-        print(f"With Queues only the back can be added intead of index {index}")
+        print(f"With Queues only the back can be added instead of index {index}")
         pass
 
 
