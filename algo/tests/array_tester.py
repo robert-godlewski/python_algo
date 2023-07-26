@@ -12,12 +12,13 @@ def arrayAlgorthims() -> None:
 
     duplicateZerosTest([1,0,2,3,0,4,5,0])
     duplicateZerosTest([1,2,3])
-    # thinline()
+    thinline()
 
-    # mergeArrTest([1,2,3,0,0,0], 3, [2,5,6], 3)
-    # mergeArrTest([1], 1, [], 0)
-    # mergeArrTest([0], 0, [1], 1)
-    # mergeArrTest([4,5,6,0,0,0], 3, [1,2,3], 3)
+    mergeArrTest([1,2,3,0,0,0], 3, [2,5,6], 3)
+    mergeArrTest([1], 1, [], 0)
+    mergeArrTest([0], 0, [1], 1)
+    mergeArrTest([4,5,6,0,0,0], 3, [1,2,3], 3)
+    mergeArrTest([-1,0,0,3,3,3,0,0,0], 6, [1,2,2], 3)
     # thinline()
 
     # removeElementTest([3,2,2,3], 3)
