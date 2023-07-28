@@ -45,3 +45,19 @@ class Solution:
                 nums1.pop()
             i += 1
         return nums1
+
+    # Space solution = O(1)
+    # Time Solution = O(n)
+    # Solved in 5 min
+    def removeElement(self, nums: list[int], val: int) -> int:
+        i = 0
+        while i < len(nums):
+            if nums[i] == val:
+                nums.pop(i)
+                nums.append('_')
+            elif nums[i] == '_':
+                break
+            else:
+                i += 1
+        print(f"nums = {nums}")
+        return i

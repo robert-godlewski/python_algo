@@ -19,10 +19,10 @@ def arrayAlgorthims() -> None:
     mergeArrTest([0], 0, [1], 1)
     mergeArrTest([4,5,6,0,0,0], 3, [1,2,3], 3)
     mergeArrTest([-1,0,0,3,3,3,0,0,0], 6, [1,2,2], 3)
-    # thinline()
+    thinline()
 
-    # removeElementTest([3,2,2,3], 3)
-    # removeElementTest([0,1,2,2,3,0,4,2], 2)
+    removeElementTest([3,2,2,3], 3)
+    removeElementTest([0,1,2,2,3,0,4,2], 2)
     # thinline()
 
     # removeDuplicatesTest([1,1,2])
