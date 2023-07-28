@@ -23,10 +23,10 @@ def arrayAlgorthims() -> None:
 
     removeElementTest([3,2,2,3], 3)
     removeElementTest([0,1,2,2,3,0,4,2], 2)
-    # thinline()
+    thinline()
 
-    # removeDuplicatesTest([1,1,2])
-    # removeDuplicatesTest([0,0,1,1,1,2,2,3,3,4])
+    removeDuplicatesTest([1,1,2])
+    removeDuplicatesTest([0,0,1,1,1,2,2,3,3,4])
     # thinline()
 
     # pivotIndexTest([1,7,3,6,5,6])

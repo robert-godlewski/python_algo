@@ -61,3 +61,26 @@ class Solution:
                 i += 1
         print(f"nums = {nums}")
         return i
+
+    # Space solution = O(1)
+    # Time solution = O(n)
+    # Solved in 20 min
+    def removeDuplicates(self, nums: list[int]) -> int:
+        # the number of unique values
+        k = 0
+        i = 0
+        while i < len(nums):
+            if i == 0:
+                i += 1
+            elif i > 0 and nums[k] == nums[i]:
+                nums.pop(i)
+                #nums.append('_')
+            elif i > 0 and nums[k] != nums[i]: # and nums[i] != '_':
+                k += 1
+                i += 1
+            # elif nums[i] == '_': break
+        # increment because k was represented at an index value
+        if len(nums) > 0: 
+            k += 1
+        print(f"nums = {nums}")
+        return k
