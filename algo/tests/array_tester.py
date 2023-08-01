@@ -27,7 +27,13 @@ def arrayAlgorthims() -> None:
 
     removeDuplicatesTest([1,1,2])
     removeDuplicatesTest([0,0,1,1,1,2,2,3,3,4])
-    # thinline()
+    thinline()
+
+    mountArrTest([2,1])
+    mountArrTest([3,5,5])
+    mountArrTest([0,3,2,1])
+    mountArrTest([2])
+    mountArrTest([0,1,2,3])
 
     # pivotIndexTest([1,7,3,6,5,6])
     # pivotIndexTest([1,2,3])
@@ -110,6 +116,12 @@ def removeDuplicatesTest(arr: list[int]) -> None:
     print(f"Removing duplicates in {arr}")
     remain = solver.removeDuplicates(arr)
     print(f"Remaining values = {remain}")
+
+# Testing validMountainArray
+def mountArrTest(arr: list[int]) -> None:
+    print(f"List = {arr}")
+    answer = solver.validMountainArray(arr)
+    print(f"Is the list a mountain array? {answer}")
 
 # Testing pivotIndex
 def pivotIndexTest(nums: list[int]) -> None:

@@ -84,3 +84,31 @@ class Solution:
             k += 1
         print(f"nums = {nums}")
         return k
+
+    # Space solution = O(1)
+    # Best time solution = O(1)
+    # Average Time solution = O(n)
+    # Solved in 16 minutes
+    def validMountainArray(self, arr: list[int]) -> bool:
+        if len(arr) <= 1:
+            return False
+        is_going_up = True
+        is_going_down = False
+        i = 1
+        while i < len(arr):
+            if arr[i-1] == arr[i] and i-1 >= 0:
+                return False
+            elif is_going_up and arr[i-1] > arr[i] and i-1 == 0:
+                return False
+            elif is_going_down and arr[i-1] < arr[i] and i-1 >= 0:
+                return False
+            elif is_going_up and arr[i-1] > arr[i] and i-1 >= 0:
+                is_going_down = True
+                is_going_up = False
+                i += 1
+            else:
+                i += 1
+        if is_going_up and not is_going_down:
+            return False
+        else:
+            return True
