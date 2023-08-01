@@ -34,6 +34,15 @@ def arrayAlgorthims() -> None:
     mountArrTest([0,3,2,1])
     mountArrTest([2])
     mountArrTest([0,1,2,3])
+    thinline()
+
+    replaceETests([17,18,5,4,6,1])
+    replaceETests([400])
+    thinline()
+
+    moveZeroesTest([0,1,0,3,12])
+    moveZeroesTest([0])
+    thinline()
 
     # pivotIndexTest([1,7,3,6,5,6])
     # pivotIndexTest([1,2,3])
@@ -122,6 +131,18 @@ def mountArrTest(arr: list[int]) -> None:
     print(f"List = {arr}")
     answer = solver.validMountainArray(arr)
     print(f"Is the list a mountain array? {answer}")
+
+# Testing replaceElements
+def replaceETests(arr: list[int]) -> None:
+    print(f"Original array = {arr}")
+    answer = solver.replaceElements(arr)
+    print(f"Adjusted array = {answer}")
+
+# Testing moveZeroes
+def moveZeroesTest(nums: list[int]) -> None:
+    print(f"Original array = {nums}")
+    answer = solver.moveZeroes(nums)
+    print(f"Moved zeroes array = {answer}")
 
 # Testing pivotIndex
 def pivotIndexTest(nums: list[int]) -> None:

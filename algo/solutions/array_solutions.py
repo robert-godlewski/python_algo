@@ -112,3 +112,35 @@ class Solution:
             return False
         else:
             return True
+
+    # Space Solution = O(1)
+    # Time Solution = O(n)
+    # Solved in 8 min
+    def replaceElements(self, arr: list[int]) -> list[int]:
+        i = len(arr)-1
+        maxVal = -1
+        while i >= 0:
+            temp = arr[i]
+            arr[i] = maxVal
+            if temp > maxVal:
+                maxVal = temp
+            i -= 1
+        return arr
+    
+    # Do not return anything, modify nums in-place instead.
+    # Space Solution = O(1)
+    # Time Solution = O(n)
+    # Solved in 5 min
+    # def moveZeroes(self, nums: List[int]) -> None:
+    def moveZeroes(self, nums: list[int]) -> list[int]:
+        zeroIndex = len(nums)-1
+        i = 0
+        while i < zeroIndex:
+            if i != zeroIndex and nums[i] == 0:
+                nums.pop(i)
+                nums.append(0)
+                zeroIndex -= 1
+            else:
+                i += 1
+        # Don't return when submitting to leetcode
+        return nums
