@@ -44,6 +44,10 @@ def arrayAlgorthims() -> None:
     moveZeroesTest([0])
     thinline()
 
+    paritySortTest([3,1,2,4])
+    paritySortTest([0])
+    thinline()
+
     # pivotIndexTest([1,7,3,6,5,6])
     # pivotIndexTest([1,2,3])
     # pivotIndexTest([2,1,-1])
@@ -143,6 +147,12 @@ def moveZeroesTest(nums: list[int]) -> None:
     print(f"Original array = {nums}")
     answer = solver.moveZeroes(nums)
     print(f"Moved zeroes array = {answer}")
+
+# Testing sortArrayByParity
+def paritySortTest(nums: list[int]) -> None:
+    print(f"Original array = {nums}")
+    answer = solver.sortArrayByParity(nums)
+    print(f"Parity array = {answer}")
 
 # Testing pivotIndex
 def pivotIndexTest(nums: list[int]) -> None:

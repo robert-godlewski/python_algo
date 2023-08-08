@@ -144,3 +144,19 @@ class Solution:
                 i += 1
         # Don't return when submitting to leetcode
         return nums
+
+    # Return array with even numbers in front and odd in the back
+    # Space Solution = O(1)
+    # Time Solution = O(n)
+    # Solved in 10 min
+    def sortArrayByParity(self, nums: list[int]) -> list[int]:
+        i = 0
+        end = len(nums)-1
+        while i < end:
+            if nums[i] % 2 != 0:
+                temp = nums.pop(i)
+                nums.append(temp)
+                end -= 1
+            else:
+                i += 1
+        return nums
