@@ -160,3 +160,22 @@ class Solution:
             else:
                 i += 1
         return nums
+
+    # Space solution
+    # Time solution
+    # Can't figure this out, Leetcode is too ambiguous
+    def heightChecker(self, heights: list[int]) -> int:
+        missmatchCount = 0
+        expected = [heights[0]]
+        i = 1
+        while i < len(heights):
+            expected.append(heights[i])
+            # print(f"Heights = {heights}")
+            # print(f"Expected = {expected}")
+            # print(i)
+            if heights[i-1] > heights[i]:
+                missmatchCount += 1
+                if i-1 >= 0:
+                    expected[i-1] = heights[i]-1
+            i += 1
+        return missmatchCount

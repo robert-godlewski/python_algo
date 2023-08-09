@@ -48,6 +48,11 @@ def arrayAlgorthims() -> None:
     paritySortTest([0])
     thinline()
 
+    heightCheckerTest([1,1,4,2,1,3])
+    heightCheckerTest([5,1,2,3,4])
+    heightCheckerTest([1,2,3,4,5])
+    thinline()
+
     # pivotIndexTest([1,7,3,6,5,6])
     # pivotIndexTest([1,2,3])
     # pivotIndexTest([2,1,-1])
@@ -153,6 +158,15 @@ def paritySortTest(nums: list[int]) -> None:
     print(f"Original array = {nums}")
     answer = solver.sortArrayByParity(nums)
     print(f"Parity array = {answer}")
+
+# Testing heightChecker
+def heightCheckerTest(heights: list[int]) -> None:
+    print(f"Original array = {heights}")
+    answer = solver.heightChecker(heights)
+    if answer == 0:
+        print("All height indices match with what's expected")
+    else:
+        print(f"There are {answer} indices where the indices do not match for what's expected")
 
 # Testing pivotIndex
 def pivotIndexTest(nums: list[int]) -> None:
