@@ -53,10 +53,10 @@ def arrayAlgorthims() -> None:
     heightCheckerTest([1,2,3,4,5])
     thinline()
 
-    # pivotIndexTest([1,7,3,6,5,6])
-    # pivotIndexTest([1,2,3])
-    # pivotIndexTest([2,1,-1])
-    # thinline()
+    pivotIndexTest([1,7,3,6,5,6])
+    pivotIndexTest([1,2,3])
+    pivotIndexTest([2,1,-1])
+    thinline()
 
     # dominantIndexTest([3,6,1,0])
     # dominantIndexTest([1,2,3,4])

@@ -179,3 +179,28 @@ class Solution:
                     expected[i-1] = heights[i]-1
             i += 1
         return missmatchCount
+
+    # Space solution = O(1)
+    # Time Solution = O(n**2)
+    # Solved in 1 hr - need to work on quickening up the pace for this
+    def pivotIndex(self, nums: list[int]) -> int:
+        i = 0
+        left_sum = 0
+        right_sum = 0
+        while i < len(nums):
+            if len(nums) > 10**4:
+                break
+            if i == 0:
+                # need to actually build out the right_sum initially
+                j = 1
+                while j < len(nums):
+                    right_sum += nums[j]
+                    j += 1
+            else:
+                # Update the sum values based off of new pivot
+                right_sum -= nums[i]
+                left_sum += nums[i-1]
+            if left_sum == right_sum:
+                return i
+            i += 1
+        return -1
