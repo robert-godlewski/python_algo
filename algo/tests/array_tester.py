@@ -58,9 +58,10 @@ def arrayAlgorthims() -> None:
     pivotIndexTest([2,1,-1])
     thinline()
 
-    # dominantIndexTest([3,6,1,0])
-    # dominantIndexTest([1,2,3,4])
-    # thinline()
+    dominantIndexTest([3,6,1,0])
+    dominantIndexTest([1,2,3,4])
+    dominantIndexTest([1,0])
+    thinline()
 
     # plusOneTest([1,2,3])
     # plusOneTest([4,3,2,1])

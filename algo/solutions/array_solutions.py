@@ -204,3 +204,30 @@ class Solution:
                 return i
             i += 1
         return -1
+
+    # Space solution = O(1)
+    # Best Time solution = O(1)
+    # Time solution = O(n)
+    # Solved in 30 min
+    def dominantIndex(self, nums: list[int]) -> int:
+        maxIndex = 0
+        secMaxIndex = 0
+        if len(nums) < 2:
+            return -1
+        elif len(nums) >= 2:
+            if nums[0] < nums[1]:
+                maxIndex = 1
+            elif nums[0] > nums[1]:
+                secMaxIndex = 1
+        i = 2
+        while i < len(nums):
+            if nums[i] > nums[maxIndex]:
+                secMaxIndex = maxIndex
+                maxIndex = i
+            elif nums[i] < nums[maxIndex] and nums[i] > nums[secMaxIndex]:
+                secMaxIndex = i
+            i += 1
+        if nums[secMaxIndex] * 2 <= nums[maxIndex]:
+            return maxIndex
+        else:
+            return -1
