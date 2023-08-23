@@ -231,3 +231,20 @@ class Solution:
             return maxIndex
         else:
             return -1
+
+    # Space solution = O(1)
+    # Time solution = O(1)
+    # Worst Time solution = O(n)
+    # Solved in 15 min
+    def plusOne(self, digits: list[int]) -> list[int]:
+        i = len(digits)-1
+        while i >= 0:
+            if digits[i]+1 > 9:
+                digits[i] = 0
+                if i == 0:
+                    digits.insert(0, 1)
+                i -= 1
+            else:
+                digits[i] += 1
+                break
+        return digits

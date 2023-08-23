@@ -63,10 +63,10 @@ def arrayAlgorthims() -> None:
     dominantIndexTest([1,0])
     thinline()
 
-    # plusOneTest([1,2,3])
-    # plusOneTest([4,3,2,1])
-    # plusOneTest([9])
-    # thinline()
+    plusOneTest([1,2,3])
+    plusOneTest([4,3,2,1])
+    plusOneTest([9])
+    thinline()
 
     # findDiagonalOrderTest([[1,2,3],[4,5,6],[7,8,9]])
     # findDiagonalOrderTest[[1,2],[3,4]]
