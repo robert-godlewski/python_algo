@@ -248,3 +248,29 @@ class Solution:
                 digits[i] += 1
                 break
         return digits
+
+    # Space solution
+    # Time solution
+    # Bad solution
+    def findDiagonalOrder(self, mat: list[list[int]]) -> list[int]:
+        m = 0
+        n = 0
+        ans = []
+        # while m < len(mat) and n < len(mat[0]):
+        #     print(f"m = {m}")
+        #     print(f"n = {n}")
+        #     print(f"matrix value = {mat[m][n]}")
+        #     ans.append(mat[m][n])
+        #     if m+1 == len(mat) and n+1 == len(mat):
+        #         break
+        #     if mat[m][n]%2 == 0:
+        #         # going left and down
+        #         m += 1
+        #         if n > 0:
+        #             n -= 1
+        #     else:
+        #         # going right and up
+        #         if m > 0:
+        #             m -= 1
+        #         n += 1
+        return ans

@@ -68,9 +68,9 @@ def arrayAlgorthims() -> None:
     plusOneTest([9])
     thinline()
 
-    # findDiagonalOrderTest([[1,2,3],[4,5,6],[7,8,9]])
-    # findDiagonalOrderTest[[1,2],[3,4]]
-    # thinline()
+    findDiagonalOrderTest([[1,2,3],[4,5,6],[7,8,9]])
+    findDiagonalOrderTest([[1,2],[3,4]])
+    thinline()
 
     # spiralOrderTest([[1,2,3],[4,5,6],[7,8,9]])
     # spiralOrderTest([[1,2,3,4],[5,6,7,8],[9,10,11,12]])
@@ -187,11 +187,11 @@ def plusOneTest(nums: list[int]) -> None:
     answer = solver.plusOne(nums)
     print(f"Updated List = {answer}")
 
-# Testing findDiagonalOrder - Doesn't work
-# def findDiagonalOrderTest(matrix: list[list[int]]) -> None:
-#     print(f"Matrix = {matrix}")
-#     answer = solver.findDiagonalOrder(matrix)
-#     print(f"Order = {answer}")
+# Testing findDiagonalOrder
+def findDiagonalOrderTest(matrix: list[list[int]]) -> None:
+    print(f"Matrix = {matrix}")
+    answer = solver.findDiagonalOrder(matrix)
+    print(f"Order = {answer}")
 
 # Testing spiralOrder
 def spiralOrderTest(matrix: list[list[int]]) -> None:
