@@ -72,10 +72,10 @@ def arrayAlgorthims() -> None:
     findDiagonalOrderTest([[1,2],[3,4]])
     thinline()
 
-    # spiralOrderTest([[1,2,3],[4,5,6],[7,8,9]])
-    # spiralOrderTest([[1,2,3,4],[5,6,7,8],[9,10,11,12]])
-    # spiralOrderTest([[3],[2]])
-    # thinline()
+    spiralOrderTest([[1,2,3],[4,5,6],[7,8,9]])
+    spiralOrderTest([[1,2,3,4],[5,6,7,8],[9,10,11,12]])
+    spiralOrderTest([[3],[2]])
+    thinline()
 
     # generatePascalTest(5)
     # generatePascalTest(1)

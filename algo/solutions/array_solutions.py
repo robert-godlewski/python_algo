@@ -274,3 +274,53 @@ class Solution:
         #             m -= 1
         #         n += 1
         return ans
+
+    # Space Solution = O(n)
+    # Best time solution = O(1)
+    # Time Solution = O(mn)
+    # could not figure out within 1 hr - need to practice
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
+        if not matrix or not matrix[0]:
+            return []
+        m = len(matrix)
+        n = len(matrix[0])
+        ans = []
+        row = 0
+        col = 0
+        # Use as a stopper when we have already added in a group of numbers
+        bound = 0
+        # Moving within the matrix subarray
+        moving_in_row = True
+        # Incrementing the index
+        moving_positive = True
+        i = 0
+        while i < m*n:
+            # print(f"matrix[{row}][{col}] = {matrix[row][col]}")
+            # print(f"Moving in row? {moving_in_row}")
+            # print(f"Moving in a positive direction? {moving_positive}")
+            ans.append(matrix[row][col])
+            if n == 1:
+                # We just increment the rows because the length of each row list is 1
+                row += 1
+            else:
+                if moving_in_row and moving_positive:
+                    col += 1
+                    if col == n-1-bound:
+                        moving_in_row = False
+                elif moving_positive and row+1 < m:
+                    row += 1
+                    if row == m-1-bound:
+                        moving_in_row = True
+                        moving_positive = False
+                elif moving_in_row:
+                    col -= 1
+                    if col == bound:
+                        moving_in_row = False
+                elif not moving_in_row and not moving_positive and row >= 0:
+                    row -= 1
+                    if row == bound+1:
+                        bound += 1
+                        moving_in_row = True
+                        moving_positive = True
+            i += 1
+        return ans
