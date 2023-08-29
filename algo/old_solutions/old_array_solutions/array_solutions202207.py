@@ -312,6 +312,7 @@ class Solution:
             i += 1
         return nums
 
+    # Bad Solution
     # Based off of Pascal's triangle
     # numRows = the number of rows in the array
     # numRows is an int

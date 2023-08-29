@@ -77,9 +77,9 @@ def arrayAlgorthims() -> None:
     spiralOrderTest([[3],[2]])
     thinline()
 
-    # generatePascalTest(5)
-    # generatePascalTest(1)
-    # thinline()
+    generatePascalTest(5)
+    generatePascalTest(1)
+    thinline()
 
     # binarySumTest("11", "1")
     # binarySumTest("1010", "1011")

@@ -324,3 +324,31 @@ class Solution:
                         moving_positive = True
             i += 1
         return ans
+
+    # Space Solution = O(n**2)
+    # Best time solution = O(1)
+    # Time Solution = O(n**2)
+    # Solved in 1 hr - Need to practice because we needed to check things
+    def generate(self, numRows: int) -> list[list[int]]:
+        if numRows < 1 or numRows > 30:
+            return []
+        else:
+            # Creating a nested empty array
+            pascal = [[] for _ in range(numRows)]
+            i = 0
+            while i < len(pascal):
+                if i == 0:
+                    pascal[i].append(1)
+                else:
+                    j = 0
+                    while j <= i:
+                        if j == 0 or j == 1:
+                            pascal[i].append(1)
+                        else:
+                            # look at the last list and the 2 before
+                            temp = pascal[i-1][j-2] + pascal[i-1][j-1]
+                            # insert it just before the current ending
+                            pascal[i].insert(j-1, temp)
+                        j += 1
+                i += 1
+            return pascal
