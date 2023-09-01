@@ -81,9 +81,9 @@ def arrayAlgorthims() -> None:
     generatePascalTest(1)
     thinline()
 
-    # binarySumTest("11", "1")
-    # binarySumTest("1010", "1011")
-    # thinline()
+    binarySumTest("11", "1")
+    binarySumTest("1010", "1011")
+    thinline()
 
     # findStrTest("hello", "ll")
     # findStrTest("aaaaa", "bba")

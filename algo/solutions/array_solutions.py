@@ -352,3 +352,50 @@ class Solution:
                         j += 1
                 i += 1
             return pascal
+
+    # Space Solution = O(n)
+    # Best Time Solution = O(1)
+    # Time Solution = O(n)
+    # Solved in 45 min
+    def addBinary(self, a: str, b: str) -> str:
+        if len(a) < 1 or len(a) > 10**4 or len(b) < 1 or len(b) > 10**4:
+            return "0"
+        # Making it so that the lengths of the 2 binary numbers are equal length
+        a_arr = list(a)
+        b_arr = list(b)
+        if len(a_arr) < len(b_arr):
+            i = len(a_arr)
+            while i < len(b):
+                a_arr.insert(0,"0")
+                i += 1
+        elif len(a_arr) > len(b_arr):
+            i = len(b_arr)
+            while i < len(a):
+                b_arr.insert(0,"0")
+                i += 1
+        # Creating the sum result in ans and keeping track if there is any carry over 1s
+        ans = ""
+        carry_over = False
+        i = len(a_arr)-1
+        while i >= 0:
+            if carry_over:
+                if a_arr[i] == "0" and b_arr[i] == "0":
+                    ans = "1"+ans
+                    carry_over = False
+                elif a_arr[i] == "1" and b_arr[i] == "1":
+                    ans = "1"+ans
+                else:
+                    ans = "0"+ans
+            else:
+                if a_arr[i] == "0" and b_arr[i] == "0":
+                    ans = "0"+ans
+                elif a_arr[i] == "1" and b_arr[i] == "1":
+                    ans = "0"+ans
+                    carry_over = True
+                else:
+                    ans = "1"+ans
+            i -= 1
+        # Adding in the 1 infront if there is still a carry over 1 afer summing both binary numbers
+        if carry_over:
+            ans = "1"+ans
+        return ans
