@@ -399,3 +399,42 @@ class Solution:
         if carry_over:
             ans = "1"+ans
         return ans
+
+    # Space Solution = O(n)
+    # Time Solution = O(nlogn)
+    # Solved in 30 min - need to practice
+    def strStr(self, haystack: str, needle: str) -> int:
+        if needle == haystack:
+            return 0
+        # Convert str aguments to arrays
+        n_arr = list(needle)
+        h_arr = list(haystack)
+        if len(n_arr) < len(h_arr): 
+            start = 0
+            # look through h_arr
+            i = 0
+            # look through n_arr
+            j = 0
+            looking_both = False
+            while i < len(h_arr):
+                if looking_both:
+                    if h_arr[i] == n_arr[j]:
+                        if j == len(n_arr)-1:
+                            # found the first occurance
+                            return start
+                        else:
+                            # Continue to find needle in haystack
+                            j += 1
+                    else:
+                        # Have not found it, need to exit and look again
+                        looking_both = False
+                        j = 0
+                        i = start
+                else:
+                    if h_arr[i] == n_arr[j]:
+                        # Start looking through both h_arr and n_arr
+                        looking_both = True
+                        start = i
+                        i -= 1
+                i += 1
+        return -1
