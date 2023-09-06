@@ -95,9 +95,10 @@ def arrayAlgorthims() -> None:
     findStrTest("mississippi", "pi")
     thinline()
 
-    # longestCommonPrefixTest(["flower","flow","flight"])
-    # longestCommonPrefixTest(["dog","racecar","car"])
-    # thinline()
+    longestCommonPrefixTest(["flower","flow","flight"])
+    longestCommonPrefixTest(["dog","racecar","car"])
+    longestCommonPrefixTest(["cir","car"])
+    thinline()
 
     # reverseStringTest(['h','e','l','l','o'])
     # reverseStringTest(['H','a','n','n','a','h'])

@@ -438,3 +438,30 @@ class Solution:
                         i -= 1
                 i += 1
         return -1
+
+    # Space Solution = O(1)
+    # Best Time Solution = O(1)
+    # Time Solution = O(nlogn)
+    # Solved in 25 min
+    def longestCommonPrefix(self, strs: list[str]) -> str:
+        if len(strs) < 1:
+            return ""
+        ans = ""
+        c = 0
+        while c < len(strs[0]):
+            common_letter = ""
+            w = 0
+            while w < len(strs):
+                if w == 0:
+                    common_letter += strs[w][c]
+                elif c >= len(strs[w]) or strs[w][c] != common_letter:
+                    common_letter = ""
+                    w = 0
+                    break
+                w += 1
+            if common_letter != "":
+                ans += common_letter
+            else:
+                break
+            c += 1
+        return ans
