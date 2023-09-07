@@ -100,9 +100,9 @@ def arrayAlgorthims() -> None:
     longestCommonPrefixTest(["cir","car"])
     thinline()
 
-    # reverseStringTest(['h','e','l','l','o'])
-    # reverseStringTest(['H','a','n','n','a','h'])
-    # thinline()
+    reverseStringTest(['h','e','l','l','o'])
+    reverseStringTest(['H','a','n','n','a','h'])
+    thinline()
 
     # arrayPairSumTest([1,4,3,2])
     # arrayPairSumTest([6,2,6,5,1,2])

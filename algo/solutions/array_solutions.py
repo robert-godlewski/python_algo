@@ -465,3 +465,17 @@ class Solution:
                 break
             c += 1
         return ans
+
+    # Space Solution = O(1)
+    # Time Solution = O(n)
+    # Solved in 6min
+    #def reverseString(self, s: list[str]) -> None:
+    def reverseString(self, s: list[str]) -> list[str]:
+        length = len(s)//2
+        i = 0
+        while i < length:
+            temp = s[len(s)-1-i]
+            s[len(s)-1-i] = s[i]
+            s[i] = temp
+            i += 1
+        return s
