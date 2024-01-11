@@ -17,41 +17,41 @@ def run() -> None:
     prompt = None
     while running_algos and not prompt:
         print("Pick one of these numbers to run a group of tests:")
-        print("1 = Challenge Problems")
-        print("2 = Array Problems")
-        print("3 = Recursion 1 Problems")
-        print("4 = Linked List Problems")
-        print("5 = Hash Set Problems")
-        print("6 = Hash Map Problems")
-        print("7 = Queue Problems")
-        print("8 = Stack Problems")
-        print("9 = Binary Tree Problems")
-        print("10 = Binary Search Problems")
+        # A list of tests Robert has solved in leetcode
+        prompt_list = ["Challenge Problems","Array Problems","Recursion 1 Problems","Linked List Problems","Hash Set Problems","Hash Map Problems","Queue Problems","Stack Problems","Binary Tree Problems","Binary Search Problems",]
+        i = 0
+        while i < len(prompt_list):
+            print(f"{i+1} = {prompt_list[i]}")
+            i += 1
         prompt = input("Choose one of the numbers above: ")
-        if int(prompt) == 1:
-            challengeAlgorithms()
-        elif int(prompt) == 2:
-            arrayAlgorthims()
-        elif int(prompt) == 3:
-            recursion1Algorithms()
-        elif int(prompt) == 4:
-            linkedlistAlgorithms()
-        elif int(prompt) == 5:
-            hashsetAlgorithms()
-        elif int(prompt) == 6:
-            hashmapAlgorithms()
-        elif int(prompt) == 7:
-            queueAlgorithms()
-        elif int(prompt) == 8:
-            stackAlgorithms()
-        elif int(prompt) == 9:
-            btAlgorithms()
-        elif int(prompt) == 10:
-            bsAlgorithms()
-        else:
-            print("Not an option please choose one of the given numbers")
-        prompt = None
-        prompt2 = input("Do you want to go again (y/n)? ")
-        if prompt2 == "n":
-            print("Good By")
-            running_algos = False
+        try:
+            prompt_int = int(prompt)
+            if prompt_int == 1:
+                challengeAlgorithms()
+            elif prompt_int == 2:
+                arrayAlgorthims()
+            elif prompt_int == 3:
+                recursion1Algorithms()
+            elif prompt_int == 4:
+                linkedlistAlgorithms()
+            elif prompt_int == 5:
+                hashsetAlgorithms()
+            elif prompt_int == 6:
+                hashmapAlgorithms()
+            elif prompt_int == 7:
+                queueAlgorithms()
+            elif prompt_int == 8:
+                stackAlgorithms()
+            elif prompt_int == 9:
+                btAlgorithms()
+            elif prompt_int == 10:
+                bsAlgorithms()
+        except ValueError:
+            print(f"'{prompt}' is not a number please try again.")
+            prompt = None
+        if prompt:
+            prompt2 = input("Do you want to go again (y/n)? ")
+            if prompt2 == "n":
+                print("Good By")
+                running_algos = False
+            prompt = None
