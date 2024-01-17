@@ -23,6 +23,7 @@ All of these algorithms are my solutions to [LeetCode Problems](https://leetcode
 * Recursion
 * Binary Math
 * Binary Search
+* Bubble Sort
 
 # Need to do:
 Data structures:
@@ -30,7 +31,6 @@ Data structures:
 * Tries
 
 Sorting Algorithms
-* Bubble Sort
 * Selection Sort
 * Insertion Sort
 * Merge Sort

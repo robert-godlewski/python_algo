@@ -8,6 +8,8 @@ from algo.tests.queue_tester import queueAlgorithms
 from algo.tests.stack_tester import stackAlgorithms
 from algo.tests.binary_tree_tester import btAlgorithms
 from algo.tests.binary_search_tester import bsAlgorithms
+# temporarily keep
+from algo.datastructures.sorting_templates import bubbleTest, selectionTest
 
 
 # Actually running the tests
@@ -18,7 +20,19 @@ def run() -> None:
     while running_algos and not prompt:
         print("Pick one of these numbers to run a group of tests:")
         # A list of tests Robert has solved in leetcode
-        prompt_list = ["Challenge Problems","Array Problems","Recursion 1 Problems","Linked List Problems","Hash Set Problems","Hash Map Problems","Queue Problems","Stack Problems","Binary Tree Problems","Binary Search Problems",]
+        prompt_list = [
+            "Challenge Problems",
+            "Array Problems",
+            "Recursion 1 Problems",
+            "Linked List Problems",
+            "Hash Set Problems",
+            "Hash Map Problems",
+            "Queue Problems",
+            "Stack Problems",
+            "Binary Tree Problems",
+            "Binary Search Problems",
+            "Test Sort Algorithm"
+        ]
         i = 0
         while i < len(prompt_list):
             print(f"{i+1} = {prompt_list[i]}")
@@ -26,7 +40,10 @@ def run() -> None:
         prompt = input("Choose one of the numbers above: ")
         try:
             prompt_int = int(prompt)
-            if prompt_int == 1:
+            if prompt_int <= 0:
+                print(f"'{prompt}' has to be a positive number, please try again.")
+                prompt = None
+            elif prompt_int == 1:
                 challengeAlgorithms()
             elif prompt_int == 2:
                 arrayAlgorthims()
@@ -46,8 +63,14 @@ def run() -> None:
                 btAlgorithms()
             elif prompt_int == 10:
                 bsAlgorithms()
+            elif prompt_int == 11:
+                bubbleTest()
+                selectionTest()
+            else:
+                print(f"'{prompt}' has to be a smaller number, please try again.")
+                prompt = None
         except ValueError:
-            print(f"'{prompt}' is not a number please try again.")
+            print(f"'{prompt}' is not a number, please try again.")
             prompt = None
         if prompt:
             prompt2 = input("Do you want to go again (y/n)? ")
