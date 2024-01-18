@@ -9,7 +9,7 @@ from algo.tests.stack_tester import stackAlgorithms
 from algo.tests.binary_tree_tester import btAlgorithms
 from algo.tests.binary_search_tester import bsAlgorithms
 # temporarily keep
-from algo.datastructures.sorting_templates import bubbleTest, selectionTest
+from algo.datastructures.sorting_templates import *
 
 
 # Actually running the tests
@@ -65,6 +65,7 @@ def run() -> None:
                 bsAlgorithms()
             elif prompt_int == 11:
                 bubbleTest()
+                insertionTest()
                 selectionTest()
             else:
                 print(f"'{prompt}' has to be a smaller number, please try again.")

@@ -1,53 +1,56 @@
 # Basic swapping function to switch and sort the arrays
+# Both Space and Time Complexity of O(1)
 def swapInts(nums: list[int], a: int, b: int) -> list[int]:
     temp = nums[a]
     nums[a] = nums[b]
     nums[b] = temp
     return nums
 
-# Basic Bubble Sorting Algorithm 
-# where it goes through an array and swaps 2 elements in the array
-# if it passes the condition.
-# Space Complexity = O(1) because we are just resorting the same array
-# Time Complexity = O(n**2) because we are making multiple passes
+
+# Quick Sorting Algorithm:
+
+# Merge Sorting Algorithm:
+
+# Time Sorting Algorithm:
+
+# Heap Sorting Algorithm:
+
+
+# Bubble Sorting Algorithm:
+# The algorithm goes through an array and swaps 2 elements next to each other
+# in the array ranking them minimum to maximum value.
+# Space Complexity = O(1) 
+# because the algortithm is only using constants to resort the array,
+# not complex data structures.
+# Time Complexity = O(n**2) 
+# because we are making multiple passes of the same array with a nested loop.
 def bubbleSortBasic(nums: list[int]) -> list[int]:
-    k = 1
-    while k < len(nums):
-        i = 0
-        while i < len(nums)-k:
+    for k in range(len(nums)-1):
+        for i in range(len(nums)-1-k):
             if nums[i] > nums[i+1]:
-                # temp = nums[i]
-                # nums[i] = nums[i+1]
-                # nums[i+1] = temp
                 nums = swapInts(nums, i, i+1)
-            i += 1
-        k += 1
     return nums
 
-# A slighly quicker Bubble Sorting Algorithm
-# Using flag to see if everything is already sorted 1 time 
-# because we don't need to look further before k goes to the end
-# Space Complexity = O(1) because we are just resorting the array
-# Time Complexity = O(n**2) because we are still making multiple passes
+# Bubble Sorting Algorithm (slightly quicker version)
+# Space Complexity = O(1) for the same reasons prior
+# Best Time Complexity = O(n) 
+# because if we implement a flag at 0 as an indicator will cut down in time,
+# 0 means that eveything has been checked and sorted.
+# Average Time Complexity = O(n**2) 
+# because we are still making multiple passes and 
+# if flag > 0 then we still need to repeat the loop to sort everything
 def bubbleSort(nums: list[int]) -> list[int]:
-    k = 1
-    while k < len(nums):
-        i = 0
+    for k in range(len(nums)-1):
         flag = 0
-        while i < len(nums)-k:
+        for i in range(len(nums)-1-k):
             if nums[i] > nums[i+1]:
-                # temp = nums[i]
-                # nums[i] = nums[i+1]
-                # nums[i+1] = temp
                 nums = swapInts(nums, i, i+1)
                 flag += 1
-            i += 1
         if flag == 0:
             break
-        k += 1
     return nums
 
-# Testing out bubble sorting functions
+# Testing out bubble sorting algorithm
 def bubbleTest() -> None:
     bubble = [4,1,3,2]
     print(f'Old array: {bubble}')
@@ -55,13 +58,43 @@ def bubbleTest() -> None:
     print(f'Bubble Sorted array: {bubble}')
 
 
-# Selection Sorting Algorithm
-# where it goes through an array and swaps the minimum value with the first index of the array it's working on.
-# Space Complexity = O(1) because we are just resorting the array
-# Time Complexity = O(n**2) because we are making multiple passes to go through each index of the array
+# Insertion Sorting Algorithm:
+# The algorithm goes through an array and swaps 2 elements ranking them minimum to maximum value.
+# Space Complexity = O(1)
+# because the algortithm is only using constants to resort the array,
+# not complex data structures.
+# Average Time Complexity = O(n^2)
+# because we are making multiple passes of the same array with a nested loop.
+# Best Time Complexity = O(n)
+# because if there's barely any sorting necessary the algorithm would've only gone through the array once.
+def insertSort(nums: list[int]) -> list[int]:
+    i = 1
+    while i < len(nums):
+        j = i
+        while j > 0 and nums[j-1] > nums[j]:
+            nums = swapInts(nums, j, j-1)
+            j -= 1
+        i += 1
+    return nums
+
+# Testing out insertion sorting algorithm
+def insertionTest() -> None:
+    insert = [4,1,3,2]
+    print(f'Old array: {insert}')
+    insert = insertSort(insert)
+    print(f'Insert Sorted array: {insert}')
+
+
+# Selection Sorting Algorithm:
+# The algorithm goes through an array and swaps 2 elements;
+# the minimum value with the starting index of the loop currently working on.
+# Space Complexity = O(1) 
+# because the algortithm is only using constants to resort the array,
+# not complex data structures.
+# Time Complexity = O(n**2) 
+# because we are making multiple passes of the same array with a nested loop.
 def selectionSort(nums: list[int]) -> list[int]:
-    j = 0
-    while j < len(nums):
+    for j in range(len(nums)-1):
         iMin = j
         i = j+1
         while i < len(nums):
@@ -69,16 +102,25 @@ def selectionSort(nums: list[int]) -> list[int]:
                 iMin = i
             i += 1
         if iMin != j:
-            # temp = nums[iMin]
-            # nums[iMin] = nums[j]
-            # nums[j] = temp
             nums = swapInts(nums, j, iMin)
-        j += 1
     return nums
 
-# Testing out selection sorting functions
+# Testing out selection sorting algorithm
 def selectionTest() -> None:
     select = [4,1,3,2]
     print(f'Old array: {select}')
     select = selectionSort(select)
     print(f'Selection Sorted array: {select}')
+
+
+# Tree Sorting Algorithm:
+
+# Shell Sorting Algorithm:
+
+# Bucket Sorting Algorithm:
+
+# Radix Sorting Algorithm:
+
+# Counting Sorting Algorithm:
+
+# Cube Sorting Algorithm:

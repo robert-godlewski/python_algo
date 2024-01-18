@@ -24,6 +24,8 @@ All of these algorithms are my solutions to [LeetCode Problems](https://leetcode
 * Binary Math
 * Binary Search
 * Bubble Sort
+* Insertion Sort
+* Selection Sort
 
 # Need to do:
 Data structures:
@@ -31,8 +33,6 @@ Data structures:
 * Tries
 
 Sorting Algorithms
-* Selection Sort
-* Insertion Sort
 * Merge Sort
 * Quick Sort
 * Heap Sort
