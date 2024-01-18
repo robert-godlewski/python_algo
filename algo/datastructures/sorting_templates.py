@@ -1,3 +1,5 @@
+# Sorting algorithms are organized by easiest to hardest to learn
+
 # Basic swapping function to switch and sort the arrays
 # Both Space and Time Complexity of O(1)
 def swapInts(nums: list[int], a: int, b: int) -> list[int]:
@@ -6,14 +8,10 @@ def swapInts(nums: list[int], a: int, b: int) -> list[int]:
     nums[b] = temp
     return nums
 
-
-# Quick Sorting Algorithm:
-
-# Merge Sorting Algorithm:
-
-# Time Sorting Algorithm:
-
-# Heap Sorting Algorithm:
+# Basic viewing to test out the sorting algorithms
+def sortTestPrint(arr: list[int], new_arr: list[int]) -> None:
+    print(f'Old array: {arr}')
+    print(f'Sorted array: {new_arr}')
 
 
 # Bubble Sorting Algorithm:
@@ -53,36 +51,10 @@ def bubbleSort(nums: list[int]) -> list[int]:
 # Testing out bubble sorting algorithm
 def bubbleTest() -> None:
     bubble = [4,1,3,2]
-    print(f'Old array: {bubble}')
+    old_bubble = bubble[:]
     bubble = bubbleSort(bubble)
-    print(f'Bubble Sorted array: {bubble}')
-
-
-# Insertion Sorting Algorithm:
-# The algorithm goes through an array and swaps 2 elements ranking them minimum to maximum value.
-# Space Complexity = O(1)
-# because the algortithm is only using constants to resort the array,
-# not complex data structures.
-# Average Time Complexity = O(n^2)
-# because we are making multiple passes of the same array with a nested loop.
-# Best Time Complexity = O(n)
-# because if there's barely any sorting necessary the algorithm would've only gone through the array once.
-def insertSort(nums: list[int]) -> list[int]:
-    i = 1
-    while i < len(nums):
-        j = i
-        while j > 0 and nums[j-1] > nums[j]:
-            nums = swapInts(nums, j, j-1)
-            j -= 1
-        i += 1
-    return nums
-
-# Testing out insertion sorting algorithm
-def insertionTest() -> None:
-    insert = [4,1,3,2]
-    print(f'Old array: {insert}')
-    insert = insertSort(insert)
-    print(f'Insert Sorted array: {insert}')
+    print('Bubble Sort:')
+    sortTestPrint(old_bubble,bubble)
 
 
 # Selection Sorting Algorithm:
@@ -108,19 +80,107 @@ def selectionSort(nums: list[int]) -> list[int]:
 # Testing out selection sorting algorithm
 def selectionTest() -> None:
     select = [4,1,3,2]
-    print(f'Old array: {select}')
+    old_select = select[:]
     select = selectionSort(select)
-    print(f'Selection Sorted array: {select}')
+    print('Selection Sort:')
+    sortTestPrint(old_select,select)
 
 
-# Tree Sorting Algorithm:
+# Insertion Sorting Algorithm:
+# The algorithm goes through an array and develops 2 sections while processing;
+# the sorted section at the start of the array and compares items in the 
+# unsorted section inserting unsorted items in the proper position.
+# Space Complexity = O(1)
+# because the algortithm is only using constants to resort the array,
+# not complex data structures.
+# Average Time Complexity = O(n^2)
+# because we are making multiple passes of the same array with a nested loop.
+# Best Time Complexity = O(n)
+# because if there's barely any sorting necessary the algorithm would've only gone through the array once.
+def insertSort(nums: list[int]) -> list[int]:
+    i = 1
+    while i < len(nums):
+        j = i
+        while j > 0 and nums[j-1] > nums[j]:
+            nums = swapInts(nums, j, j-1)
+            j -= 1
+        i += 1
+    return nums
 
-# Shell Sorting Algorithm:
+# Testing out insertion sorting algorithm
+def insertionTest() -> None:
+    insert = [25,22,27,15,19]
+    old_insert = insert[:]
+    insert = insertSort(insert)
+    print('Insert Sort:')
+    sortTestPrint(old_insert,insert)
 
-# Bucket Sorting Algorithm:
 
-# Radix Sorting Algorithm:
+# Quick Sorting Algorithm: - Skip
+# Space complexity = O(log(n))
+# Average time complexity = O(nlog(n))
+# Worst time complexity = O(n**2)
+def quickSort(nums: list[int]) -> list[int]: return nums
+
+# Testing out quick sorting algorithm
+def quickTest() -> None:
+    quick = [10,80,30,90,40,50,70]
+    old_quick = quick[:]
+    quick = quickSort(quick)
+    print('Quick Sorted array:')
+    sortTestPrint(old_quick,quick)
+
+
+# Merge Sorting Algorithm:
+def mergeSort(nums: list[int]) -> list[int]:
+    if len(nums) > 1:
+        mid = int(len(nums)/2)
+        left_nums = nums[0:mid]
+        right_nums = nums[mid:]
+        left_nums = mergeSort(left_nums)
+        right_nums = mergeSort(right_nums)
+        l = 0
+        r = 0
+        i = 0
+        while i < len(nums):
+            if l < len(left_nums) and r < len(right_nums):
+                if left_nums[l] <= right_nums[r]:
+                    nums[i] = left_nums[l]
+                    l += 1
+                elif left_nums[l] > right_nums[r]:
+                    nums[i] = right_nums[r]
+                    r += 1
+            elif l < len(left_nums):
+                nums[i] = left_nums[l]
+                l += 1
+            elif r < len(right_nums):
+                nums[i] = right_nums[r]
+                r += 1
+            i += 1
+    return nums
+
+# Testing out merge sorting algorithm
+def mergeTest() -> None:
+    merge = [16,19,14,20,12,13]
+    old_merge = merge[:]
+    merge = mergeSort(merge)
+    print('Merge Sorted array:')
+    sortTestPrint(old_merge,merge)
 
 # Counting Sorting Algorithm:
 
+# Radix Sorting Algorithm:
+
+# Bucket Sorting Algorithm:
+
+# Comb Sorting Algorithm:
+
+# Shell Sorting Algorithm:
+
+# Tree Sorting Algorithm:
+
 # Cube Sorting Algorithm:
+
+# Time Sorting Algorithm:
+
+# Heap Sorting Algorithm:

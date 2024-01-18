@@ -65,8 +65,10 @@ def run() -> None:
                 bsAlgorithms()
             elif prompt_int == 11:
                 bubbleTest()
-                insertionTest()
                 selectionTest()
+                insertionTest()
+                # quickTest()
+                mergeTest()
             else:
                 print(f"'{prompt}' has to be a smaller number, please try again.")
                 prompt = None
