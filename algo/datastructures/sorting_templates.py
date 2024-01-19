@@ -116,11 +116,27 @@ def insertionTest() -> None:
     sortTestPrint(old_insert,insert)
 
 
-# Quick Sorting Algorithm: - Skip
+# Quick Sorting Algorithm: - Skip, still don't really understand this
 # Space complexity = O(log(n))
 # Average time complexity = O(nlog(n))
 # Worst time complexity = O(n**2)
-def quickSort(nums: list[int]) -> list[int]: return nums
+def quickSort(nums: list[int], li=0, ri=0) -> list[int]: 
+    '''
+    main
+    ____var____|_val
+    nums       | [10,80,30,90,40,50,70]
+    li         | 0
+    ri         | 0 => 6
+    min_num    | 10
+    i          | 0
+    '''
+    # if len(nums) > 1:
+    #     if ri == 0:
+    #         ri = len(nums)-1
+    #     min_num = nums[0]
+    #     max_num = nums[0]
+    #     i = 0
+    return nums
 
 # Testing out quick sorting algorithm
 def quickTest() -> None:
@@ -132,6 +148,13 @@ def quickTest() -> None:
 
 
 # Merge Sorting Algorithm:
+# The algorithm recursively finds the middle of the array and 
+# then compares 2 items in the array to sort least to greatest value.
+# Space complexity = O(n)
+# because the algorithm is recursively creating a temporary array every time.
+# Time complexity = O(nlog(n))
+# because the algorithm is using an inital loop and "mini" loops through recursion
+# inorder to compare the items in the array.
 def mergeSort(nums: list[int]) -> list[int]:
     if len(nums) > 1:
         mid = int(len(nums)/2)
@@ -168,6 +191,48 @@ def mergeTest() -> None:
     sortTestPrint(old_merge,merge)
 
 # Counting Sorting Algorithm:
+# The algorithm first finds the maximum number value within the array,
+# then creates a new array from the max number + 1 (for 0) to track
+# how many times each number from 0-max is present in the array,
+# lastly we loop through both arrays and making everything in the counting array
+# as 0 and sort out everything in the original array.
+# Space complexity = O(k)
+# because of the introduction of an entirely separate array as a counter.
+# Time complexity = O(n+k)
+# because of looping through both the main array and the counter array.
+def countingSort(nums: list[int]) -> list[int]:
+    # Find the maximum number in the array
+    maxInt = nums[0]
+    i = 1
+    while i < len(nums):
+        if nums[i] > maxInt:
+            maxInt = nums[i]
+        i += 1
+    # Create an index system of each number up to the max
+    counts = [0 for _ in range(maxInt+1)]
+    i = 0
+    while i < len(nums):
+        counts[nums[i]] += 1
+        i += 1
+    # Properly put each item in the correct order
+    j = 0
+    i = 0
+    while i < len(nums) and j <= maxInt:
+        if counts[j] > 0:
+            nums[i] = j
+            counts[j] -= 1
+            i += 1
+        else:
+            j += 1
+    return nums
+
+# Testing out counting sorting algorithm
+def countingTest() -> None:
+    counting = [1,0,3,1,3,1]
+    old_counting = counting[:]
+    counting = countingSort(counting)
+    print('counting Sorted array:')
+    sortTestPrint(old_counting,counting)
 
 # Radix Sorting Algorithm:
 

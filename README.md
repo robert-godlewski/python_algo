@@ -1,17 +1,6 @@
 # Description
 All of these algorithms are my solutions to [LeetCode Problems](https://leetcode.com/explore/) in Python.
 
-# How to run this on computer
-## First time installation using pip
-1. Copy this repo to your computer
-2. Run this command via terminal: % pip3 install pipenv
-
-## Running app with pipenv
-1. Activate environment run in directory terminal: % pipenv shell
-2. Run this command via terminal: (repo_directory_name) ... % python3 python_algo.py
-3. Follow instructions
-4. Deactivate enviornment: (repo_directory_name) ... % exit
-
 # Data Structures covered:
 * Arrays
 * Hash Tables (Hashsets and Hashmaps)
@@ -27,6 +16,7 @@ All of these algorithms are my solutions to [LeetCode Problems](https://leetcode
 * Selection Sort
 * Insertion Sort
 * Merge Sort
+* Counting Sort
 
 # Need to do:
 ## Data structures:
@@ -35,7 +25,6 @@ All of these algorithms are my solutions to [LeetCode Problems](https://leetcode
 
 ## Sorting Algorithms
 * Quick Sort
-* Counting Sort
 * Radix Sort
 * Bucket Sort
 * Comb Sort
@@ -46,3 +35,14 @@ All of these algorithms are my solutions to [LeetCode Problems](https://leetcode
 * https://www.bigocheatsheet.com/
 * https://medium.com/swlh/how-to-study-for-data-structures-and-algorithms-interviews-at-faang-65043e00b5df
 * https://www.crio.do/blog/top-10-sorting-algorithms/
+
+# How to run this on computer
+## First time installation using pip
+1. Copy this repo to your computer
+2. Run this command via terminal: % pip3 install pipenv
+
+## Running app with pipenv
+1. Activate environment run in directory terminal: % pipenv shell
+2. Run this command via terminal: (repo_directory_name) ... % python3 python_algo.py
+3. Follow instructions
+4. Deactivate enviornment: (repo_directory_name) ... % exit

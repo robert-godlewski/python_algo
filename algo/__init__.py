@@ -69,6 +69,7 @@ def run() -> None:
                 insertionTest()
                 # quickTest()
                 mergeTest()
+                countingTest()
             else:
                 print(f"'{prompt}' has to be a smaller number, please try again.")
                 prompt = None
