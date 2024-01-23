@@ -116,26 +116,75 @@ def insertionTest() -> None:
     sortTestPrint(old_insert,insert)
 
 
-# Quick Sorting Algorithm: - Skip, still don't really understand this
+# Quick Sorting Algorithm:
 # Space complexity = O(log(n))
 # Average time complexity = O(nlog(n))
 # Worst time complexity = O(n**2)
-def quickSort(nums: list[int], li=0, ri=0) -> list[int]: 
-    '''
-    main
-    ____var____|_val
-    nums       | [10,80,30,90,40,50,70]
-    li         | 0
-    ri         | 0 => 6
-    min_num    | 10
-    i          | 0
-    '''
-    # if len(nums) > 1:
-    #     if ri == 0:
-    #         ri = len(nums)-1
-    #     min_num = nums[0]
-    #     max_num = nums[0]
-    #     i = 0
+def quickSort(nums: list[int]) -> list[int]: 
+    if len(nums) > 1:
+        # find the pivot point in the array
+        pivot = int(len(nums)/2)
+        left_nums = nums[0:pivot]
+        right_nums = nums[pivot+1:]
+        # recursively sort through both sides of the pivot
+        left_nums = quickSort(left_nums)
+        right_nums = quickSort(right_nums)
+        # combine the arrays back together
+        i = 0
+        l = 0
+        r = 0
+        pivNum = nums[pivot]
+        while i < len(nums):
+            if pivNum and l < len(left_nums) and r < len(right_nums):
+                if pivNum > left_nums[l] and pivNum > right_nums[r]:
+                    if left_nums[l] <= right_nums[r]:
+                        nums[i] = left_nums[l]
+                        l += 1
+                    else:
+                        nums[i] = right_nums[r]
+                        r += 1
+                elif pivNum <= left_nums[l] and pivNum <= right_nums[r]:
+                    nums[i] = pivNum
+                    pivNum = None
+                else:
+                    if pivNum > right_nums[r]:
+                        nums[i] = right_nums[r]
+                        r += 1
+                    elif pivNum > left_nums[l]:
+                        nums[i] = left_nums[l]
+                        l += 1
+            elif pivNum and l < len(left_nums):
+                if pivNum <= left_nums[l]:
+                    nums[i] = pivNum
+                    pivNum = None
+                else:
+                    nums[i] = left_nums[l]
+                    l += 1
+            elif pivNum and r < len(right_nums):
+                if pivNum <= right_nums[r]:
+                    nums[i] = pivNum
+                    pivNum = None
+                else:
+                    nums[i] = right_nums[r]
+                    r += 1
+            elif pivNum:
+                nums[i] = pivNum
+                pivNum = None
+            else:
+                if l < len(left_nums) and r < len(right_nums):
+                    if left_nums[l] <= right_nums[r]:
+                        nums[i] = left_nums[l]
+                        l += 1
+                    else:
+                        nums[i] = right_nums[r]
+                        r += 1
+                elif l < len(left_nums):
+                    nums[i] = left_nums[i]
+                    l += 1
+                elif r < len(right_nums):
+                    nums[i] = right_nums[r]
+                    r += 1
+            i += 1
     return nums
 
 # Testing out quick sorting algorithm

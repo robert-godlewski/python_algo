@@ -15,6 +15,7 @@ All of these algorithms are my solutions to [LeetCode Problems](https://leetcode
 * Bubble Sort
 * Selection Sort
 * Insertion Sort
+* Quick Sort
 * Merge Sort
 * Counting Sort
 
@@ -24,7 +25,6 @@ All of these algorithms are my solutions to [LeetCode Problems](https://leetcode
 * Tries
 
 ## Sorting Algorithms
-* Quick Sort
 * Radix Sort
 * Bucket Sort
 * Comb Sort

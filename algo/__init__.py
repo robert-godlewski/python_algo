@@ -67,7 +67,7 @@ def run() -> None:
                 bubbleTest()
                 selectionTest()
                 insertionTest()
-                # quickTest()
+                quickTest()
                 mergeTest()
                 countingTest()
             else:
