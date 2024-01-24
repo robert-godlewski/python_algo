@@ -117,6 +117,7 @@ def arrayAlgorthims() -> None:
     maxProfitTest([7,1,5,3,6,4])
     maxProfitTest([1,2,3,4,5])
     maxProfitTest([7,6,4,3,1])
+    maxProfitTest([2,1,2,0,1])
     thinline()
 
 

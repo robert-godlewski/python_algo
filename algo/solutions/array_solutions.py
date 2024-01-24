@@ -22,5 +22,30 @@ class Solution:
         return k
 
     # Best Time to Buy and Sell Stock II
-    # Need to solve on LeetCode
-    def maxProfit(self, prices: list[int]) -> int: return 0
+    # Space Complexity = O(1)
+    # Time Complexity = O(n)
+    # Solved in 15 min
+    def maxProfit(self, prices: list[int]) -> int: 
+        profit = 0
+        i = 0
+        buy = -1
+        while i < len(prices):
+            # print(f'current profit = {profit}')
+            # if buy >= 0: print(f'seeing if we should sell on day {i+1}')
+            # else: print(f'seeing if we should buy on day {i+1}')
+            if buy < 0 and i+1 < len(prices) and prices[i] < prices[i+1]:
+                buy = prices[i]
+                # print(f'bought on day {i+1} for {buy}')
+            elif buy >= 0 and buy < prices[i]:
+                if i+1 < len(prices) and prices[i] < prices[i+1]:
+                    # Not worth selling right now
+                    pass
+                else:
+                    # i+1 <= len(prices) and or prices[i] > prices[i+1]:
+                    # We need to sell
+                    # print(f'selling on day {i+1} for {prices[i]}')
+                    profit += prices[i] - buy
+                    # print(f'{profit-prices[i]+buy} + ({prices[i]} - {buy}) = {profit}')
+                    buy = -1
+            i += 1
+        return profit
