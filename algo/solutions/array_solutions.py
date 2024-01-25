@@ -49,3 +49,36 @@ class Solution:
                     buy = -1
             i += 1
         return profit
+
+    # Rotate Array
+    # Space Complexity = O(1)
+    # Time Complexity = O(n)
+    # Solved in 10 minutes
+    # For leetcode - Do not return anything, modify nums in-place instead.
+    # def rotate(self, nums: list[int], k: int) -> None:
+    def rotate(self, nums: list[int], k: int) -> list[int]:
+        while k > 0:
+            # print(f'Current nums = {nums}')
+            # print(f'k = {k}')
+            temp = nums.pop(len(nums)-1)
+            nums.insert(0,temp)
+            k -= 1
+        # Don't return when submitting to leetcode
+        return nums
+
+    # Contains Duplicate
+    # Space Complexity = O(n)
+    # Time Complexity = O(n)
+    # Solved in 15 min
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        indexer = {}
+        for num in nums:
+            index = str(num)
+            if index in indexer:
+                indexer[index] += 1
+            else:
+                indexer[index] = 1
+        for val in indexer.values():
+            if val > 1:
+                return True
+        return False

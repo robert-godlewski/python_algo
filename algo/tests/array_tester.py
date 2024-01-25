@@ -120,6 +120,16 @@ def arrayAlgorthims() -> None:
     maxProfitTest([2,1,2,0,1])
     thinline()
 
+    # This is in the easy collection of top interview questions
+    rotateArrTest([1,2,3,4,5,6,7],3)
+    rotateArrTest([-1,-100,3,99],2)
+    thinline()
+
+    # This in in the easy collection of top interview questions
+    duplicateTest([1,2,3,1])
+    duplicateTest([1,2,3,4])
+    duplicateTest([1,1,1,3,3,4,3,2,4,2])
+
 
 # Testing duplicateZeros
 def duplicateZerosTest(arr: list[int]) -> None:
@@ -246,13 +256,28 @@ def arrayPairSumTest(nums: list[int]) -> None:
     print(f"The Max Sum = {answer}")
 
 # Testing twoSum
-# def twoSumTest(nums: list[int], num: int) -> None:
-#     print(f"Original list = {nums}")
-#     answer = solver.twoSum(nums)
-#     print(f"Indecies = {answer}")
+def twoSumTest(nums: list[int], num: int) -> None:
+    print(f"Original list = {nums}")
+    answer = solver.twoSum(nums)
+    print(f"Indecies = {answer}")
 
 # Testing maxProfit
 def maxProfitTest(nums: list[int]) -> None:
     print(f"Prices per day = {nums}")
     answer = solver.maxProfit(nums)
     print(f"The maximum profit would be = {answer}")
+
+# Testing rotate
+def rotateArrTest(nums: list[int], k: int) -> None:
+    # nums = the array we are using
+    # k = the number of steps to rotate
+    print(f"Array before rotation = {nums}")
+    print(f"Rotating array by {k} steps")
+    answer = solver.rotate(nums, k)
+    print(f"Rotated array = {answer}")
+
+# Testing containsDuplicate
+def duplicateTest(nums: list[int]) -> None:
+    print(f"Does this array have duplicates? {nums}")
+    answer = solver.containsDuplicate(nums)
+    print(answer)
