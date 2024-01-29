@@ -125,10 +125,16 @@ def arrayAlgorthims() -> None:
     rotateArrTest([-1,-100,3,99],2)
     thinline()
 
-    # This in in the easy collection of top interview questions
+    # This is in the easy collection of top interview questions
     duplicateTest([1,2,3,1])
     duplicateTest([1,2,3,4])
     duplicateTest([1,1,1,3,3,4,3,2,4,2])
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    singleNumTest([2,2,1])
+    singleNumTest([4,1,2,1,2])
+    singleNumTest([1])
 
 
 # Testing duplicateZeros
@@ -280,4 +286,10 @@ def rotateArrTest(nums: list[int], k: int) -> None:
 def duplicateTest(nums: list[int]) -> None:
     print(f"Does this array have duplicates? {nums}")
     answer = solver.containsDuplicate(nums)
+    print(answer)
+
+# Testing singleNumber
+def singleNumTest(nums: list[int]) -> None:
+    print(f"What is the single number this array? {nums}")
+    answer = solver.singleNumber(nums)
     print(answer)

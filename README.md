@@ -1,6 +1,8 @@
 # Description
 All of these algorithms are my solutions to [LeetCode Problems](https://leetcode.com/explore/) in Python.
 
+To look at the solutions please go to the .../algo/solutions directory and then choose the solution file that you would like to see.
+
 # Data Structures covered:
 * Arrays
 * Hash Tables (Hashsets and Hashmaps)

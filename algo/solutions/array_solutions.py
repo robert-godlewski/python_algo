@@ -82,3 +82,20 @@ class Solution:
             if val > 1:
                 return True
         return False
+
+    # Single Number
+    # Space Complexity = O(n)
+    # Time Complexity = O(n)
+    # Solved in 10 min
+    def singleNumber(self, nums: list[int]) -> int: 
+        indexer = {}
+        for num in nums:
+            index = str(num)
+            if index in indexer:
+                indexer[index] += 1
+            else: 
+                indexer[index] = 1
+        for key, val in indexer.items():
+            if val == 1:
+                return int(key)
+        return 0
