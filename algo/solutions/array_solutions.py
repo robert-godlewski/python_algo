@@ -1,4 +1,8 @@
 # Array Solutions Jan 2024
+# Grabbing the sorting algorithms to use
+from algo.datastructures.sorting_templates import *
+
+
 # Got from the Easy Collection from the Top Interview Questions group
 class Solution:
     def __init__(self) -> None: pass
@@ -99,3 +103,26 @@ class Solution:
             if val == 1:
                 return int(key)
         return 0
+
+    # Intersection of 2 Arrays 2
+    # Space Complexity = O(k)
+    # Time Complexity = O(n+k)
+    # Solved in 20 min
+    def intersect(self, nums1: list[int], nums2: list[int]) -> list[int]: 
+        # Need to actually write out a sorting function here
+        nums1 = countingSort(nums1)
+        nums2 = countingSort(nums2)
+        # nums is the intersection of nums1 and nums2
+        nums = []
+        i = 0
+        j = 0
+        while i < len(nums1) and j < len(nums2):
+            if nums1[i] < nums2[j]:
+                i += 1
+            elif nums1[i] > nums2[j]:
+                j += 1
+            else:
+                nums.append(nums1[i])
+                i += 1
+                j += 1
+        return nums

@@ -135,6 +135,11 @@ def arrayAlgorthims() -> None:
     singleNumTest([2,2,1])
     singleNumTest([4,1,2,1,2])
     singleNumTest([1])
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    intersectTest2([1,2,2,1],[2,2])
+    intersectTest2([4,9,5],[9,4,9,8,4])
 
 
 # Testing duplicateZeros
@@ -292,4 +297,10 @@ def duplicateTest(nums: list[int]) -> None:
 def singleNumTest(nums: list[int]) -> None:
     print(f"What is the single number this array? {nums}")
     answer = solver.singleNumber(nums)
+    print(answer)
+
+# Testing intersect (Intersection of 2 Arrays 2)
+def intersectTest2(nums1: list[int], nums2: list[int]) -> None:
+    print(f"What is the intersection of {nums1} and {nums2}?")
+    answer = solver.intersect(nums1,nums2)
     print(answer)
