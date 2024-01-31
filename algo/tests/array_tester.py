@@ -10,6 +10,51 @@ solver = Solution()
 def arrayAlgorthims() -> None:
     titleline("Testing Array Algorithms")
 
+    # This is in the easy collection of top interview questions
+    removeDuplicatesTest([1,1,2])
+    removeDuplicatesTest([0,0,1,1,1,2,2,3,3,4])
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    maxProfitTest([7,1,5,3,6,4])
+    maxProfitTest([1,2,3,4,5])
+    maxProfitTest([7,6,4,3,1])
+    maxProfitTest([2,1,2,0,1])
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    rotateArrTest([1,2,3,4,5,6,7],3)
+    rotateArrTest([-1,-100,3,99],2)
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    duplicateTest([1,2,3,1])
+    duplicateTest([1,2,3,4])
+    duplicateTest([1,1,1,3,3,4,3,2,4,2])
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    singleNumTest([2,2,1])
+    singleNumTest([4,1,2,1,2])
+    singleNumTest([1])
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    intersectTest2([1,2,2,1],[2,2])
+    intersectTest2([4,9,5],[9,4,9,8,4])
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    plusOneTest([1,2,3])
+    plusOneTest([4,3,2,1])
+    plusOneTest([9])
+    thinline()
+
+    # This is in the easy collection of top interview questions - Do next
+    # moveZeroesTest([0,1,0,3,12])
+    # moveZeroesTest([0])
+    # thinline()
+
     # duplicateZerosTest([1,0,2,3,0,4,5,0])
     # duplicateZerosTest([1,2,3])
     # thinline()
@@ -25,11 +70,6 @@ def arrayAlgorthims() -> None:
     # removeElementTest([0,1,2,2,3,0,4,2], 2)
     # thinline()
 
-    # This is in the easy collection of top interview questions
-    removeDuplicatesTest([1,1,2])
-    removeDuplicatesTest([0,0,1,1,1,2,2,3,3,4])
-    thinline()
-
     # mountArrTest([2,1])
     # mountArrTest([3,5,5])
     # mountArrTest([0,3,2,1])
@@ -39,10 +79,6 @@ def arrayAlgorthims() -> None:
 
     # replaceETests([17,18,5,4,6,1])
     # replaceETests([400])
-    # thinline()
-
-    # moveZeroesTest([0,1,0,3,12])
-    # moveZeroesTest([0])
     # thinline()
 
     # paritySortTest([3,1,2,4])
@@ -62,11 +98,6 @@ def arrayAlgorthims() -> None:
     # dominantIndexTest([3,6,1,0])
     # dominantIndexTest([1,2,3,4])
     # dominantIndexTest([1,0])
-    # thinline()
-
-    # plusOneTest([1,2,3])
-    # plusOneTest([4,3,2,1])
-    # plusOneTest([9])
     # thinline()
 
     # findDiagonalOrderTest([[1,2,3],[4,5,6],[7,8,9]])
@@ -113,34 +144,57 @@ def arrayAlgorthims() -> None:
     # twoSumTest([2,3,4], 6)
     # twoSumTest([-1,0], -1)
 
-    # This is in the easy collection of top interview questions
-    maxProfitTest([7,1,5,3,6,4])
-    maxProfitTest([1,2,3,4,5])
-    maxProfitTest([7,6,4,3,1])
-    maxProfitTest([2,1,2,0,1])
-    thinline()
 
-    # This is in the easy collection of top interview questions
-    rotateArrTest([1,2,3,4,5,6,7],3)
-    rotateArrTest([-1,-100,3,99],2)
-    thinline()
+# Testing removeDuplicates
+def removeDuplicatesTest(arr: list[int]) -> None:
+    print(f"Removing duplicates in {arr}")
+    remain = solver.removeDuplicates(arr)
+    print(f"Number of values taken out = {remain}")
 
-    # This is in the easy collection of top interview questions
-    duplicateTest([1,2,3,1])
-    duplicateTest([1,2,3,4])
-    duplicateTest([1,1,1,3,3,4,3,2,4,2])
-    thinline()
+# Testing maxProfit
+def maxProfitTest(nums: list[int]) -> None:
+    print(f"Prices per day = {nums}")
+    answer = solver.maxProfit(nums)
+    print(f"The maximum profit would be = {answer}")
 
-    # This is in the easy collection of top interview questions
-    singleNumTest([2,2,1])
-    singleNumTest([4,1,2,1,2])
-    singleNumTest([1])
-    thinline()
+# Testing rotate
+def rotateArrTest(nums: list[int], k: int) -> None:
+    # nums = the array we are using
+    # k = the number of steps to rotate
+    print(f"Array before rotation = {nums}")
+    print(f"Rotating array by {k} steps")
+    answer = solver.rotate(nums, k)
+    print(f"Rotated array = {answer}")
 
-    # This is in the easy collection of top interview questions
-    intersectTest2([1,2,2,1],[2,2])
-    intersectTest2([4,9,5],[9,4,9,8,4])
+# Testing containsDuplicate
+def duplicateTest(nums: list[int]) -> None:
+    print(f"Does this array have duplicates? {nums}")
+    answer = solver.containsDuplicate(nums)
+    print(answer)
 
+# Testing singleNumber
+def singleNumTest(nums: list[int]) -> None:
+    print(f"What is the single number this array? {nums}")
+    answer = solver.singleNumber(nums)
+    print(answer)
+
+# Testing intersect (Intersection of 2 Arrays 2)
+def intersectTest2(nums1: list[int], nums2: list[int]) -> None:
+    print(f"What is the intersection of {nums1} and {nums2}?")
+    answer = solver.intersect(nums1,nums2)
+    print(answer)
+
+# Testing plusOne
+def plusOneTest(nums: list[int]) -> None:
+    print(f"Original List = {nums}")
+    answer = solver.plusOne(nums)
+    print(f"Updated List = {answer}")
+
+# Testing moveZeroes
+def moveZeroesTest(nums: list[int]) -> None:
+    print(f"Original array = {nums}")
+    answer = solver.moveZeroes(nums)
+    print(f"Moved zeroes array = {answer}")
 
 # Testing duplicateZeros
 def duplicateZerosTest(arr: list[int]) -> None:
@@ -149,26 +203,17 @@ def duplicateZerosTest(arr: list[int]) -> None:
     arr_dup = solver.duplicateZeros(arr)
     print(f"Duplicated = {arr_dup}")
 
-
 # Testing merge
 def mergeArrTest(arr1: list[int], m: int, arr2: list[int], n: int) -> None:
     print(f"Merging {arr1} and {arr2}")
     merged_arr = solver.merge(arr1, m, arr2, n)
     print(merged_arr)
 
-
 # Testing removeElement
 def removeElementTest(arr: list[int], num: int) -> None:
     print(f"Removing {num} from {arr}")
     rem_arr = solver.removeElement(arr, num)
     print(f"Remaining numbers = {rem_arr}")
-
-
-# Testing removeDuplicates
-def removeDuplicatesTest(arr: list[int]) -> None:
-    print(f"Removing duplicates in {arr}")
-    remain = solver.removeDuplicates(arr)
-    print(f"Number of values taken out = {remain}")
 
 # Testing validMountainArray
 def mountArrTest(arr: list[int]) -> None:
@@ -181,12 +226,6 @@ def replaceETests(arr: list[int]) -> None:
     print(f"Original array = {arr}")
     answer = solver.replaceElements(arr)
     print(f"Adjusted array = {answer}")
-
-# Testing moveZeroes
-def moveZeroesTest(nums: list[int]) -> None:
-    print(f"Original array = {nums}")
-    answer = solver.moveZeroes(nums)
-    print(f"Moved zeroes array = {answer}")
 
 # Testing sortArrayByParity
 def paritySortTest(nums: list[int]) -> None:
@@ -214,12 +253,6 @@ def dominantIndexTest(nums: list[int]) -> None:
     print(f"Original list = {nums}")
     answer = solver.dominantIndex(nums)
     print(f"Dominant index = {answer}")
-
-# Testing plusOne
-def plusOneTest(nums: list[int]) -> None:
-    print(f"Original List = {nums}")
-    answer = solver.plusOne(nums)
-    print(f"Updated List = {answer}")
 
 # Testing findDiagonalOrder
 def findDiagonalOrderTest(matrix: list[list[int]]) -> None:
@@ -271,36 +304,3 @@ def twoSumTest(nums: list[int], num: int) -> None:
     print(f"Original list = {nums}")
     answer = solver.twoSum(nums)
     print(f"Indecies = {answer}")
-
-# Testing maxProfit
-def maxProfitTest(nums: list[int]) -> None:
-    print(f"Prices per day = {nums}")
-    answer = solver.maxProfit(nums)
-    print(f"The maximum profit would be = {answer}")
-
-# Testing rotate
-def rotateArrTest(nums: list[int], k: int) -> None:
-    # nums = the array we are using
-    # k = the number of steps to rotate
-    print(f"Array before rotation = {nums}")
-    print(f"Rotating array by {k} steps")
-    answer = solver.rotate(nums, k)
-    print(f"Rotated array = {answer}")
-
-# Testing containsDuplicate
-def duplicateTest(nums: list[int]) -> None:
-    print(f"Does this array have duplicates? {nums}")
-    answer = solver.containsDuplicate(nums)
-    print(answer)
-
-# Testing singleNumber
-def singleNumTest(nums: list[int]) -> None:
-    print(f"What is the single number this array? {nums}")
-    answer = solver.singleNumber(nums)
-    print(answer)
-
-# Testing intersect (Intersection of 2 Arrays 2)
-def intersectTest2(nums1: list[int], nums2: list[int]) -> None:
-    print(f"What is the intersection of {nums1} and {nums2}?")
-    answer = solver.intersect(nums1,nums2)
-    print(answer)

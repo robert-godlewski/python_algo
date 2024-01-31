@@ -126,3 +126,20 @@ class Solution:
                 i += 1
                 j += 1
         return nums
+    
+    # Plus One
+    # Space Complexity = O(n)
+    # Time Complexity = O(n)
+    # Solved in 20 min
+    def plusOne(self, digits: list[int]) -> list[int]: 
+        num_str = ''
+        for digit in digits:
+            num_str += str(digit)
+        num = int(num_str)
+        num += 1
+        new_num_str = str(num)
+        new_num = list(new_num_str)
+        digits = []
+        for digit in new_num:
+            digits.append(int(digit))
+        return digits
