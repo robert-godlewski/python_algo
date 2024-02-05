@@ -145,8 +145,8 @@ class Solution:
         return digits
 
     # Move Zeroes
-    # Space Complexity =
-    # Time Complexity = 
+    # Space Complexity = O(1)
+    # Time Complexity = O(n)
     # Solved in 10 min
     # For leetcode: Do not return anything, modify nums in-place instead.
     # def moveZeroes(self, nums: list[int]) -> None:
