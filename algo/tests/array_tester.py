@@ -51,9 +51,9 @@ def arrayAlgorthims() -> None:
     thinline()
 
     # This is in the easy collection of top interview questions - Do next
-    # moveZeroesTest([0,1,0,3,12])
-    # moveZeroesTest([0])
-    # thinline()
+    moveZeroesTest([0,1,0,3,12])
+    moveZeroesTest([0])
+    thinline()
 
     # duplicateZerosTest([1,0,2,3,0,4,5,0])
     # duplicateZerosTest([1,2,3])

@@ -143,3 +143,23 @@ class Solution:
         for digit in new_num:
             digits.append(int(digit))
         return digits
+
+    # Move Zeroes
+    # Space Complexity =
+    # Time Complexity = 
+    # Solved in 10 min
+    # For leetcode: Do not return anything, modify nums in-place instead.
+    # def moveZeroes(self, nums: list[int]) -> None:
+    def moveZeroes(self, nums: list[int]) -> list[int]:
+        i = 0
+        end = len(nums)-1
+        while i <= end:
+            if i == end:
+                break
+            if nums[i] == 0:
+                nums.pop(i)
+                nums.append(0)
+                end -= 1
+            else:
+                i += 1
+        return nums
