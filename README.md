@@ -1,7 +1,7 @@
 # Description
-All of these algorithms are my solutions to [LeetCode Problems](https://leetcode.com/explore/) in Python.  Look under the **What's Covered section** for more details.
+All of these algorithms are my solutions to [LeetCode Problems](https://leetcode.com/explore/) in Python.  Look under the *What's Covered section* for more details.
 
-This is also a CLI program where you can run certain groups of algorithm solutions.  Look under the **How to run this on computer** to install and run on your local computer.
+This is also a CLI program where you can run certain groups of algorithm solutions.  Look under the *How to run this on computer* to install and run on your local computer.
 
 To specifically look at the solutions please go to the .../algo/solutions directory and then choose the solution file that you would like to see.
 
@@ -25,7 +25,7 @@ To specifically look at the solutions please go to the .../algo/solutions direct
 * Counting Sort
 
 # How to run this on computer
-**Note**: Currently only have this working for mac
+*Note*: Currently only have this working for mac
 
 ## First time installation using pip
 1. Fork this repo to your computer via terminal

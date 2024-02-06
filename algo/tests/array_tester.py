@@ -50,10 +50,16 @@ def arrayAlgorthims() -> None:
     plusOneTest([9])
     thinline()
 
-    # This is in the easy collection of top interview questions - Do next
+    # This is in the easy collection of top interview questions
     moveZeroesTest([0,1,0,3,12])
     moveZeroesTest([0])
     thinline()
+
+    # This is in the easy collection of top interview questions
+    twoSumTest([2,7,11,15],9)
+    twoSumTest([3,2,4],6)
+    twoSumTest([3,3],6)
+    twoSumTest([-1,0],-1)
 
     # duplicateZerosTest([1,0,2,3,0,4,5,0])
     # duplicateZerosTest([1,2,3])
@@ -140,10 +146,6 @@ def arrayAlgorthims() -> None:
     # arrayPairSumTest([6,2,6,5,1,2])
     # thinline()
 
-    # twoSumTest([2,7,11,15], 9)
-    # twoSumTest([2,3,4], 6)
-    # twoSumTest([-1,0], -1)
-
 
 # Testing removeDuplicates
 def removeDuplicatesTest(arr: list[int]) -> None:
@@ -195,6 +197,14 @@ def moveZeroesTest(nums: list[int]) -> None:
     print(f"Original array = {nums}")
     answer = solver.moveZeroes(nums)
     print(f"Moved zeroes array = {answer}")
+
+# Testing twoSum
+def twoSumTest(nums: list[int], num: int) -> None:
+    print(f"Original list = {nums}")
+    print(f"Target = {num}")
+    answer = solver.twoSum(nums, num)
+    print(f"Indecies = {answer}")
+    print(f"{num} = nums[{answer[0]}] + nums[{answer[1]}] = {nums[answer[0]]} + {nums[answer[1]]}")
 
 # Testing duplicateZeros
 def duplicateZerosTest(arr: list[int]) -> None:
@@ -298,9 +308,3 @@ def arrayPairSumTest(nums: list[int]) -> None:
     print(f"Original list = {nums}")
     answer = solver.arrayPairSum(nums)
     print(f"The Max Sum = {answer}")
-
-# Testing twoSum
-def twoSumTest(nums: list[int], num: int) -> None:
-    print(f"Original list = {nums}")
-    answer = solver.twoSum(nums)
-    print(f"Indecies = {answer}")

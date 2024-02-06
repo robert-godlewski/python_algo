@@ -163,3 +163,57 @@ class Solution:
             else:
                 i += 1
         return nums
+
+    # Two Sum - Brute Force Way
+    # Space Complexity = O(n)
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(n^2)
+    # Solved in 15 min
+    def twoSumBrute(self, nums: list[int], target: int) -> list[int]:
+        # A quick way to decide if we can just return [0,1]
+        if len(nums) == 2 and nums[0] + nums[1] == target:
+            return [0,1]
+        # Below actually runs the basic algorithm
+        indexes = []
+        i = 0
+        while i < len(nums) and len(indexes) < 2:
+            j = i+1
+            while j < len(nums):
+                if nums[i] + nums[j] == target:
+                    indexes.append(i)
+                    indexes.append(j)
+                j += 1
+            i += 1
+        return indexes
+    
+    # Two Sum - Hashmap
+    # Best Space Complexity = O(n)
+    # Space Complexity = O(n^2)
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(n+k)
+    # Solved in 30 min
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        if len(nums) == 2 and nums[0] + nums[1] == target:
+            return [0,1]
+        search = {}
+        i = 0
+        while i < len(nums):
+            index = str(nums[i])
+            if index in search:
+                search[index].append(i)
+            else:
+                search[index] = [i]
+            i += 1
+        for key, val in search.items():
+            diff = str(target - int(key))
+            if diff == key and len(val) == 2:
+                return val
+            elif diff == key and len(val) > 2:
+                return [val[0],val[1]]
+            elif diff == key and len(val) < 2:
+                continue
+            elif diff in search:
+                indexes = []
+                indexes.append(val[0])
+                indexes.append(search[diff][0])
+                return indexes
