@@ -284,6 +284,73 @@ def countingTest() -> None:
     sortTestPrint(old_counting,counting)
 
 # Radix Sorting Algorithm:
+# ...
+# Space Complexity = O(n+k)
+# ...
+# Time Complexity = O(nk)
+# ...
+def radixSort(nums: list[int]) -> list[int]:
+    '''
+    ___var____|_val
+    nums      | [53, 89, 150, 36, 633, 233]
+    maxLen    | 0 => 2 => 3
+    strNums   | [] => ... => [['5','3'],
+        ['8','9'],
+        ['1','5','0'],
+        ['3','6'],
+        ['6','3','3'],
+        ['2','3','3']] => ... => [['0','5','3'],
+        ['0','8','9'],
+        ['1','5','0'],
+        ['0','3','6'],
+        ['6','3','3'],
+        ['2','3','3']]
+    num       | 53 -> 89 -> ...
+    numStrArr | str(53).split("") -> "53".split("") -> ['5','3'] -> ...
+    i         | 0 => ...
+    r         | 2
+    counts    | [] => ... => [3,9,0,6,3,3]
+    j         | 0 => 1 => 2 => ... => 6
+    '''
+    print(f'Nums in = {nums}')
+    # Getting the maximum length for all numbers
+    maxLen = 0
+    strNums = []
+    for num in nums:
+        print(num)
+        numStrArr = list(str(num))
+        if len(numStrArr) > maxLen:
+            maxLen = len(numStrArr)
+        strNums.append(numStrArr)
+    print(strNums)
+    i = 0
+    while i < len(strNums):
+        if len(strNums[i]) != maxLen:
+            strNums[i].insert(0,'0')
+        else: 
+            i += 1
+    r = maxLen-1
+    counts = []
+    while r >= 0:
+        j = 0
+        while j < len(strNums):
+            if r == maxLen-1:
+                counts.append(int(strNums[j][r]))
+            else:
+                ind = int(strNums[j][r]) * (10**r)
+                counts[j] += ind
+            j += 1
+        #
+        r -= 1
+    return nums
+
+# Testing out radix sorting algorithm
+def radixTest() -> None:
+    radix = [53, 89, 150, 36, 633, 233]
+    old_radix = radix[:]
+    radix = radixSort(radix)
+    print('radix sorted array:')
+    sortTestPrint(old_radix,radix)
 
 # Bucket Sorting Algorithm:
 

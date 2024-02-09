@@ -70,6 +70,7 @@ def run() -> None:
                 quickTest()
                 mergeTest()
                 countingTest()
+                # radixTest() -> Doesn't work
             else:
                 print(f"'{prompt}' has to be a smaller number, please try again.")
                 prompt = None
