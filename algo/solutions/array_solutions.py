@@ -218,26 +218,39 @@ class Solution:
                 indexes.append(search[diff][0])
                 return indexes
 
-    # Valid Sudoku - Still need to solve
-    # Space Complexity = 
-    # Time Complexity =
-    # Solved more than 30 min - Need to practice
+    # Valid Sudoku
+    # Space Complexity = O(n^2)
+    # Time Complexity = O(n)
+    # Solved in 2 hrs - Need to practice
     def isValidSudoku(self, board: list[list[str]]) -> bool:
-        '''
-        __var___________|_val
-        board           | [...]
-        validRow        | True
-        validColumn     | True
-        goingThrough3x3 | True
-        compCount       | {}
-        row             | ["5","3",".",".","7",".",".",".","."]
-        '''
-        validRow = True
-        validColumn = True
-        goingThrough3x3 = True
+        rowInd = 0
+        colInd = 0
+        gridInd = 0
         compCount = {}
-        # for row in board:
-            # 1. Check the row and ignore "."s
-            # 2. Check the column and ignore "."s
-            # 3. Check the 3x3 grid
-        return False
+        while rowInd < len(board):
+            while colInd < len(board[rowInd]):
+                i = board[rowInd][colInd]
+                if i != ".":
+                    if i not in compCount:
+                        compCount[i] = {
+                            "row": [0 for _ in range(9)],
+                            "col": [0 for _ in range(9)],
+                            "grid": [0 for _ in range(9)]
+                        }
+                    elif compCount[i]["row"][rowInd] == 1 or compCount[i]["col"][colInd] == 1 or compCount[i]["grid"][gridInd] == 1:
+                        return False
+                    compCount[i]["row"][rowInd] += 1
+                    compCount[i]["col"][colInd] += 1
+                    compCount[i]["grid"][gridInd] += 1
+                colInd += 1
+                if colInd == 3 or colInd == 6:
+                    gridInd += 1
+            rowInd += 1
+            colInd = 0
+            if rowInd < 3:
+                gridInd = 0
+            elif rowInd >= 3 and rowInd < 6:
+                gridInd = 3
+            elif rowInd >= 6:
+                gridInd = 6
+        return True
