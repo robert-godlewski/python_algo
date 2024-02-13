@@ -60,6 +60,31 @@ def arrayAlgorthims() -> None:
     twoSumTest([3,2,4],6)
     twoSumTest([3,3],6)
     twoSumTest([-1,0],-1)
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    validSudokuTest([
+        ["5","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"],
+    ])
+    validSudokuTest([
+        ["8","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"],
+    ])
 
     # duplicateZerosTest([1,0,2,3,0,4,5,0])
     # duplicateZerosTest([1,2,3])
@@ -205,6 +230,18 @@ def twoSumTest(nums: list[int], num: int) -> None:
     answer = solver.twoSum(nums, num)
     print(f"Indecies = {answer}")
     print(f"{num} = nums[{answer[0]}] + nums[{answer[1]}] = {nums[answer[0]]} + {nums[answer[1]]}")
+
+# Testing isValidSudoku
+def validSudokuTest(board: list[list[str]]) -> None:
+    print("Is this board valid? [")
+    for row in board:
+        print(row)
+    print("]")
+    answer = solver.isValidSudoku(board)
+    if answer:
+        print("The board is valid")
+    else:
+        print("The board is not valid")
 
 # Testing duplicateZeros
 def duplicateZerosTest(arr: list[int]) -> None:

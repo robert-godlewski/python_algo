@@ -217,3 +217,27 @@ class Solution:
                 indexes.append(val[0])
                 indexes.append(search[diff][0])
                 return indexes
+
+    # Valid Sudoku - Still need to solve
+    # Space Complexity = 
+    # Time Complexity =
+    # Solved more than 30 min - Need to practice
+    def isValidSudoku(self, board: list[list[str]]) -> bool:
+        '''
+        __var___________|_val
+        board           | [...]
+        validRow        | True
+        validColumn     | True
+        goingThrough3x3 | True
+        compCount       | {}
+        row             | ["5","3",".",".","7",".",".",".","."]
+        '''
+        validRow = True
+        validColumn = True
+        goingThrough3x3 = True
+        compCount = {}
+        # for row in board:
+            # 1. Check the row and ignore "."s
+            # 2. Check the column and ignore "."s
+            # 3. Check the 3x3 grid
+        return False

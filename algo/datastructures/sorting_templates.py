@@ -291,8 +291,9 @@ def countingTest() -> None:
 # ...
 def radixSort(nums: list[int]) -> list[int]:
     '''
+    main
     ___var____|_val
-    nums      | [53, 89, 150, 36, 633, 233]
+    nums      | [53, 89, 150, 36, 633, 233] => ... => [36,53,89,150,233,633]
     maxLen    | 0 => 2 => 3
     strNums   | [] => ... => [['5','3'],
         ['8','9'],
@@ -304,13 +305,28 @@ def radixSort(nums: list[int]) -> list[int]:
         ['1','5','0'],
         ['0','3','6'],
         ['6','3','3'],
-        ['2','3','3']]
+        ['2','3','3']] => [['1','5','0'],
+        ['0','5','3'],
+        ['6','3','3'],
+        ['2','3','3'],
+        ['0','3','6'],
+        ['0','8','9']] => [['6','3','3'],
+        ['2','3','3'],
+        ['0','3','6'],
+        ['1','5','0'],
+        ['0','5','3'],
+        ['0','8','9']] => [['0','3','6'],
+        ['0','5','3'],
+        ['0','8','9'],
+        ['1','5','0'],
+        ['2','3','3']
+        ['6','3','3']]
     num       | 53 -> 89 -> ...
     numStrArr | str(53).split("") -> "53".split("") -> ['5','3'] -> ...
     i         | 0 => ...
-    r         | 2
-    counts    | [] => ... => [3,9,0,6,3,3]
-    j         | 0 => 1 => 2 => ... => 6
+    r         | 2 -> 1 -> 0 -> -1
+    j         | 0 => ...
+    temp      | '' => '36' => ...
     '''
     print(f'Nums in = {nums}')
     # Getting the maximum length for all numbers
@@ -323,25 +339,59 @@ def radixSort(nums: list[int]) -> list[int]:
             maxLen = len(numStrArr)
         strNums.append(numStrArr)
     print(strNums)
+    # Adjusting the smaller numbers to fit in with the bigger ones
     i = 0
     while i < len(strNums):
         if len(strNums[i]) != maxLen:
             strNums[i].insert(0,'0')
         else: 
             i += 1
-    r = maxLen-1
-    counts = []
-    while r >= 0:
-        j = 0
-        while j < len(strNums):
-            if r == maxLen-1:
-                counts.append(int(strNums[j][r]))
+    # Count sort the whole array
+    def radixCountingSort(arr: list[list[str]], r: int) -> list[list[str]]:
+        # count sorts arr off of r
+        maxInt = int(arr[0][r])
+        counts = {arr[0][r]: [arr[0]]}
+        i = 1
+        while i < len(arr):
+            if arr[i][r] in counts:
+                counts[arr[i][r]].append(arr[i])
             else:
-                ind = int(strNums[j][r]) * (10**r)
-                counts[j] += ind
-            j += 1
-        #
+                counts[arr[i][r]] = [arr[i]]
+            num = int(arr[i][r])
+            if num > maxInt:
+                maxInt = num
+            i += 1
+        i = 0
+        j = 0
+        while i < len(arr) and j <= maxInt:
+            key = str(j)
+            if key in counts:
+                if len(counts[key]) > 0:
+                    arr[i] = counts[key].pop(0)
+                    i += 1
+                else:
+                    j += 1
+            else:
+                j += 1
+        return arr
+    
+    r = maxLen-1
+    while r >= 0:
+        strNums = radixCountingSort(strNums,r)
         r -= 1
+    # Convert the list[list[str]] to a list[int]
+    i = 0
+    while i < len(strNums):
+        j = 0
+        temp = ''
+        while j < len(strNums[i]):
+            if strNums[i][j] == '0' and j == 0:
+                strNums[i].pop(0)
+            else:
+                temp += strNums[i][j]
+                j += 1
+        nums[i] = int(temp)
+        i += 1
     return nums
 
 # Testing out radix sorting algorithm
