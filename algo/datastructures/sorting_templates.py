@@ -362,6 +362,46 @@ def radixTest() -> None:
     sortTestPrint(old_radix,radix)
 
 # Bucket Sorting Algorithm:
+# ...
+# Space Complexity = O(n)
+# ...
+# Average Time Complexity = O(n+k)
+# ...
+# Worst Time Complexity = O(n^2)
+# ...
+def bucketSort(nums: list[int]) -> list[int]:
+    maxInt = 0
+    buckets = {}
+    for num in nums:
+        strNum = str(num)
+        arrNum = list(strNum)
+        tenths = arrNum[0]
+        tenthsInt = int(tenths)
+        if tenthsInt > maxInt:
+            maxInt = tenthsInt
+        if tenths in buckets:
+            buckets[tenths].append(num)
+        else:
+            buckets[tenths] = [num]
+    for key, val in buckets.items():
+        buckets[key] = insertSort(val)
+    i = 0
+    j = 0
+    while i < len(nums):
+        if str(j) in buckets and len(buckets[str(j)]) > 0:
+            nums[i] = buckets[str(j)].pop(0)
+            i += 1
+        else:
+            j += 1
+    return nums
+
+# Testing out bucket sorting algorithm
+def bucketTest() -> None:
+    bucket = [474,582,452,6194,553,9414]
+    old_bucket = bucket[:]
+    bucket = bucketSort(bucket)
+    print('bucket sorted array:')
+    sortTestPrint(old_bucket,bucket)
 
 # Comb Sorting Algorithm:
 

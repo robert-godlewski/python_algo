@@ -40,6 +40,7 @@ def run() -> None:
         prompt = input("Choose one of the numbers above: ")
         try:
             prompt_int = int(prompt)
+            print(f'input = {type(prompt_int)}: {prompt_int}')
             if prompt_int <= 0:
                 print(f"'{prompt}' has to be a positive number, please try again.")
                 prompt = None
@@ -71,6 +72,7 @@ def run() -> None:
                 mergeTest()
                 countingTest()
                 radixTest()
+                bucketTest()
             else:
                 print(f"'{prompt}' has to be a smaller number, please try again.")
                 prompt = None

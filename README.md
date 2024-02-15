@@ -23,6 +23,8 @@ To specifically look at the solutions please go to the .../algo/solutions direct
 * Quick Sort
 * Merge Sort
 * Counting Sort
+* Radix Sort
+* Bucket Sort
 
 # How to run this on computer
 *Note*: Currently only have this working for mac
@@ -33,7 +35,7 @@ To specifically look at the solutions please go to the .../algo/solutions direct
 
 ## Running app with pipenv
 1. Activate environment run in directory terminal: % pipenv shell
-2. Run this command via terminal: (repo_directory_name) ... % python3 python_algo.py
+2. Run this command via terminal: (repo_directory_name) ... % python python_algo.py
 3. Follow instructions of the CLI
 4. Deactivate enviornment: (repo_directory_name) ... % exit
 
@@ -43,8 +45,6 @@ To specifically look at the solutions please go to the .../algo/solutions direct
 * Tries
 
 ## Sorting Algorithms
-* Radix Sort
-* Bucket Sort
 * Comb Sort
 * Shell Sort
 * Heap Sort
