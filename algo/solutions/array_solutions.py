@@ -254,3 +254,24 @@ class Solution:
             elif rowInd >= 6:
                 gridInd = 6
         return True
+
+    # Rotate Image
+    # Space Complexity = O(1)
+    # Time Complexity = O(n^2)
+    # Solved more than an hour
+    # For leet code: Do not return anything, modify matrix in-place instead.
+    # def rotate(self, matrix: List[List[int]]) -> None:
+    def rotateImg(self, matrix: list[list[int]]) -> list[list[int]]:
+        n = len(matrix)
+        for r in range(n):
+            for c in range(r):
+                temp = matrix[r][c]
+                matrix[r][c] = matrix[c][r]
+                matrix[c][r] = temp
+        for r in range(n):
+            for c in range(int(n/2)):
+                temp = matrix[r][c]
+                matrix[r][c] = matrix[r][n-1-c]
+                matrix[r][n-1-c] = temp
+        # Do not return anything to leetcode
+        return matrix

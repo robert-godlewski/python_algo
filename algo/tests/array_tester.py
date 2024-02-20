@@ -85,6 +85,20 @@ def arrayAlgorthims() -> None:
         [".",".",".","4","1","9",".",".","5"],
         [".",".",".",".","8",".",".","7","9"],
     ])
+    thinline()
+
+    # This is in the easy collection of top interview questions - Still need to fix
+    rotateImageTest([
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]
+    ])
+    rotateImageTest([
+        [5,1,9,11],
+        [2,4,8,10],
+        [13,3,6,7],
+        [15,14,12,16]
+    ])
 
     # duplicateZerosTest([1,0,2,3,0,4,5,0])
     # duplicateZerosTest([1,2,3])
@@ -242,6 +256,18 @@ def validSudokuTest(board: list[list[str]]) -> None:
         print("The board is valid")
     else:
         print("The board is not valid")
+
+# Testing rotate
+def rotateImageTest(matrix: list[list[int]]) -> None:
+    print("Rotating this matrix: [")
+    for row in matrix:
+        print(row)
+    print("]")
+    answer = solver.rotateImg(matrix)
+    print("To: [")
+    for row in answer:
+        print(row)
+    print("]")
 
 # Testing duplicateZeros
 def duplicateZerosTest(arr: list[int]) -> None:
