@@ -162,25 +162,6 @@ def arrayAlgorthims() -> None:
     # binarySumTest("1010", "1011")
     # thinline()
 
-    # findStrTest("sadbutsad", "sad")
-    # findStrTest("leetcode", "leeto")
-    # findStrTest("hello", "ll")
-    # findStrTest("aaaaa", "bba")
-    # findStrTest("a", "a")
-    # findStrTest("abc", "c")
-    # findStrTest("mississippi", "issip")
-    # findStrTest("mississippi", "pi")
-    # thinline()
-
-    # longestCommonPrefixTest(["flower","flow","flight"])
-    # longestCommonPrefixTest(["dog","racecar","car"])
-    # longestCommonPrefixTest(["cir","car"])
-    # thinline()
-
-    # reverseStringTest(['h','e','l','l','o'])
-    # reverseStringTest(['H','a','n','n','a','h'])
-    # thinline()
-
     # arrayPairSumTest([1,4,3,2])
     # arrayPairSumTest([6,2,6,5,1,2])
     # thinline()
@@ -348,23 +329,6 @@ def generatePascalTest(num: int) -> None:
 def binarySumTest(bin1: str, bin2: str) -> None:
     answer = solver.addBinary(bin1, bin2)
     print(f"Binary sum of {bin1} + {bin2} = {answer}")
-
-# Testing strStr
-def findStrTest(word: str, compair: str) -> None:
-    print(f"Finding {compair} in {word}")
-    answer = solver.strStr(word, compair)
-    print(f"Index = {answer}")
-
-# Testing longestCommonPrefix
-def longestCommonPrefixTest(words: list[str]) -> None:
-    answer = solver.longestCommonPrefix(words)
-    print(f"Common prefix for {words} is {answer}")
-
-# Testing reverseString
-def reverseStringTest(wordStr: list[str]) -> None:
-    print(f"Original word = {wordStr}")
-    answer = solver.reverseString(wordStr)
-    print(f"Reversed word = {answer}")
 
 # Testing arrayPairSum
 def arrayPairSumTest(nums: list[int]) -> None:

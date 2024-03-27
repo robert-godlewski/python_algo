@@ -1,5 +1,6 @@
 from algo.tests.challenge_tester import challengeAlgorithms
 from algo.tests.array_tester import arrayAlgorthims
+from algo.tests.string_tester import stringAlgorithms
 from algo.tests.recursion1_tester import recursion1Algorithms
 from algo.tests.linked_list_tester import linkedlistAlgorithms
 from algo.tests.hashset_tester import hashsetAlgorithms
@@ -23,6 +24,7 @@ def run() -> None:
         prompt_list = [
             "Challenge Problems",
             "Array Problems",
+            "String Problems",
             "Recursion 1 Problems",
             "Linked List Problems",
             "Hash Set Problems",
@@ -49,22 +51,24 @@ def run() -> None:
             elif prompt_int == 2:
                 arrayAlgorthims()
             elif prompt_int == 3:
-                recursion1Algorithms()
+                stringAlgorithms()
             elif prompt_int == 4:
-                linkedlistAlgorithms()
+                recursion1Algorithms()
             elif prompt_int == 5:
-                hashsetAlgorithms()
+                linkedlistAlgorithms()
             elif prompt_int == 6:
-                hashmapAlgorithms()
+                hashsetAlgorithms()
             elif prompt_int == 7:
-                queueAlgorithms()
+                hashmapAlgorithms()
             elif prompt_int == 8:
-                stackAlgorithms()
+                queueAlgorithms()
             elif prompt_int == 9:
-                btAlgorithms()
+                stackAlgorithms()
             elif prompt_int == 10:
-                bsAlgorithms()
+                btAlgorithms()
             elif prompt_int == 11:
+                bsAlgorithms()
+            elif prompt_int == 12:
                 bubbleTest()
                 selectionTest()
                 insertionTest()

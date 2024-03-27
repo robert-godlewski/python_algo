@@ -8,6 +8,7 @@ To specifically look at the solutions please go to the .../algo/solutions direct
 # What's Covered
 ## Data Structures covered:
 * Arrays
+* Strings
 * Hash Tables (Hashsets and Hashmaps)
 * Linked Lists
 * Queues and Stacks
