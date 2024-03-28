@@ -20,6 +20,12 @@ def stringAlgorithms() -> None:
     reverseIntTest(-123)
     reverseIntTest(120)
     reverseIntTest(1534236469)
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    firstUniqCharTest("leetcode")
+    firstUniqCharTest("loveleetcode")
+    firstUniqCharTest("aabb")
 
     # Will need these later, were part of array_tester.py
     # findStrTest("sadbutsad", "sad")
@@ -49,6 +55,13 @@ def reverseIntTest(x: int) -> None:
     print(f"Original number = {x}")
     answer = solver.reverseInt(x)
     print(f"Reversed number = {answer}")
+
+# Testing firstUniqChar
+def firstUniqCharTest(s: str) -> None:
+    print(f"String = {s}")
+    answer = solver.firstUniqChar(s)
+    print(f"Index of the unique character = {answer}")
+    print(f"The unique character is = {s[answer]}")
 
 # Will need to test and solve later for those below
 # Testing strStr

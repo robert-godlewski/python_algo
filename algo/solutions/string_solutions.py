@@ -46,3 +46,28 @@ class Solution:
             return 0
         else:
             return new_int
+
+    # First Unique Character in a String
+    # Space Complexity = O(1)
+    # Best Time Complexity = O(1)
+    # Average Time Complexity = O(nlogn)
+    # Solved in 20 min
+    def firstUniqChar(self, s: str) -> int:
+        if len(s) < 1:
+            return -1
+        elif len(s) == 1:
+            return 0
+        else:
+            ans = 0
+            i = 0
+            while i < len(s):
+                if ans >= len(s):
+                    return -1
+                if ans == i:
+                    pass
+                elif s[ans] == s[i]:
+                    ans += 1
+                    i = -1
+                i += 1
+            return ans
+
