@@ -26,6 +26,12 @@ def stringAlgorithms() -> None:
     firstUniqCharTest("leetcode")
     firstUniqCharTest("loveleetcode")
     firstUniqCharTest("aabb")
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    anagramTest("anagram","nagaram")
+    anagramTest("rat","car")
+    anagramTest("a","ab")
 
     # Will need these later, were part of array_tester.py
     # findStrTest("sadbutsad", "sad")
@@ -62,6 +68,11 @@ def firstUniqCharTest(s: str) -> None:
     answer = solver.firstUniqChar(s)
     print(f"Index of the unique character = {answer}")
     print(f"The unique character is = {s[answer]}")
+
+# Testing isAnagram
+def anagramTest(s: str, t: str) -> None:
+    answer = solver.isAnagram(s,t)
+    print(f"Is {s} an anagram of {t}? {answer}")
 
 # Will need to test and solve later for those below
 # Testing strStr

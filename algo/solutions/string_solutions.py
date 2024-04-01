@@ -71,3 +71,30 @@ class Solution:
                 i += 1
             return ans
 
+    # Valid Anagram
+    # Best Space Complexity = O(1)
+    # Average Space Complexity = O(n)
+    # Best Time Complexity = O(1)
+    # Average Time Complexity = O(n)
+    # Solved in 15 min
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        def wordHash(word: str) -> dict:
+            hash = {}
+            i = 0
+            while i < len(word):
+                if word[i] not in hash:
+                    hash[word[i]] = 1
+                else:
+                    hash[word[i]] += 1
+                i += 1
+            return hash
+        s_hash = wordHash(s)
+        t_hash = wordHash(t)
+        for key in s_hash.keys():
+            if key not in t_hash:
+                return False
+            if s_hash[key] != t_hash[key]:
+                return False
+        return True
