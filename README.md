@@ -54,3 +54,4 @@ To specifically look at the solutions please go to the .../algo/solutions direct
 * https://www.bigocheatsheet.com/
 * https://medium.com/swlh/how-to-study-for-data-structures-and-algorithms-interviews-at-faang-65043e00b5df
 * https://www.crio.do/blog/top-10-sorting-algorithms/
+* https://docs.python.org/3/library/re.html

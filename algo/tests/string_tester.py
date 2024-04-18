@@ -32,6 +32,12 @@ def stringAlgorithms() -> None:
     anagramTest("anagram","nagaram")
     anagramTest("rat","car")
     anagramTest("a","ab")
+    thinline()
+
+    # This is in the easy collection of top interview questions
+    # palindromeTest("A man, a plan, a canal: Panama")
+    # palindromeTest("race a car")
+    # palindromeTest(" ")
 
     # Will need these later, were part of array_tester.py
     # findStrTest("sadbutsad", "sad")
@@ -73,6 +79,11 @@ def firstUniqCharTest(s: str) -> None:
 def anagramTest(s: str, t: str) -> None:
     answer = solver.isAnagram(s,t)
     print(f"Is {s} an anagram of {t}? {answer}")
+
+# Test isPalindrome
+def palindromeTest(s: str) -> None:
+    answer = solver.isPalindrome(s)
+    print(f"Is ({s}) a palindrome? {answer}")
 
 # Will need to test and solve later for those below
 # Testing strStr
