@@ -10,7 +10,7 @@ from algo.tests.stack_tester import stackAlgorithms
 from algo.tests.binary_tree_tester import btAlgorithms
 from algo.tests.binary_search_tester import bsAlgorithms
 # temporarily keep
-from algo.datastructures.sorting_templates import *
+from algo.algorithmtemplates.sorting_templates import Sorter
 
 
 # Actually running the tests
@@ -69,14 +69,7 @@ def run() -> None:
             elif prompt_int == 11:
                 bsAlgorithms()
             elif prompt_int == 12:
-                bubbleTest()
-                selectionTest()
-                insertionTest()
-                quickTest()
-                mergeTest()
-                countingTest()
-                radixTest()
-                bucketTest()
+                Sorter.runTests()
             else:
                 print(f"'{prompt}' has to be a smaller number, please try again.")
                 prompt = None

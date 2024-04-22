@@ -1,6 +1,6 @@
 # Array Solutions Jan 2024
 # Grabbing the sorting algorithms to use
-from algo.datastructures.sorting_templates import *
+from algo.algorithmtemplates.sorting_templates import Sorter
 
 
 # Got from the Easy Collection from the Top Interview Questions group
@@ -110,8 +110,8 @@ class Solution:
     # Solved in 20 min
     def intersect(self, nums1: list[int], nums2: list[int]) -> list[int]: 
         # Need to actually write out a sorting function here
-        nums1 = countingSort(nums1)
-        nums2 = countingSort(nums2)
+        nums1 = Sorter.countingSort(nums1)
+        nums2 = Sorter.countingSort(nums2)
         # nums is the intersection of nums1 and nums2
         nums = []
         i = 0
