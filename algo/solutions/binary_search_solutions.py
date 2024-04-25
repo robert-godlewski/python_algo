@@ -30,3 +30,10 @@ class Solution:
             elif nums[mid] < target:
                 start = mid+1
         return -1
+
+    # Sqrt(x)
+    # Time Complexity = O(1)
+    # Space Complexity = O(1)
+    # Solved in 1 min
+    def mySqrt(self, x: int) -> int:
+        return int(x**0.5)

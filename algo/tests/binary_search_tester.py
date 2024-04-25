@@ -15,10 +15,12 @@ def bsAlgorithms() -> None:
     bSearchTest([4,5,6,7,0,1,2],0)
     bSearchTest([4,5,6,7,0,1,2],3)
     bSearchTest([1],0)
-    # thinline()
+    thinline()
 
-    # sqrtTest(4)
-    # sqrtTest(8)
+    sqrtTest(4)
+    sqrtTest(8)
+    sqrtTest(0)
+    sqrtTest(1)
 
 # Testing search
 def bSearchTest(nums: list[int], target: int) -> None:
