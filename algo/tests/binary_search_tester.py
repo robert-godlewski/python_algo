@@ -10,10 +10,9 @@ solver = Solution ()
 def bsAlgorithms() -> None:
     titleline("Testing binary search algorithms")
 
-    bSearchTest([-1,0,3,5,9,12],9)
-    bSearchTest([-1,0,3,5,9,12],2)
-    bSearchTest([4,5,6,7,0,1,2],0)
-    bSearchTest([4,5,6,7,0,1,2],3)
+    arrRand1 = [-1,0,3,4,9,12]
+    bSearchTest(arrRand1,9)
+    bSearchTest(arrRand1,2)
     bSearchTest([1],0)
     thinline()
 
@@ -21,11 +20,18 @@ def bsAlgorithms() -> None:
     sqrtTest(8)
     sqrtTest(0)
     sqrtTest(1)
+    thinline()
 
-# Testing search
+    arrRand2 = [4,5,6,7,0,1,2]
+    rSearchTest(arrRand2,0)
+    rSearchTest(arrRand2,3)
+    rSearchTest(arrRand2,5)
+    rSearchTest([1],0)
+
+# Testing bsearch
 def bSearchTest(nums: list[int], target: int) -> None:
     print(f"Finding {target} in {nums}")
-    answer = solver.search(nums, target)
+    answer = solver.bsearch(nums, target)
     print(f"The index is {answer}")
 
 # Testing mySqrt
@@ -33,3 +39,8 @@ def sqrtTest(x: int) -> None:
     answer = solver.mySqrt(x)
     print(f"The Sqare Root of {x} = {answer}")
 
+# Testing rsearch
+def rSearchTest(nums: list[int], target: int) -> None:
+    print(f"Finding {target} in {nums}")
+    answer = solver.rsearch(nums, target)
+    print(f"The index is {answer}")
