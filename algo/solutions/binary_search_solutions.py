@@ -62,3 +62,27 @@ class Solution:
             elif nums[mid] < target:
                 start = mid + 1
         return -1
+
+    # Find Peak Element - Iritive way
+    # Best Time Complexity = O(1)
+    # Average Time Complexity = O(n)
+    # Space Complexity = O(1)
+    # Solved in 2 min
+    def findPeakElement(self, nums: list[int]) -> int:
+        if len(nums) == 1:
+            return 0
+        maxId = 0
+        i = 1
+        while i < len(nums):
+            if nums[i] > nums[maxId]:
+                maxId = i
+            i += 1
+        return maxId
+
+    # Old Solution
+    # def findPeakElement(self, nums: list[int], index=0, maxindex=0) -> int:
+    #     if index == len(nums):
+    #         return maxindex
+    #     if nums[index] > nums[maxindex]:
+    #         maxindex = index
+    #     return self.findPeakElement(nums, index+1, maxindex)
