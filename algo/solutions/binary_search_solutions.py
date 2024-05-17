@@ -63,7 +63,7 @@ class Solution:
                 start = mid + 1
         return -1
 
-    # Find Peak Element - Iritive way
+    # Find Peak Element
     # Best Time Complexity = O(1)
     # Average Time Complexity = O(n)
     # Space Complexity = O(1)
@@ -79,10 +79,27 @@ class Solution:
             i += 1
         return maxId
 
-    # Old Solution
-    # def findPeakElement(self, nums: list[int], index=0, maxindex=0) -> int:
-    #     if index == len(nums):
-    #         return maxindex
-    #     if nums[index] > nums[maxindex]:
-    #         maxindex = index
-    #     return self.findPeakElement(nums, index+1, maxindex)
+    # Find Minimum in Rotated Sorted Array
+    # Best Time Complexity = O(1)
+    # Average Time Complexity = O(logn)
+    # Space Complexity = O(1)
+    # Solved in 30 min
+    def findMin(self, nums: list[int]) -> int:
+        left = 0
+        right = len(nums)-1
+        minnum = 5000
+        while left < right:
+            mid = (left+right)//2
+            if nums[mid] < minnum:
+                minnum = nums[mid]
+            if nums[left] < minnum:
+                minnum = nums[left]
+            else:
+                left += 1
+            if nums[right] < minnum:
+                minnum = nums[right]
+            else:
+                right -= 1
+        if left == right and nums[left] < minnum:
+            minnum = nums[left]
+        return minnum

@@ -31,6 +31,12 @@ def bsAlgorithms() -> None:
 
     peakTest([1,2,3,1])
     peakTest([1,2,1,3,5,6,4])
+    thinline()
+
+    minTest([3,4,5,1,2])
+    minTest([4,5,6,7,0,1,2])
+    minTest([11,13,15,17])
+    minTest([1])
 
 # Testing bsearch
 def bSearchTest(nums: list[int], target: int) -> None:
@@ -54,3 +60,9 @@ def peakTest(nums: list[int]) -> None:
     print(f"Finding the peak number in {nums}")
     answer = solver.findPeakElement(nums)
     print(f"Peak Element = {answer}")
+
+# Testing findMin
+def minTest(nums: list[int]) -> None:
+    print(f"Finding the minimum number in {nums}")
+    answer = solver.findMin(nums)
+    print(f"Minimum number = {answer}")
