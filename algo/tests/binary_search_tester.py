@@ -37,6 +37,16 @@ def bsAlgorithms() -> None:
     minTest([4,5,6,7,0,1,2])
     minTest([11,13,15,17])
     minTest([1])
+    thinline()
+
+    range_arr1 = [5,7,7,8,8,10]
+    srTest(range_arr1,8)
+    srTest(range_arr1,6)
+    srTest([1],1)
+    srTest([2,2],2)
+    srTest([1,3],1)
+    srTest([1,4],4)
+    srTest([],0)
 
 # Testing bsearch
 def bSearchTest(nums: list[int], target: int) -> None:
@@ -66,3 +76,10 @@ def minTest(nums: list[int]) -> None:
     print(f"Finding the minimum number in {nums}")
     answer = solver.findMin(nums)
     print(f"Minimum number = {answer}")
+
+# Testing searchRange
+def srTest(nums:list[int],target:int) -> None:
+    print(f"Finding {target}'s in {nums}")
+    answer = solver.searchRange(nums,target)
+    print(f"The starting index = {answer[0]}")
+    print(f"The ending index = {answer[1]}")

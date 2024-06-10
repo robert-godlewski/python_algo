@@ -103,3 +103,42 @@ class Solution:
         if left == right and nums[left] < minnum:
             minnum = nums[left]
         return minnum
+
+    # Search for a Range - Bad solution
+    # Best Time Complexity = O(1)
+    # Time Complexity = 
+    # Space Complexity =
+    # Solved in 3:30
+    def searchRange(self, nums: list[int], target: int) -> list[int]:
+        if len(nums) == 0:
+            return [-1,-1]
+        elif len(nums) == 1 and nums[0] == target:
+            return [0,0]
+        tar_range = [-1,-1]
+        left = 0
+        right = len(nums)-1
+        while left + 1 < right:
+            mid = (left+right)//2
+            if nums[mid] == target:
+                if tar_range[0] == -1 or mid < tar_range[0]:
+                    tar_range[0] = mid
+                if tar_range[1] == -1 or mid > tar_range[0]:
+                    tar_range[1] = mid
+                if nums[left] == target:
+                    tar_range[0] = left
+                    left = mid
+                else:
+                    left += 1
+            elif nums[mid] < target:
+                left = mid
+            elif nums[mid] > target:
+                right = mid
+        if nums[left] == target and (left < tar_range[0] or tar_range[0] == -1):
+            tar_range[0] = left
+            if tar_range[1] == -1:
+                tar_range[1] = left
+        if nums[right] == target and right < len(nums) and right > tar_range[1]:
+            tar_range[1] = right
+            if tar_range[0] == -1:
+                tar_range[0] = right
+        return tar_range
