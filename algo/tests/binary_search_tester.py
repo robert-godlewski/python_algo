@@ -22,12 +22,14 @@ def bsAlgorithms() -> None:
     sqrtTest(1)
     thinline()
 
-    # arrRand2 = [4,5,6,7,0,1,2]
-    # rSearchTest(arrRand2,0)
-    # rSearchTest(arrRand2,3)
-    # rSearchTest(arrRand2,5)
-    # rSearchTest([1],0)
-    # thinline()
+    arrRand2 = [4,5,6,7,0,1,2]
+    rSearchTest(arrRand2,0) # Correct
+    rSearchTest(arrRand2,3) # Correct
+    rSearchTest(arrRand2,5) # Correct
+    rSearchTest([1],0) # Correct
+    arrRand3 = [4,5,6,7,8,1,2,3]
+    rSearchTest(arrRand3,8) # Failed
+    thinline()
 
     peakTest([1,2,3,1])
     peakTest([1,2,1,3,5,6,4])

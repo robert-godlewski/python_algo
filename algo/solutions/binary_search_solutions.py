@@ -41,26 +41,78 @@ class Solution:
     # Search in Rotated Sorted Array
     # Time Complexity
     # Space Complexity
-    # This is a bad solution
+    # Still wrong
+    '''
+    _var_________|_val
+    nums         | [4,5,6,7,0,1,2]
+    target       | 5
+    left         | 0
+    nums[left]   | 4
+    minInd       | 0 -> 6 -> 0|
+    nums[minInd] | 4 -> 2 -> 4|
+    right        | 6 -> 2|
+    nums[right]  | 2 -> 6|
+    maxInd       | 6 -> 0 -> 2|
+    nums[maxInd] | 2 -> 4 -> 6|
+    mid          | (0+6)//2=>6//2=>3|(0+2)//2=>2//2=>1
+    nums[mid]    | 7|5
+    temp         | 0|
+    '''
     def rsearch(self, nums: list[int], target: int) -> int:
-        start = 0
-        end = len(nums)-1
-        while start <= end:
-            mid = start + (end-start)//2
-            if nums[mid] == target:
+        if len(nums) == 0: # False
+            return -1
+        # minInd and maxInd keeps track of the placement of the minimum and maximum indexes
+        left = 0
+        minInd = 0
+        right = len(nums)-1
+        maxInd = len(nums)-1
+        while left <= right: # True|True
+            mid = (left+right)//2
+            # adjusting the placement of the min and max indexes based on search
+            if nums[minInd] > nums[maxInd]: # True|False
+                temp = minInd
+                minInd = maxInd
+                maxInd = temp
+            if nums[mid] == target: # False|True
                 return mid
-            elif nums[start] == target:
-                return start
-            elif nums[end] == target:
-                return end
-            elif nums[mid] > target and nums[start] > target:
-                start = mid + 1
-            elif nums[mid] < target and nums[end] < target:
-                end = mid - 1
-            elif nums[mid] > target:
-                end = mid - 1
-            elif nums[mid] < target:
-                start = mid + 1
+            elif nums[minInd] == target: # False
+                return minInd
+            elif nums[maxInd] == target: # False
+                return maxInd
+            elif nums[mid] < target and minInd == left: # False
+                left = mid+1
+                minInd = mid+1
+            elif nums[mid] > target and maxInd == right: # False
+                right = mid-1
+                maxInd = mid-1
+            else: # True
+                # We have switched the minInd and maxInd
+                if nums[mid] < target: # False
+                    # Fix this?
+                    if nums[right] > target and nums[left] > target: # Skip
+                        # Go right
+                        left = mid+1
+                        minInd = mid+1
+                        maxInd = right
+                    else: # Skip
+                        # Go left
+                        right = mid-1
+                        maxInd = mid-1
+                        minInd = left
+                else: # True
+                    # nums[mid] > target:
+                    if nums[right] < target and nums[left] < target: # True
+                        # Go left
+                        right = mid-1
+                        maxInd = mid-1
+                        minInd = left
+                    else: # False
+                        # nums[right] > target and nums[left] > target: 
+                        # Go right
+                        left = mid+1
+                        minInd = mid+1
+                        maxInd = right
+        # Haven't found the target at all
         return -1
 
     # Find Peak Element
