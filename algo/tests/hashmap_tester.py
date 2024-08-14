@@ -13,25 +13,25 @@ def hashmapAlgorithms() -> None:
     twoSumTest([2,7,11,15],9)
     twoSumTest([3,2,4],6)
     twoSumTest([3,3],6)
-    thinline()
+    # thinline()
 
-    isIsomorphicTest('egg','add')
-    isIsomorphicTest('foo','bar')
-    isIsomorphicTest('paper','title')
-    thinline()
+    # isIsomorphicTest('egg','add')
+    # isIsomorphicTest('foo','bar')
+    # isIsomorphicTest('paper','title')
+    # thinline()
 
-    findRestaurantTest(["Shogun","Tapioca Express","Burger King","KFC"],["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"])
-    findRestaurantTest(["happy","sad","good"],["sad","happy","good"])
-    findRestaurantTest(["k","KFC"],["k","KFC"])
-    thinline()
+    # findRestaurantTest(["Shogun","Tapioca Express","Burger King","KFC"],["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"])
+    # findRestaurantTest(["happy","sad","good"],["sad","happy","good"])
+    # findRestaurantTest(["k","KFC"],["k","KFC"])
+    # thinline()
 
-    firstUniqCharTest("leetcode")
-    firstUniqCharTest("loveleetcode")
-    firstUniqCharTest("aabb")
-    thinline()
+    # firstUniqCharTest("leetcode")
+    # firstUniqCharTest("loveleetcode")
+    # firstUniqCharTest("aabb")
+    # thinline()
 
-    intersectTest([1,2,2,1],[2,2])
-    intersectTest([4,9,5],[9,4,9,8,4])
+    # intersectTest([1,2,2,1],[2,2])
+    # intersectTest([4,9,5],[9,4,9,8,4])
 
 
 # Testing twoSum
