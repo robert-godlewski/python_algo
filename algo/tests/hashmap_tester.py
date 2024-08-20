@@ -13,11 +13,11 @@ def hashmapAlgorithms() -> None:
     twoSumTest([2,7,11,15],9)
     twoSumTest([3,2,4],6)
     twoSumTest([3,3],6)
-    # thinline()
+    thinline()
 
-    # isIsomorphicTest('egg','add')
-    # isIsomorphicTest('foo','bar')
-    # isIsomorphicTest('paper','title')
+    isIsomorphicTest('egg','add')
+    isIsomorphicTest('foo','bar')
+    isIsomorphicTest('paper','title')
     # thinline()
 
     # findRestaurantTest(["Shogun","Tapioca Express","Burger King","KFC"],["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"])

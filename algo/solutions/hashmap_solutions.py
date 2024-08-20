@@ -42,3 +42,38 @@ class Solution:
                 elif len(search[key]) >= 2:
                     return [search[key][0],search[key][1]]
         return [0,1]
+
+    # Isomorphic Strings
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(n)
+    # Best Space Complexity = O(1)
+    # Space Complexity = O(n)
+    # Solved in 30 min
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        if s == t:
+            return True
+        s_indexes = {}
+        s_arr = list(s)
+        t_indexes = {}
+        t_arr = list(t)
+        i = 0
+        while i < len(s):
+            if s_arr[i] in s_indexes and t_arr[i] in t_indexes:
+                s_indexes[s_arr[i]].append(i)
+                t_indexes[t_arr[i]].append(i)
+            elif s_arr[i] not in s_indexes and t_arr[i] not in t_indexes:
+                s_indexes[s_arr[i]] = [i]
+                t_indexes[t_arr[i]] = [i]
+            else:
+                # Obviously s and t are not isomorphic
+                return False
+            i += 1
+        i -= 1
+        while i >= 0:
+            if s_indexes[s_arr[i]] != t_indexes[t_arr[i]]:
+                return False
+            i -= 1
+        # They are the same
+        return True
