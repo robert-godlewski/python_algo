@@ -23,11 +23,11 @@ def hashmapAlgorithms() -> None:
     findRestaurantTest(["Shogun","Tapioca Express","Burger King","KFC"],["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"])
     findRestaurantTest(["happy","sad","good"],["sad","happy","good"])
     findRestaurantTest(["k","KFC"],["k","KFC"])
-    # thinline()
+    thinline()
 
-    # firstUniqCharTest("leetcode")
-    # firstUniqCharTest("loveleetcode")
-    # firstUniqCharTest("aabb")
+    firstUniqCharTest("leetcode")
+    firstUniqCharTest("loveleetcode")
+    firstUniqCharTest("aabb")
     # thinline()
 
     # intersectTest([1,2,2,1],[2,2])

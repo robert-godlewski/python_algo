@@ -121,3 +121,30 @@ class Solution:
                 elif common[key]['index_sum'] == min_num:
                     min_list.append(key)
         return min_list
+
+    # First Unique Character in a String
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(n)
+    # Best Space Complexity = O(1)
+    # Space Complexity = O(n**2)
+    # Solved in 20 min
+    def firstUniqChar(self, s: str) -> int:
+        if len(s) < 1: 
+            return -1
+        elif len(s) == 1:
+            return 0
+        s_arr = list(s)
+        char_position = {}
+        i = 0
+        while i < len(s):
+            if s_arr[i] in char_position:
+                char_position[s_arr[i]].append(i)
+            else:
+                char_position[s_arr[i]] = [i]
+            i += 1
+        first = -1
+        for char in char_position.keys():
+            if len(char_position[char]) == 1:
+                if first == -1 or char_position[char][0] < first:
+                    first = char_position[char][0]
+        return first
