@@ -77,3 +77,47 @@ class Solution:
             i -= 1
         # They are the same
         return True
+
+    # Minimum Index Sum of Two Lists
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(n)
+    # Best Space Complexity = O(1)
+    # Space Complexity = O(n**2)
+    # Solved in 40 min
+    def findRestaurant(self, list1: list[str], list2: list[str]) -> list[str]:
+        if list1 == list2:
+            return[list1[0]]
+        common = {}
+        # Adding in everything form list1 to common
+        i = 0
+        while i < len(list1):
+            if list1[i] not in common:
+                common[list1[i]] = {
+                    'index_sum': i,
+                    # 'in_list1': True, This is obvious
+                    'in_list2': False
+                }
+            # else: whe skip this because we want the lowest index point
+            i += 1
+        # Now only checking and adding in values from list2 if they are in common but only taking the first possible index to add to the sum.
+        j = 0
+        while j < len(list2):
+            if list2[j] in common and common[list2[j]]['in_list2'] is False:
+                common[list2[j]]['in_list2'] = True
+                common[list2[j]]['index_sum'] += j
+            # else: if it's not in list1 then it's not a common phrase
+            j += 1
+        # Checking which sums from the list of common words.
+        min_num = -1
+        min_list = []
+        for key in common.keys():
+            if common[key]['in_list2'] is True:
+                if min_num == -1:
+                    min_list.append(key)
+                    min_num = common[key]['index_sum']
+                elif common[key]['index_sum'] < min_num:
+                    min_list = [key]
+                    min_num = common[key]['index_sum']
+                elif common[key]['index_sum'] == min_num:
+                    min_list.append(key)
+        return min_list

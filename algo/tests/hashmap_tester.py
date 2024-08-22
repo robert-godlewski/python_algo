@@ -18,11 +18,11 @@ def hashmapAlgorithms() -> None:
     isIsomorphicTest('egg','add')
     isIsomorphicTest('foo','bar')
     isIsomorphicTest('paper','title')
-    # thinline()
+    thinline()
 
-    # findRestaurantTest(["Shogun","Tapioca Express","Burger King","KFC"],["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"])
-    # findRestaurantTest(["happy","sad","good"],["sad","happy","good"])
-    # findRestaurantTest(["k","KFC"],["k","KFC"])
+    findRestaurantTest(["Shogun","Tapioca Express","Burger King","KFC"],["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"])
+    findRestaurantTest(["happy","sad","good"],["sad","happy","good"])
+    findRestaurantTest(["k","KFC"],["k","KFC"])
     # thinline()
 
     # firstUniqCharTest("leetcode")
