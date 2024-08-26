@@ -148,3 +148,27 @@ class Solution:
                 if first == -1 or char_position[char][0] < first:
                     first = char_position[char][0]
         return first
+
+    # Intersection of Two Arrays II - Need to study, not really a hashmap problem
+    # Time Complexity = O(n), without sorting
+    # Space Complexity = O(n), not including the sorting
+    # Solved in over 30 min
+    def intersect(self, nums1: list[int], nums2: list[int]) -> list[int]:
+        # Step 1: sort both nums1 and nums 2
+        # Might be best to maybe build a counting sort algorithm or bubble sort depending on circumstance
+        nums1.sort()
+        nums2.sort()
+        # Step 2: go through both and add in every time they match
+        answer = []
+        i = 0
+        j = 0
+        while i < len(nums1) and j < len(nums2):
+            if nums1[i] < nums2[j]:
+                i += 1
+            elif nums1[i] > nums2[j]:
+                j += 1
+            else:
+                answer.append(nums1[i])
+                i += 1
+                j += 1
+        return answer

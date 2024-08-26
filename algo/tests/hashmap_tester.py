@@ -28,10 +28,10 @@ def hashmapAlgorithms() -> None:
     firstUniqCharTest("leetcode")
     firstUniqCharTest("loveleetcode")
     firstUniqCharTest("aabb")
-    # thinline()
+    thinline()
 
-    # intersectTest([1,2,2,1],[2,2])
-    # intersectTest([4,9,5],[9,4,9,8,4])
+    intersectTest([1,2,2,1],[2,2])
+    intersectTest([4,9,5],[9,4,9,8,4])
 
 
 # Testing twoSum
