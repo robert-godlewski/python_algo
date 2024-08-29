@@ -172,3 +172,21 @@ class Solution:
                 i += 1
                 j += 1
         return answer
+
+    # Contains Duplicate II - Need to practice
+    # Time Complexity = O(n)
+    # Space Complexity = O(n**2)
+    # Solved in 40 min
+    def containsNearbyDuplicate(self, nums: list[int], k: int) -> bool:
+        indexes = {}
+        i = 0
+        while i < len(nums):
+            key = str(nums[i])
+            if key in indexes:
+                if i-indexes[key][len(indexes[key])-1] <= k:
+                    return True
+                indexes[key].append(i)
+            else:
+                indexes[key] = [i]
+            i += 1
+        return False

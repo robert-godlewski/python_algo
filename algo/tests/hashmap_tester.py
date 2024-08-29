@@ -32,6 +32,11 @@ def hashmapAlgorithms() -> None:
 
     intersectTest([1,2,2,1],[2,2])
     intersectTest([4,9,5],[9,4,9,8,4])
+    thinline()
+
+    duplicateTest([1,2,3,1],3)
+    duplicateTest([1,0,1,1],1)
+    duplicateTest([1,2,3,1,2,3],2)
 
 
 # Testing twoSum
@@ -66,3 +71,9 @@ def intersectTest(nums1: list[int], nums2: list[int]) -> None:
     print(f"Finding the intersection of {nums1} and {nums2}")
     answer = solver.intersect(nums1, nums2)
     print(f"Intersection = {answer}")
+
+# Testing containsNearbyDuplicate
+def duplicateTest(nums: list[int], k: int) -> None:
+    answer = solver.containsNearbyDuplicate(nums, k)
+    print(f"Does {nums} have a duplicate within {k} items? {answer}")
+
