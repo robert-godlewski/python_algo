@@ -43,7 +43,7 @@ class Solution:
                     return [search[key][0],search[key][1]]
         return [0,1]
 
-    # Isomorphic Strings
+    # Leetcode Isomorphic Strings Solution
     # Best Time Complexity = O(1)
     # Time Complexity = O(n)
     # Best Space Complexity = O(1)
@@ -78,7 +78,7 @@ class Solution:
         # They are the same
         return True
 
-    # Minimum Index Sum of Two Lists
+    # Leetcode Minimum Index Sum of Two Lists Solution - Need to study
     # Best Time Complexity = O(1)
     # Time Complexity = O(n)
     # Best Space Complexity = O(1)
@@ -122,7 +122,7 @@ class Solution:
                     min_list.append(key)
         return min_list
 
-    # First Unique Character in a String
+    # Leetcode First Unique Character in a String - Solution
     # Best Time Complexity = O(1)
     # Time Complexity = O(n)
     # Best Space Complexity = O(1)
@@ -149,7 +149,7 @@ class Solution:
                     first = char_position[char][0]
         return first
 
-    # Intersection of Two Arrays II - Need to study, not really a hashmap problem
+    # Leetcode Intersection of Two Arrays II Solution - Need to study, not really a hashmap problem
     # Time Complexity = O(n), without sorting
     # Space Complexity = O(n), not including the sorting
     # Solved in over 30 min
@@ -173,7 +173,7 @@ class Solution:
                 j += 1
         return answer
 
-    # Contains Duplicate II - Need to practice
+    # Leetcode Contains Duplicate II Solution - Need to practice
     # Time Complexity = O(n)
     # Space Complexity = O(n**2)
     # Solved in 40 min
@@ -190,3 +190,73 @@ class Solution:
                 indexes[key] = [i]
             i += 1
         return False
+
+    # Leetcode Group Anagrams Solution
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(nlogn)
+    # Best Space Complexity = O(1)
+    # Space Complexity = O(n**2)
+    # Solved actual problem in 30 min but built the letter sorter in 1 hr
+
+    # Need this to sort the letters within a word from a-z to build keys
+    # Time Complexity = O(nlogn)
+    # Space Complexity = O(n**2)
+    # Took 1 hr to build
+    def _letterSort(self, word: str) -> str:
+        letters = list(word)
+        letter_position = {
+            "a": {"index": 0, "count": 0},
+            "b": {"index": 1, "count": 0},
+            "c": {"index": 2, "count": 0},
+            "d": {"index": 3, "count": 0},
+            "e": {"index": 4, "count": 0},
+            "f": {"index": 5, "count": 0},
+            "g": {"index": 6, "count": 0},
+            "h": {"index": 7, "count": 0},
+            "i": {"index": 8, "count": 0},
+            "j": {"index": 9, "count": 0},
+            "k": {"index": 10, "count": 0},
+            "l": {"index": 11, "count": 0},
+            "m": {"index": 12, "count": 0},
+            "n": {"index": 13, "count": 0},
+            "o": {"index": 14, "count": 0},
+            "p": {"index": 15, "count": 0},
+            "q": {"index": 16, "count": 0},
+            "r": {"index": 17, "count": 0},
+            "s": {"index": 18, "count": 0},
+            "t": {"index": 19, "count": 0},
+            "u": {"index": 20, "count": 0},
+            "v": {"index": 21, "count": 0},
+            "w": {"index": 22, "count": 0},
+            "x": {"index": 23, "count": 0},
+            "y": {"index": 24, "count": 0},
+            "z": {"index": 25, "count": 0}
+        }
+        for letter in letters:
+            if letter in letter_position:
+                letter_position[letter]["count"] += 1
+        answer = ""
+        for key in letter_position.keys():
+            count = letter_position[key]["count"]
+            while count > 0:
+                answer += key
+                count -= 1
+        return answer
+
+    # This is the actual solution for Leetcode Group Anagrams
+    # Average Time Complexity without sorting = O(n)
+    # Average Space Complexity without sorting = O(n)
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+        if len(strs) <= 1:
+            return [strs]
+        anagrams = {}
+        for word in strs:
+            key_word = self._letterSort(word)
+            if key_word in anagrams:
+                anagrams[key_word].append(word)
+            else:
+                anagrams[key_word] = [word]
+        answer = []
+        for value in anagrams.values():
+            answer.append(value)
+        return answer

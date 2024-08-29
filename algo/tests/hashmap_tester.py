@@ -37,6 +37,11 @@ def hashmapAlgorithms() -> None:
     duplicateTest([1,2,3,1],3)
     duplicateTest([1,0,1,1],1)
     duplicateTest([1,2,3,1,2,3],2)
+    thinline()
+
+    anagramTest(["eat","tea","tan","ate","nat","bat"])
+    anagramTest([""])
+    anagramTest(["a"])
 
 
 # Testing twoSum
@@ -76,4 +81,9 @@ def intersectTest(nums1: list[int], nums2: list[int]) -> None:
 def duplicateTest(nums: list[int], k: int) -> None:
     answer = solver.containsNearbyDuplicate(nums, k)
     print(f"Does {nums} have a duplicate within {k} items? {answer}")
+
+# Testing groupAnagrams
+def anagramTest(strs: list[str]) -> None:
+    answer = solver.groupAnagrams(strs)
+    print(f"Anagrams list for {strs} = {answer}")
 
