@@ -91,3 +91,56 @@ class Solution:
                 # left_depth == 0 or right_depth == 0
                 depth += 1
         return depth
+
+    # Leetcode Symmetric Tree
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(logn)
+    # Best Space Complexity = O(1)
+    # Space Complexity = O(n)
+    # Solved in 30 min
+    # Similar to the original Preorder Traversal but adds in a -200 instead
+    def _leftPreorder(self, root: TreeNode, order: list[int], is_top: bool) -> list[int]:
+        if is_top and len(order) > 0:
+            order = []
+        if root:
+            order.append(root.val)
+            if root.left:
+                order = self._leftPreorder(root.left, order, False)
+            else:
+                order.append(-200)
+            if root.right:
+                order = self._leftPreorder(root.right, order, False)
+            else:
+                order.append(-200)
+        return order
+
+    # Special Preorder Traversal geared towards the right side
+    def _rightPreorder(self, root: TreeNode, order: list[int], is_top: bool) -> list[int]:
+        if is_top and len(order) > 0:
+            order = []
+        if root:
+            order.append(root.val)
+            if root.right:
+                order = self._rightPreorder(root.right, order, False)
+            else:
+                order.append(-200)
+            if root.left:
+                order = self._rightPreorder(root.left, order, False)
+            else:
+                order.append(-200)
+        return order
+
+    # The Actual solution
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if root:
+            if root.left:
+                left_po = self._leftPreorder(root.left, [], True)
+            else:
+                left_po = []
+            if root.right:
+                right_po = self._rightPreorder(root.right, [], True)
+            else:
+                right_po = []
+            if left_po == right_po:
+                return True
+        return False

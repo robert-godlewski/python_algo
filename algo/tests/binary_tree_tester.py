@@ -81,10 +81,10 @@ def btAlgorithms() -> None:
     maxDepthTest(bt5)
     maxDepthTest(None)
     maxDepthTest(btsingle)
-    # thinline()
+    thinline()
 
-    # symmetricTest(bt1)
-    # symmetricTest(btsymmetry)
+    symmetricTest(bt1)
+    symmetricTest(btsymmetry)
     # thinline()
 
     # hasPathSumTest(bt4, 22)
