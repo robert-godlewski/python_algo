@@ -67,3 +67,27 @@ class Solution:
             if root.right:
                 order = self.levelOrder(root.right,order,level+1)
         return order
+
+    # Leetcode Maximum Depth of Binary Tree
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(logn)
+    # Best Space Complexity = O(1)
+    # Space Complexity = O(n)
+    # Solved in 30 min
+    def maxDepth(self, root: TreeNode) -> int:
+        depth = 0
+        if root:
+            left_depth = 0
+            if root.left:
+                left_depth = self.maxDepth(root.left)
+            right_depth = 0
+            if root.right:
+                right_depth = self.maxDepth(root.right)
+            if left_depth >= right_depth and left_depth != 0:
+                depth = left_depth+1
+            elif left_depth < right_depth and right_depth != 0:
+                depth = right_depth+1
+            else:
+                # left_depth == 0 or right_depth == 0
+                depth += 1
+        return depth
