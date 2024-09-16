@@ -144,3 +144,27 @@ class Solution:
             if left_po == right_po:
                 return True
         return False
+
+    # Leetcode Path Sum
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(logn)
+    # Best Space Complexity = O(1)
+    # Space Complexity = O(n)
+    # Solved in 30 min
+    def hasPathSum(self, root: TreeNode, targetSum: int) -> bool:
+        if root:
+            if root.left:
+                left = self.hasPathSum(root.left,(targetSum-root.val))
+            else:
+                left = False
+            if left:
+                return True
+            if root.right:
+                right = self.hasPathSum(root.right,(targetSum-root.val))
+            else:
+                right = False
+            if right:
+                return True
+            if root.val == targetSum and not root.left and not root.right:
+                return True
+        return False

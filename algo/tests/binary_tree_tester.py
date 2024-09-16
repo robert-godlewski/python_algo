@@ -85,11 +85,11 @@ def btAlgorithms() -> None:
 
     symmetricTest(bt1)
     symmetricTest(btsymmetry)
-    # thinline()
+    thinline()
 
-    # hasPathSumTest(bt4, 22)
-    # hasPathSumTest(bt5, 5)
-    # hasPathSumTest(None, 0)
+    hasPathSumTest(bt4, 22)
+    hasPathSumTest(bt5, 5)
+    hasPathSumTest(None, 0)
 
 
 # Testing preorderTraversal
