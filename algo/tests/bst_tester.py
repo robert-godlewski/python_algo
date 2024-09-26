@@ -2,10 +2,12 @@
 from algo.datastructures.tools import titleline, thinline
 from algo.datastructures.binary_tree import TreeNode
 from algo.solutions.bst_solutions import Solution
+from algo.solutions.binary_tree_solutions import Solution as bts
 
 
 solver = Solution()
 traversal = None
+btPrint = bts()
 
 
 # Main function to run all tests - Add this into main
@@ -35,6 +37,10 @@ def btsAlgorithms() -> None:
     validBSTtest(bst4)
 
 
-# Testing isValidBST - Fix this
+# Testing isValidBST
 def validBSTtest(root: TreeNode) -> None:
-    print("...")
+    treePrint = btPrint.levelOrder(root=root)
+    print("Binary Tree:")
+    print(treePrint)
+    ans = solver.isValidBST(root)
+    print(f"Is this tree valid? {ans}")
