@@ -18,6 +18,7 @@ To specifically look at the solutions please go to the .../algo/solutions direct
 * Recursion
 * Binary Math
 * Binary Search
+* Binary Search Tree
 * Bubble Sort
 * Selection Sort
 * Insertion Sort

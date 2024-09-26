@@ -46,3 +46,19 @@ class Solution:
 
     def isValidBST_better(self, root: TreeNode) -> bool:
         return self._valid(root, -2**31, (2**31)-1)
+
+
+    # Leetcode Search in a Binary Search Tree
+    # Best Time Complexity = O(1)
+    # Time Complexity = O(logn)
+    # Space Complexity = O(n)
+    # Solved in 10 min
+    def searchBST(self, root: TreeNode, val: int) -> TreeNode:
+        if root:
+            if root.val == val:
+                return root
+            elif root.left and root.val > val:
+                return self.searchBST(root.left, val)
+            elif root.right and root.val < val:
+                return self.searchBST(root.right, val)
+        return None
