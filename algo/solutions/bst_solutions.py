@@ -49,8 +49,7 @@ class Solution:
 
 
     # Leetcode Search in a Binary Search Tree
-    # Best Time Complexity = O(1)
-    # Time Complexity = O(logn)
+    # Time Complexity = O(1)
     # Space Complexity = O(n)
     # Solved in 10 min
     def searchBST(self, root: TreeNode, val: int) -> TreeNode:
@@ -62,3 +61,23 @@ class Solution:
             elif root.right and root.val < val:
                 return self.searchBST(root.right, val)
         return None
+
+    # Leetcode Insert into a Binary Search Tree
+    # Time Complexity = O(1)
+    # Space Complexity = O(n)
+    # Solved in 10 min
+    def insertIntoBST(self, root: TreeNode, val: int) -> TreeNode:
+        if root:
+            if root.val > val:
+                if root.left:
+                    root.left = self.insertIntoBST(root.left, val)
+                else:
+                    root.left = TreeNode(val)
+            elif root.val < val:
+                if root.right:
+                    root.right = self.insertIntoBST(root.right, val)
+                else:
+                    root.right = TreeNode(val)
+        else:
+            return TreeNode(val)
+        return root

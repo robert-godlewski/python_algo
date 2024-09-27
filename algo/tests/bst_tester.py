@@ -55,6 +55,9 @@ def btsAlgorithms() -> None:
     bstSearchTest(bst1,3)
     bstSearchTest(bst5, 2)
     bstSearchTest(bst5, 5)
+    thinline()
+
+    bstInsertTest(bst5,5)
 
 
 # Testing isValidBST
@@ -70,4 +73,10 @@ def validBSTtest(root: TreeNode) -> None:
 def bstSearchTest(root: TreeNode, val: int) -> None:
     print(f"Can I find {val} in {msgTree(root)}")
     ans = solver.searchBST(root, val)
+    print(f"The answer is {msgTree(ans)}")
+
+# Testing insertIntoBST
+def bstInsertTest(root: TreeNode, val: int) -> None:
+    print(f"Inserting {val} into the following {msgTree(root)}")
+    ans = solver.insertIntoBST(root, val)
     print(f"The answer is {msgTree(ans)}")
