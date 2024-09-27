@@ -43,6 +43,13 @@ def btsAlgorithms() -> None:
     bst5 = TreeNode(4)
     bst5.left = bst1
     bst5.right = TreeNode(7)
+    # Good tree
+    bst6 = TreeNode(5)
+    bst6.left = TreeNode(3)
+    bst6.left.left = TreeNode(2)
+    bst6.left.right = TreeNode(4)
+    bst6.right = TreeNode(6)
+    bst6.right.right = TreeNode(7)
 
     validBSTtest(bst1)
     validBSTtest(bst2)
@@ -58,6 +65,12 @@ def btsAlgorithms() -> None:
     thinline()
 
     bstInsertTest(bst5,5)
+    thinline()
+
+    bstDeletionTest(bst5,5)
+    bstDeletionTest(bst6,3)
+    bstDeletionTest(bst6,5)
+    bstDeletionTest(bst6,5)
 
 
 # Testing isValidBST
@@ -80,3 +93,9 @@ def bstInsertTest(root: TreeNode, val: int) -> None:
     print(f"Inserting {val} into the following {msgTree(root)}")
     ans = solver.insertIntoBST(root, val)
     print(f"The answer is {msgTree(ans)}")
+
+# Testing deleteNode
+def bstDeletionTest(root: TreeNode, key: int) -> None:
+    print(f"Removing {key} from the {msgTree(root)}")
+    ans = solver.insertIntoBST(root, key)
+    print(f"Updated {msgTree(ans)}")
