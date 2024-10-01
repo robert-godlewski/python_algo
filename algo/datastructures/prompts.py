@@ -11,6 +11,7 @@ from algo.tests.stack_tester import stackAlgorithms
 from algo.tests.binary_tree_tester import btAlgorithms
 from algo.tests.binary_search_tester import bsAlgorithms
 from algo.tests.bst_tester import btsAlgorithms
+from algo.tests.recursion2_tester import recursion2Algorithms
 # temporarily keep
 from algo.algorithmtemplates.sorting_templates import Sorter
 
@@ -21,7 +22,7 @@ prompts = [
     # Data Structures
     "Array","String","Hash Map","Hash Set","Linked List","Queue","Stack","Heap","Binary Tree","Trie","N-ary Tree","Graph",
     # Algorithms
-    "Binary Search","Recursion 1","Binary Tree Search",
+    "Binary Search","Recursion 1","Recursion 2","Binary Tree Search",
     # Testing sort algorithms
     "Sort Algorithms"
 ]
@@ -46,6 +47,7 @@ def runPrompt(prompt: int) -> None:
     # Algorithms
     elif prompt == 13: bsAlgorithms()
     elif prompt == 14: recursion1Algorithms()
-    elif prompt == 15: btsAlgorithms()
-    elif prompt == 16: Sorter.runTests()
+    elif prompt == 15: recursion2Algorithms()
+    elif prompt == 16: btsAlgorithms()
+    elif prompt == 17: Sorter.runTests()
     else: print("Please use a smaller number, try again.")
