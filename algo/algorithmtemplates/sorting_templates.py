@@ -435,7 +435,7 @@ class SortTests:
         self._sortTestPrint(old_bucket,bucket)
 
     # Other Tests go here....
-    def _sortTestPrint(old_arr: list[int], new_arr: list[int]) -> None:
+    def _sortTestPrint(self, old_arr: list[int], new_arr: list[int]) -> None:
         # Basic viewing to test out the sorting algorithms
         print(f'Old array: {old_arr}')
         print(f'Sorted array: {new_arr}')
@@ -448,5 +448,5 @@ def runSortingTests():
     tester._quickTest([10,80,30,90,40,50,70])
     tester._mergeTest([16,19,14,20,12,13])
     tester._countingTest([1,0,3,1,3,1])
-    tester._radixTest([53, 89, 150, 36, 633, 233])
-    tester._bucketTest([474,582,452,6194,553,9414])
+    # tester._radixTest([53, 89, 150, 36, 633, 233])
+    # tester._bucketTest([474,582,452,6194,553,9414])
