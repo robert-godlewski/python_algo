@@ -1,18 +1,11 @@
 # Sorting algorithms are organized by easiest to hardest to learn
 class Sorter:
-    # Contains the various kinds of sorting algorithms
-    def __init__(self) -> None: pass
-
-    def runTests(self) -> None: 
-        # This will run all of the tests for most of the sorting algorithms
-        self._bubbleTest([4,1,3,2])
-        self._selectionTest([4,1,3,2])
-        self._insertionTest([25,22,27,15,19])
-        self._quickTest([10,80,30,90,40,50,70])
-        self._mergeTest([16,19,14,20,12,13])
-        self._countingTest([1,0,3,1,3,1])
-        self._radixTest([53, 89, 150, 36, 633, 233])
-        self._bucketTest([474,582,452,6194,553,9414])
+    def _swapInts(self, nums: list[int], a: int, b: int) -> list[int]:
+        # Basic swaping function to switch the position of a with b in nums
+        temp = nums[a]
+        nums[a] = nums[b]
+        nums[b] = temp
+        return nums
 
     # Bubble Sorting Algorithm:
     # The algorithm goes through an array and swaps 2 elements next to each other
@@ -42,7 +35,7 @@ class Sorter:
             flag = 0
             for i in range(len(nums)-1-k):
                 if nums[i] > nums[i+1]:
-                    nums = self._swapInts(nums, i, i+1)
+                    nums = self._swapInts(nums, a=i, b=i+1)
                     flag += 1
             if flag == 0:
                 break
@@ -126,7 +119,7 @@ class Sorter:
     # Time complexity = O(nlog(n))
     # because the algorithm is using an inital loop and "mini" loops through recursion
     # inorder to compare the items in the array.
-    def mergeSort(self, nums: list[int]) -> list[int]:
+    def mergeSortOLD(self, nums: list[int]) -> list[int]:
         if len(nums) > 1:
             mid = int(len(nums)/2)
             left_nums = nums[0:mid]
@@ -153,6 +146,41 @@ class Sorter:
                 i += 1
         return nums
 
+    def mergeSort(self, nums: list[int]) -> list[int]: # Need to test this
+        if len(nums) > 1:
+            mid = int(len(nums)/2)
+            left_nums = nums[0:mid]
+            right_nums = nums[mid:]
+            left_nums = self.mergeSort(left_nums)
+            right_nums = self.mergeSort(right_nums)
+            nums = self._merge2intoOne(nums, left_nums, right_nums)
+        return nums
+
+    def _merge2intoOne(self, nums: list[int], left: list[int], right: list[int]) -> list[int]:
+        # left and right are sorted arrays going into nums which is an unsorted array
+        l = 0
+        r = 0
+        i = 0
+        while i < len(nums) and l < len(left) and r < len(right):
+            if left[l] <= right[r]:
+                nums[i] = left[l]
+                l += 1
+            else:
+                # left[l] > right[r]
+                nums[i] = right[r]
+                r += 1
+            i += 1
+        # Add in the remaining of either left or right into nums
+        while i < len(nums) and l < len(left):
+            nums[i] = left[l]
+            l += 1
+            i += 1
+        while i < len(nums) and r < len(right):
+            nums[i] = right[r]
+            r += 1
+            i += 1
+        return nums
+
     # Counting Sorting Algorithm:
     # The algorithm first finds the maximum number value within the array,
     # then creates a new array from the max number + 1 (for 0) to track
@@ -163,7 +191,7 @@ class Sorter:
     # because of the introduction of an entirely separate array as a counter.
     # Time complexity = O(n+k)
     # because of looping through both the main array and the counter array.
-    def countingSort(self, nums: list[int]) -> list[int]:
+    def countingSortOLD(self, nums: list[int]) -> list[int]:
         # Find the maximum number in the array
         maxInt = nums[0]
         i = 1
@@ -178,6 +206,43 @@ class Sorter:
             counts[nums[i]] += 1
             i += 1
         # Properly put each item in the correct order
+        j = 0
+        i = 0
+        while i < len(nums) and j <= maxInt:
+            if counts[j] > 0:
+                nums[i] = j
+                counts[j] -= 1
+                i += 1
+            else:
+                j += 1
+        return nums
+
+    def countingSort(self, nums: list[int]) -> list[int]: # Need to test
+        maxInt = self._findCountMax(nums)
+        counts = self._createCountArr(nums, maxInt)
+        return self._positionCountSort(nums, counts, maxInt)
+
+    def _findCountMax(self, nums: list[int]) -> int:
+        # Finds and returns the maximum number in the array
+        maxInt = nums[0]
+        i = 1
+        while i < len(nums):
+            if nums[i] > maxInt:
+                maxInt = nums[i]
+            i += 1
+        return maxInt
+
+    def _createCountArr(self, nums: list[int], length: int) -> list[int]:
+        # Creates an index system for each number up to the given length
+        counts = [0 for _ in range(length+1)]
+        i = 0
+        while i < len(nums):
+            counts[nums[i]] += 1
+            i += 1
+        return counts
+
+    def _positionCountSort(self, nums: list[int], counts: list[int], maxInt: int) -> list[int]:
+        # properly put everything from counts into nums
         j = 0
         i = 0
         while i < len(nums) and j <= maxInt:
@@ -308,73 +373,80 @@ class Sorter:
 
     # Heap Sorting Algorithm:
 
-    # Basic viewing to test out the sorting algorithms
-    def _sortTestPrint(arr: list[int], new_arr: list[int]) -> None:
-        print(f'Old array: {arr}')
-        print(f'Sorted array: {new_arr}')
 
-    # Basic swapping function to switch and sort the arrays
-    # Both Space and Time Complexity of O(1)
-    def _swapInts(nums: list[int], a: int, b: int) -> list[int]:
-        temp = nums[a]
-        nums[a] = nums[b]
-        nums[b] = temp
-        return nums
+class SortTests:
+    def __init__(self):
+        self.sorter = Sorter()
 
     # Testing out bubble sorting algorithm
     def _bubbleTest(self, bubble: list[int]) -> None:
         old_bubble = bubble[:]
-        bubble = Sorter.bubbleSort(bubble)
+        bubble = self.sorter.bubbleSort(bubble)
         print('Bubble Sort:')
         self._sortTestPrint(old_bubble,bubble)
 
     # Testing out selection sorting algorithm
     def _selectionTest(self, select: list[int]) -> None:
         old_select = select[:]
-        select = self.selectionSort(select)
+        select = self.sorter.selectionSort(select)
         print('Selection Sort:')
         self._sortTestPrint(old_select,select)
 
     # Testing out insertion sorting algorithm
     def _insertionTest(self, insert: list[int]) -> None:
         old_insert = insert[:]
-        insert = self.insertSort(insert)
+        insert = self.sorter.insertSort(insert)
         print('Insert Sort:')
         self._sortTestPrint(old_insert,insert)
 
     # Testing out quick sorting algorithm
     def _quickTest(self, quick: list[int]) -> None:
         old_quick = quick[:]
-        quick = self.quickSort(quick)
+        quick = self.sorter.quickSort(quick)
         print('Quick Sorted array:')
         self._sortTestPrint(old_quick,quick)
 
     # Testing out merge sorting algorithm
     def _mergeTest(self, merge: list[int]) -> None:
         old_merge = merge[:]
-        merge = self.mergeSort(merge)
+        merge = self.sorter.mergeSort(merge)
         print('Merge Sorted array:')
         self._sortTestPrint(old_merge,merge)
 
     # Testing out counting sorting algorithm
     def _countingTest(self, counting: list[int]) -> None:
         old_counting = counting[:]
-        counting = self.countingSort(counting)
+        counting = self.sorter.countingSort(counting)
         print('counting Sorted array:')
         self._sortTestPrint(old_counting,counting)
 
     # Testing out radix sorting algorithm
     def _radixTest(self, radix: list[int]) -> None:
         old_radix = radix[:]
-        radix = self.radixSort(radix)
+        radix = self.sorter.radixSort(radix)
         print('radix sorted array:')
         self._sortTestPrint(old_radix,radix)
 
     # Testing out bucket sorting algorithm
     def _bucketTest(self, bucket: list[int]) -> None:
         old_bucket = bucket[:]
-        bucket = self.bucketSort(bucket)
+        bucket = self.sorter.bucketSort(bucket)
         print('bucket sorted array:')
         self._sortTestPrint(old_bucket,bucket)
 
     # Other Tests go here....
+    def _sortTestPrint(old_arr: list[int], new_arr: list[int]) -> None:
+        # Basic viewing to test out the sorting algorithms
+        print(f'Old array: {old_arr}')
+        print(f'Sorted array: {new_arr}')
+
+def runSortingTests():
+    tester = SortTests()
+    tester._bubbleTest([4,1,3,2])
+    tester._selectionTest([4,1,3,2])
+    tester._insertionTest([25,22,27,15,19])
+    tester._quickTest([10,80,30,90,40,50,70])
+    tester._mergeTest([16,19,14,20,12,13])
+    tester._countingTest([1,0,3,1,3,1])
+    tester._radixTest([53, 89, 150, 36, 633, 233])
+    tester._bucketTest([474,582,452,6194,553,9414])

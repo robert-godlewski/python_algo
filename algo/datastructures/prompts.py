@@ -13,7 +13,7 @@ from algo.tests.binary_search_tester import bsAlgorithms
 from algo.tests.bst_tester import btsAlgorithms
 from algo.tests.recursion2_tester import recursion2Algorithms
 # temporarily keep
-from algo.algorithmtemplates.sorting_templates import Sorter
+from algo.algorithmtemplates.sorting_templates import runSortingTests
 
 
 # List of prompts
@@ -49,5 +49,5 @@ def runPrompt(prompt: int) -> None:
     elif prompt == 14: recursion1Algorithms()
     elif prompt == 15: recursion2Algorithms()
     elif prompt == 16: btsAlgorithms()
-    elif prompt == 17: Sorter.runTests()
+    elif prompt == 17: runSortingTests()
     else: print("Please use a smaller number, try again.")
