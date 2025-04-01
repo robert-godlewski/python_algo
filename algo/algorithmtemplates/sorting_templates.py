@@ -7,30 +7,16 @@ class Sorter:
         nums[b] = temp
         return nums
 
-    # Bubble Sorting Algorithm:
-    # The algorithm goes through an array and swaps 2 elements next to each other
-    # in the array ranking them minimum to maximum value.
-    # Space Complexity = O(1) 
-    # because the algortithm is only using constants to resort the array,
-    # not complex data structures.
-    # Time Complexity = O(n**2) 
-    # because we are making multiple passes of the same array with a nested loop.
     def bubbleSortBasic(self, nums: list[int]) -> list[int]:
+        # Basic version of the Bubble Sort Algorithm
         for k in range(len(nums)-1):
             for i in range(len(nums)-1-k):
                 if nums[i] > nums[i+1]:
                     nums = self._swapInts(nums, i, i+1)
         return nums
 
-    # Bubble Sorting Algorithm (slightly quicker version)
-    # Space Complexity = O(1) for the same reasons prior
-    # Best Time Complexity = O(n) 
-    # because if we implement a flag at 0 as an indicator will cut down in time,
-    # 0 means that eveything has been checked and sorted.
-    # Average Time Complexity = O(n**2) 
-    # because we are still making multiple passes and 
-    # if flag > 0 then we still need to repeat the loop to sort everything
     def bubbleSort(self, nums: list[int]) -> list[int]:
+        # Slightly quicker version of the Bubble Sort Algorithm
         for k in range(len(nums)-1):
             flag = 0
             for i in range(len(nums)-1-k):
@@ -41,16 +27,9 @@ class Sorter:
                 break
         return nums
 
-    # Selection Sorting Algorithm:
-    # The algorithm goes through an array and swaps 2 elements;
-    # the minimum value with the starting index of the loop currently working on.
-    # Space Complexity = O(1) 
-    # because the algortithm is only using constants to resort the array,
-    # not complex data structures.
-    # Time Complexity = O(n**2) 
-    # because we are making multiple passes of the same array with a nested loop.
     def selectionSort(self, nums: list[int]) -> list[int]:
         for j in range(len(nums)-1):
+            # iMin is the proposed index of the minimum value
             iMin = j
             i = j+1
             while i < len(nums):
@@ -61,17 +40,6 @@ class Sorter:
                 nums = self._swapInts(nums, j, iMin)
         return nums
 
-    # Insertion Sorting Algorithm:
-    # The algorithm goes through an array and develops 2 sections while processing;
-    # the sorted section at the start of the array and compares items in the 
-    # unsorted section inserting unsorted items in the proper position.
-    # Space Complexity = O(1)
-    # because the algortithm is only using constants to resort the array,
-    # not complex data structures.
-    # Average Time Complexity = O(n^2)
-    # because we are making multiple passes of the same array with a nested loop.
-    # Best Time Complexity = O(n)
-    # because if there's barely any sorting necessary the algorithm would've only gone through the array once.
     def insertSort(self, nums: list[int]) -> list[int]:
         i = 1
         while i < len(nums):
@@ -82,11 +50,8 @@ class Sorter:
             i += 1
         return nums
 
-    # Quick Sorting Algorithm: - Need to test out
-    # Space complexity = O(log(n))
-    # Average time complexity = O(nlog(n))
-    # Worst time complexity = O(n**2)
-    def quickSort(self, nums: list[int], left: int=-1, right: int=-1) -> list[int]: 
+    def quickSort(self, nums: list[int], left: int=-1, right: int=-1) -> list[int]:
+        # left and right variables are useful as pointers for the start and ending points to sort in the array
         if left == -1 and right == -1:
             left = 0
             right = len(nums)-1
@@ -95,9 +60,9 @@ class Sorter:
             nums = self.quickSort(nums, left, pivot-1)
             nums = self.quickSort(nums, pivot+1, right)
         return nums
-    
+
     def _quickPartition(self, nums: list[int], left: int, right: int) -> int:
-        # for Quick Sort
+        # Part of the Quick Sort algorithm to find the pivot index to use
         i = left
         j = right-1
         while i < j:
@@ -111,42 +76,8 @@ class Sorter:
             nums = self._swapInts(nums, i, right)
         return i
 
-    # Merge Sorting Algorithm:
-    # The algorithm recursively finds the middle of the array and 
-    # then compares 2 items in the array to sort least to greatest value.
-    # Space complexity = O(n)
-    # because the algorithm is recursively creating a temporary array every time.
-    # Time complexity = O(nlog(n))
-    # because the algorithm is using an inital loop and "mini" loops through recursion
-    # inorder to compare the items in the array.
-    def mergeSortOLD(self, nums: list[int]) -> list[int]:
-        if len(nums) > 1:
-            mid = int(len(nums)/2)
-            left_nums = nums[0:mid]
-            right_nums = nums[mid:]
-            left_nums = self.mergeSort(left_nums)
-            right_nums = self.mergeSort(right_nums)
-            l = 0
-            r = 0
-            i = 0
-            while i < len(nums):
-                if l < len(left_nums) and r < len(right_nums):
-                    if left_nums[l] <= right_nums[r]:
-                        nums[i] = left_nums[l]
-                        l += 1
-                    elif left_nums[l] > right_nums[r]:
-                        nums[i] = right_nums[r]
-                        r += 1
-                elif l < len(left_nums):
-                    nums[i] = left_nums[l]
-                    l += 1
-                elif r < len(right_nums):
-                    nums[i] = right_nums[r]
-                    r += 1
-                i += 1
-        return nums
-
-    def mergeSort(self, nums: list[int]) -> list[int]: # Need to test this
+    def mergeSort(self, nums: list[int]) -> list[int]:
+        # This is the base called function to merge sort nums
         if len(nums) > 1:
             mid = int(len(nums)/2)
             left_nums = nums[0:mid]
@@ -157,7 +88,7 @@ class Sorter:
         return nums
 
     def _merge2intoOne(self, nums: list[int], left: list[int], right: list[int]) -> list[int]:
-        # left and right are sorted arrays going into nums which is an unsorted array
+        # Compare the sorted left and right arrays and put in place into nums
         l = 0
         r = 0
         i = 0
@@ -181,43 +112,8 @@ class Sorter:
             i += 1
         return nums
 
-    # Counting Sorting Algorithm:
-    # The algorithm first finds the maximum number value within the array,
-    # then creates a new array from the max number + 1 (for 0) to track
-    # how many times each number from 0-max is present in the array,
-    # lastly we loop through both arrays and making everything in the counting array
-    # as 0 and sort out everything in the original array.
-    # Space complexity = O(k)
-    # because of the introduction of an entirely separate array as a counter.
-    # Time complexity = O(n+k)
-    # because of looping through both the main array and the counter array.
-    def countingSortOLD(self, nums: list[int]) -> list[int]:
-        # Find the maximum number in the array
-        maxInt = nums[0]
-        i = 1
-        while i < len(nums):
-            if nums[i] > maxInt:
-                maxInt = nums[i]
-            i += 1
-        # Create an index system of each number up to the max
-        counts = [0 for _ in range(maxInt+1)]
-        i = 0
-        while i < len(nums):
-            counts[nums[i]] += 1
-            i += 1
-        # Properly put each item in the correct order
-        j = 0
-        i = 0
-        while i < len(nums) and j <= maxInt:
-            if counts[j] > 0:
-                nums[i] = j
-                counts[j] -= 1
-                i += 1
-            else:
-                j += 1
-        return nums
-
-    def countingSort(self, nums: list[int]) -> list[int]: # Need to test
+    def countingSort(self, nums: list[int]) -> list[int]:
+        # This is the base of the counting sort algorithm
         maxInt = self._findCountMax(nums)
         counts = self._createCountArr(nums, maxInt)
         return self._positionCountSort(nums, counts, maxInt)
@@ -242,7 +138,7 @@ class Sorter:
         return counts
 
     def _positionCountSort(self, nums: list[int], counts: list[int], maxInt: int) -> list[int]:
-        # properly put everything from counts into nums
+        # Properly put everything from counts into nums
         j = 0
         i = 0
         while i < len(nums) and j <= maxInt:
@@ -254,7 +150,7 @@ class Sorter:
                 j += 1
         return nums
 
-    # Radix Sorting Algorithm:
+    # Radix Sorting Algorithm: - Fix this
     # ...
     # Space Complexity = O(n+k)
     # ...
@@ -448,5 +344,5 @@ def runSortingTests():
     tester._quickTest([10,80,30,90,40,50,70])
     tester._mergeTest([16,19,14,20,12,13])
     tester._countingTest([1,0,3,1,3,1])
-    # tester._radixTest([53, 89, 150, 36, 633, 233])
+    tester._radixTest([53, 89, 150, 36, 633, 233])
     # tester._bucketTest([474,582,452,6194,553,9414])
