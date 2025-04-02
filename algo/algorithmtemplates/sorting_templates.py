@@ -150,6 +150,68 @@ class Sorter:
                 j += 1
         return nums
 
+    def bucketSort(self, nums: list[int]) -> list[int]: # Bad
+        # nums = [388, 27, 43, 3, 9, 100]
+        max_int = self._findMax(nums)
+        # 2. Create buckets based off of maxInt
+        # Gives the maximum number of digits
+        max_digits = self._numOfDigits(max_int)
+        # Splitting out the max_int in digits
+        maxs_digits = self._numToList(max_int)
+        # Replacing each int as [int]
+        # for num in nums:
+        #     num = self._numToList(num)
+        #     check_num_length = False
+        #     while not check_num_length:
+        #         if len(num) == max_digits:
+        #             check_num_length = True
+        #         elif len(num) < max_digits:
+        #             num.insert(0,0)
+        # nums = [[3,8,8],[0,2,7],[0,4,3],[0,0,3],[0,0,9],[1,0,0]]
+        buckets = [[] for _ in range(nums[max_int['index']][0]+1)]
+        # buckets = [[],[],[],[]]
+        # 3. Migrate ints into buckets
+        i = 0
+        while i < len(nums):
+            buckets[nums[i][0]].append(nums[i])
+            i += 1
+        # buckets = [
+        #     [[0,2,7],[0,4,3],[0,0,3],[0,0,9]],
+        #     [[1,0,0]],
+        #     [],
+        #     [[3,8,8]]
+        # ]
+        # 4. Sort the buckets
+        for bucket in buckets:
+            self.bucketSort()
+        # 5. Gather and put the sorted buckets into place
+        return nums
+
+    def _findMax(self, nums: list[int]) -> dict:
+        i = 0
+        index = None
+        maxInt = None
+        while i < len(nums):
+            if not index or nums[i] > maxInt:
+                maxInt = nums[i]
+                index = i
+            i += 1
+        return {'index': index, 'value': maxInt}
+
+    def _numOfDigits(self, num: int) -> int:
+        # Calculates the number of digits an integer is
+        numstr = str(num)
+        return len(numstr)
+
+    def _numToList(self, num: int) -> list[int]:
+        numstr = str(num)
+        nums = list(numstr)
+        i = 0
+        while i < len(nums):
+            nums[i] = int(nums[i])
+            i += 1
+        return nums
+
     # Radix Sorting Algorithm: - Fix this
     # ...
     # Space Complexity = O(n+k)
@@ -221,40 +283,6 @@ class Sorter:
             i += 1
         return nums
 
-    # Bucket Sorting Algorithm:
-    # ...
-    # Space Complexity = O(n)
-    # ...
-    # Average Time Complexity = O(n+k)
-    # ...
-    # Worst Time Complexity = O(n^2)
-    # ...
-    def bucketSort(self, nums: list[int]) -> list[int]:
-        maxInt = 0
-        buckets = {}
-        for num in nums:
-            strNum = str(num)
-            arrNum = list(strNum)
-            tenths = arrNum[0]
-            tenthsInt = int(tenths)
-            if tenthsInt > maxInt:
-                maxInt = tenthsInt
-            if tenths in buckets:
-                buckets[tenths].append(num)
-            else:
-                buckets[tenths] = [num]
-        for key, val in buckets.items():
-            buckets[key] = self.insertSort(val)
-        i = 0
-        j = 0
-        while i < len(nums):
-            if str(j) in buckets and len(buckets[str(j)]) > 0:
-                nums[i] = buckets[str(j)].pop(0)
-                i += 1
-            else:
-                j += 1
-        return nums
-
     # Other sorting algorithms go here....
 
     # Comb Sorting Algorithm:
@@ -316,19 +344,19 @@ class SortTests:
         print('counting Sorted array:')
         self._sortTestPrint(old_counting,counting)
 
-    # Testing out radix sorting algorithm
-    def _radixTest(self, radix: list[int]) -> None:
-        old_radix = radix[:]
-        radix = self.sorter.radixSort(radix)
-        print('radix sorted array:')
-        self._sortTestPrint(old_radix,radix)
-
     # Testing out bucket sorting algorithm
     def _bucketTest(self, bucket: list[int]) -> None:
         old_bucket = bucket[:]
         bucket = self.sorter.bucketSort(bucket)
         print('bucket sorted array:')
         self._sortTestPrint(old_bucket,bucket)
+
+    # Testing out radix sorting algorithm
+    def _radixTest(self, radix: list[int]) -> None:
+        old_radix = radix[:]
+        radix = self.sorter.radixSort(radix)
+        print('radix sorted array:')
+        self._sortTestPrint(old_radix,radix)
 
     # Other Tests go here....
     def _sortTestPrint(self, old_arr: list[int], new_arr: list[int]) -> None:
@@ -344,5 +372,5 @@ def runSortingTests():
     tester._quickTest([10,80,30,90,40,50,70])
     tester._mergeTest([16,19,14,20,12,13])
     tester._countingTest([1,0,3,1,3,1])
-    tester._radixTest([53, 89, 150, 36, 633, 233])
-    # tester._bucketTest([474,582,452,6194,553,9414])
+    tester._bucketTest([388, 27, 43, 3, 9, 100])
+    # tester._radixTest([53, 89, 150, 36, 633, 233])
