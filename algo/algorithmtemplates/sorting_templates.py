@@ -150,66 +150,41 @@ class Sorter:
                 j += 1
         return nums
 
-    def bucketSort(self, nums: list[int]) -> list[int]: # Bad
-        # nums = [388, 27, 43, 3, 9, 100]
-        max_int = self._findMax(nums)
-        # 2. Create buckets based off of maxInt
-        # Gives the maximum number of digits
-        max_digits = self._numOfDigits(max_int)
-        # Splitting out the max_int in digits
-        maxs_digits = self._numToList(max_int)
-        # Replacing each int as [int]
-        # for num in nums:
-        #     num = self._numToList(num)
-        #     check_num_length = False
-        #     while not check_num_length:
-        #         if len(num) == max_digits:
-        #             check_num_length = True
-        #         elif len(num) < max_digits:
-        #             num.insert(0,0)
-        # nums = [[3,8,8],[0,2,7],[0,4,3],[0,0,3],[0,0,9],[1,0,0]]
-        buckets = [[] for _ in range(nums[max_int['index']][0]+1)]
-        # buckets = [[],[],[],[]]
-        # 3. Migrate ints into buckets
-        i = 0
-        while i < len(nums):
-            buckets[nums[i][0]].append(nums[i])
-            i += 1
-        # buckets = [
-        #     [[0,2,7],[0,4,3],[0,0,3],[0,0,9]],
-        #     [[1,0,0]],
-        #     [],
-        #     [[3,8,8]]
-        # ]
-        # 4. Sort the buckets
+    def bucketSort(self, nums: list[int]) -> list[int]:
+        # 1. Make the buckets
+        max_int = self._findCountMax(nums)
+        size = max_int/len(nums)
+        buckets = self._createBuckets(nums, size)
+        #2. Sort the buckets
+        buckets = self._sortBuckets(buckets)
+        # 3. Put data in the buckets back into nums
+        return self._positionBuckets(nums, buckets)
+
+    def _createBuckets(self, nums: list[int], size: float) -> list[list[int]]:
+        buckets = [[] for _ in range(len(nums))]
+        for num in nums:
+            i = int(num/size)
+            if i != len(nums) and i < len(nums):
+                buckets[i].append(num)
+            else:
+                buckets[len(nums)-1].append(num)
+        return buckets
+
+    def _sortBuckets(self, buckets: list[list[int]]) -> list[list[int]]:
         for bucket in buckets:
-            self.bucketSort()
-        # 5. Gather and put the sorted buckets into place
-        return nums
+            if len(bucket) >= 2:
+                # We will sort the bucket array with something that doesn't require extra space
+                bucket = self.bubbleSort(bucket)
+        return buckets
 
-    def _findMax(self, nums: list[int]) -> dict:
-        i = 0
-        index = None
-        maxInt = None
-        while i < len(nums):
-            if not index or nums[i] > maxInt:
-                maxInt = nums[i]
-                index = i
-            i += 1
-        return {'index': index, 'value': maxInt}
-
-    def _numOfDigits(self, num: int) -> int:
-        # Calculates the number of digits an integer is
-        numstr = str(num)
-        return len(numstr)
-
-    def _numToList(self, num: int) -> list[int]:
-        numstr = str(num)
-        nums = list(numstr)
-        i = 0
-        while i < len(nums):
-            nums[i] = int(nums[i])
-            i += 1
+    def _positionBuckets(self, nums: list[int], buckets: list[list[int]]):
+        n = 0 # index for nums
+        b = 0 # index for buckets
+        while n < len(nums) and b < len(buckets):
+            for num in buckets[b]:
+                nums[n] = num
+                n += 1
+            b += 1
         return nums
 
     # Radix Sorting Algorithm: - Fix this
@@ -372,5 +347,5 @@ def runSortingTests():
     tester._quickTest([10,80,30,90,40,50,70])
     tester._mergeTest([16,19,14,20,12,13])
     tester._countingTest([1,0,3,1,3,1])
-    tester._bucketTest([388, 27, 43, 3, 9, 100])
+    tester._bucketTest([38, 27, 43, 3, 9, 10])
     # tester._radixTest([53, 89, 150, 36, 633, 233])
